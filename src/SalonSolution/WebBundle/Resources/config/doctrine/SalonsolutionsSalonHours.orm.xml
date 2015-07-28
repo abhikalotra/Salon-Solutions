@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\WebBundle\Entity\SalonsolutionsSalonHours" table="salonSolutions_salon_hours">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="salonId" type="integer" column="salon_id" nullable="true"/>
+    <field name="monFhalfStart" type="string" column="mon_fhalf_start" length="255" nullable="true"/>
+    <field name="monFhalfEnd" type="string" column="mon_fhalf_end" length="255" nullable="true"/>
+    <field name="monShalfStart" type="string" column="mon_shalf_start" length="255" nullable="true"/>
+    <field name="monShalfEnd" type="string" column="mon_shalf_end" length="255" nullable="true"/>
+    <field name="tuesFhalfStart" type="string" column="tues_fhalf_start" length="255" nullable="true"/>
+    <field name="tuesFhalfEnd" type="string" column="tues_fhalf_end" length="255" nullable="true"/>
+    <field name="tuesShalfStart" type="string" column="tues_shalf_start" length="255" nullable="true"/>
+    <field name="tuesShalfEnd" type="string" column="tues_shalf_end" length="255" nullable="true"/>
+    <field name="wedFhalfStart" type="string" column="wed_fhalf_start" length="255" nullable="true"/>
+    <field name="wedFhalfEnd" type="string" column="wed_fhalf_end" length="255" nullable="true"/>
+    <field name="wedShalfStart" type="string" column="wed_shalf_start" length="255" nullable="true"/>
+    <field name="wedShalfEnd" type="string" column="wed_shalf_end" length="255" nullable="true"/>
+    <field name="thuFhalfStart" type="string" column="thu_fhalf_start" length="255" nullable="true"/>
+    <field name="thuFhalfEnd" type="string" column="thu_fhalf_end" length="255" nullable="true"/>
+    <field name="thuShalfStart" type="string" column="thu_shalf_start" length="255" nullable="true"/>
+    <field name="thuShalfEnd" type="string" column="thu_shalf_end" length="255" nullable="true"/>
+    <field name="friFhalfStart" type="string" column="fri_fhalf_start" length="255" nullable="true"/>
+    <field name="friFhalfEnd" type="string" column="fri_fhalf_end" length="255" nullable="true"/>
+    <field name="friShalfStart" type="string" column="fri_shalf_start" length="255" nullable="true"/>
+    <field name="friShalfEnd" type="string" column="fri_shalf_end" length="255" nullable="true"/>
+    <field name="satFhalfStart" type="string" column="sat_fhalf_start" length="255" nullable="true"/>
+    <field name="satFhalfEnd" type="string" column="sat_fhalf_end" length="255" nullable="true"/>
+    <field name="satShalfStart" type="string" column="sat_shalf_start" length="255" nullable="true"/>
+    <field name="satShalfEnd" type="string" column="sat_shalf_end" length="255" nullable="true"/>
+    <field name="sunFhalfStart" type="string" column="sun_fhalf_start" length="255" nullable="true"/>
+    <field name="sunFhalfEnd" type="string" column="sun_fhalf_end" length="255" nullable="true"/>
+    <field name="sunShalfStart" type="string" column="sun_shalf_start" length="255" nullable="true"/>
+    <field name="sunShalfEnd" type="string" column="sun_shalf_end" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

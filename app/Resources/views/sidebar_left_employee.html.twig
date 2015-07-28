@@ -1,0 +1,37 @@
+<div class="col-lg-3 cld" style=" background: none;">
+<!-- 
+	{% if app.session.get('consumerEmail') is defined and app.session.get('consumerEmail') != '' %}
+	
+	
+		<input type="text" id="txtSelectedDate" gldp-id="mydate"/>
+		<div gldp-el="mydate"
+			 style="width:400px; height:300px; position:absolute; top:70px; left:100px;">
+		</div>
+		 
+		 	
+		 	
+	{% if advertisements is defined %}
+			
+			
+	{% endif %}
+
+		<div class="adv_img top_1">
+			<img src="{{ asset('theme/frontend/images/adv_img.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/new_banner12.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/photo-shoot-banner.jpg') }}" alt="">
+	  	</div>
+
+	{% else %}
+		<div class="adv_img top_0">
+			<img src="{{ asset('theme/frontend/images/adv_img.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/adv_img.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/new_banner12.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/photo-shoot-banner.jpg') }}" alt=""> 
+			<img src="{{ asset('theme/frontend/images/photo-shoot-banner.jpg') }}" alt="">
+		</div>
+	{% endif %}
+	
+	
+	 	{{app.session.get('advertisements')}}
+-->
+</div>

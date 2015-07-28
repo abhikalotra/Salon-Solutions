@@ -1,0 +1,80 @@
+{% include '::header.html.twig' %}
+<!-- Marketing messaging and featurettes
+   ================================================== --> 
+<div class="container-fluid easy happyness">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 easy_text peo register search">
+            <div class="row input_button search_outer">
+               		 
+<form action="{{ path('salon_solution_web_searchSalon') }}" method ="post" enctype="multipart/form-data" >
+			<!--  <form action="#" method ="post" enctype="multipart/form-data" >-->
+				 
+            <div class="col-lg-3 in_button">
+               <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Service" id= "serviceName" name="serviceName" onkeyup="javascript: searchService();" autocomplete="off">
+                  <div id="divServiceList" class="divInactive">
+                     <div class="input-group">
+                        <ul id="serviceList" class="form-control listStyleNone">
+                        </ul>
+                     </div>
+                     <!-- /input-group -->
+                  </div>
+               </div>
+               <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-3 in_button">
+               <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Zip/city" id= "cityZip" name="cityZip"  onkeyup="javascript: searchZipCity();" autocomplete="off">
+                  <div id="divZipList" class="divInactive">
+                     <div class="input-group">
+                        <ul id="ZipList" class="form-control listStyleNone">
+                        </ul>
+                     </div>
+                     <!-- /input-group -->
+                  </div>
+               </div>
+               <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-3 in_button">
+               <div class="input-group"> 
+                  <button class="btn btn-default" name="submit" type="submit">Book Now</button>
+               </div>
+               <!-- /input-group -->
+            </div>
+            </form>
+            </div>
+            
+            
+            
+           
+             {% for fetch_data in arrSalon  %}			
+		
+            <div class="col-lg-12 col-md-12 col-sm-6 salon_in sula seaech_in first">
+               <div class="in_text-2 salon_logo">			 
+				 {% if fetch_data[0].logo   %}      
+						   <img src="{{ asset('uploads/salons/') }}{{ fetch_data[0].logo }}" alt="" class="imagelogo_salon">
+				  {% else %}
+						 <img src="{{ asset('theme/frontend/images/logo_01_02.png') }}" alt="">  
+					{% endif %}      
+                 
+               </div>
+               <div class="col-lg-2 salon_name">
+                  <h2> {{ fetch_data[0].name }}	 </h2>
+               </div>
+               <div class="col-lg-3"> {{ fetch_data[0].address }} </div>
+               <div class="col-lg-2">  	{{ fetch_data[0].zip }} </div>
+               <div class="col-lg-2 servi"> {{ fetch_data[0].address }}. 
+               </div>
+            </div>
+            	{% endfor %}
+            
+          
+            
+         </div>
+      </div>
+   </div>
+</div>
+{% include '::footer.html.twig' %}

@@ -1,0 +1,7 @@
+parameters:
+#    salon_solution_web.example.class: SalonSolution\WebBundle\Example
+
+services:
+#    salon_solution_web.example:
+#        class: %salon_solution_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,358 @@
+salon_solution_admin_home:
+    path:  /admin
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:login }
+    requirements:  { _method:  get|post }
+
+
+salon_solution_admin_login:
+    path:  /admin/login
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:login }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_recoverPassword:
+    path:  /admin/recoverPassword
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:recoverPassword }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_logout:
+    path:  /admin/logout
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:logout }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_dashboard:
+    path:  /admin/dashboard
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:dashboard }
+    
+
+salon_solution_admin_manageCustomers:
+    path:  /admin/manageCustomers
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageCustomers }
+    
+
+salon_solution_admin_viewCustomer:
+    path:  /admin/viewCustomer/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewCustomer }
+    requirements:  { _method:  get|post }
+
+
+salon_solution_admin_addCustomers:
+    path:  /admin/addCustomers
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addCustomers }
+    
+
+
+salon_solution_admin_deleteManageCustomers:
+    path:  /admin/deleteManageCustomers/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteManageCustomers }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_editManageCustomers:
+    path:  /admin/editManageCustomers/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editManageCustomers }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_changeStatus:
+    path:  /admin/changeStatus
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatus }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_admin_manageConsumers:
+    path:  /admin/manageConsumers
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageConsumers }
+    
+salon_solution_admin_viewConsumer:
+    path:  /admin/viewConsumer/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewConsumer }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_addConsumer:
+    path:  /admin/addConsumer
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addConsumer }
+    
+
+salon_solution_admin_deleteManageConsumer:
+    path:  /admin/deleteManageConsumer/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteManageConsumer }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_editManageConsumer:
+    path:  /admin/editManageConsumer/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editManageConsumer }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_changeStatusConsumer:
+    path:  /admin/changeStatusConsumer
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatusConsumer }
+    requirements:  { _method:  get|post }
+    
+
+
+
+salon_solution_admin_manageSalons:
+    path:  /admin/manageSalons
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageSalons }
+    
+
+salon_solution_admin_changeStatusSalons:
+    path:  /admin/changeStatusSalons
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatusSalons }
+    requirements:  { _method:  get|post }
+ 
+ 
+salon_solution_admin_addSalon:
+    path:  /admin/addSalon
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addSalon }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_viewSalon:
+    path:  /admin/viewSalon/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewSalon }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_deleteManageSalon:
+    path:  /admin/deleteManageSalon/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteManageSalon }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_editManageSalon:
+    path:  /admin/editManageSalon/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editManageSalon }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_changeStatusSalon:
+    path:  /admin/changeStatusSalon
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatusSalon }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_addManageCMS:
+    path:  /admin/addManageCMS
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addManageCMS }
+    requirements:  { _method:  get|post }
+
+
+
+salon_solution_admin_manageCMS:
+    path:  /admin/manageCMS
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageCMS }
+    requirements:  { _method:  get|post }
+
+
+salon_solution_admin_viewCMS:
+    path:  /admin/viewCMS/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewCMS }
+    requirements:  { _method:  get|post }
+
+
+salon_solution_admin_editCMS:
+    path:  /admin/editCMS/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editCMS }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_deleteCMS:
+    path:  /admin/deleteCMS/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteCMS }
+    requirements:  { _method:  get|post }
+    
+
+
+
+salon_solution_admin_manageServices:
+    path:  /admin/manageServices
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageServices }
+    requirements:  { _method:  get|post }
+    
+
+
+salon_solution_admin_changeStatusServices:
+    path:  /admin/changeStatusServices
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatusServices }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_admin_getSalonLocation:
+    path:  /admin/getSalonLocation
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:getSalonLocation }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_viewService:
+    path:  /admin/viewService/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_addService:
+    path:  /admin/addService
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_deleteService:
+    path:  /admin/deleteService/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_editService:
+    path:  /admin/editService/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editService }
+    requirements:  { _method:  get|post }
+    
+
+
+
+
+
+salon_solution_admin_manageAppointments:
+    path:  /admin/manageAppointments
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageAppointments }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_addAppointment:
+    path:  /admin/addAppointment
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addAppointment }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_admin_editAppointment:
+    path:  /admin/editAppointment/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editAppointment }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_viewAppointment:
+    path:  /admin/viewAppointment/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewAppointment }
+    requirements:  { _method:  get|post }
+ 
+    
+salon_solution_admin_deleteAppointment:
+    path:  /admin/deleteAppointment/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteAppointment }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_admin_manageAdvertisements:
+    path:  /admin/manageAdvertisements
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:manageAdvertisements }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_addAdvertisement:
+    path:  /admin/addAdvertisement
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addAdvertisement }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_editAdvertisement:
+    path:  /admin/editAdvertisement/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editAdvertisement }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_deleteAdvertisement:
+    path:  /admin/deleteAdvertisement/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteAdvertisement }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_viewAdvertisement:
+    path:  /admin/viewAdvertisement/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewAdvertisement }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_managePayments:
+    path:  /admin/managePayments
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:managePayments }
+    requirements:  { _method:  get|post }
+    
+
+
+salon_solution_admin_managePaymentGateways:
+    path:  /admin/managePaymentGateways
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:managePaymentGateways }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_changeStatusGlobalPayment:
+    path:  /admin/changeStatusGlobalPayment
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeStatusGlobalPayment }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_admin_addGlobalPaymentMethod:
+    path:  /admin/addGlobalPaymentMethod
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:addGlobalPaymentMethod }
+    requirements:  { _method:  get|post }
+  
+salon_solution_admin_viewGlobalPaymentMethod:
+    path:  /admin/viewGlobalPaymentMethod/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:viewGlobalPaymentMethod }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_admin_editGlobalPaymentMethod:
+    path:  /admin/editGlobalPaymentMethod/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:editGlobalPaymentMethod }
+    requirements:  { _method:  get|post } 
+  
+
+salon_solution_admin_deleteGlobalPaymentMethod:
+    path:  /admin/deleteGlobalPaymentMethod/{id}
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:deleteGlobalPaymentMethod }
+    requirements:  { _method:  get|post } 
+  
+
+
+salon_solution_admin_profile:
+    path:  /admin/profile
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:profile }
+    requirements:  { _method:  get|post }
+    
+salon_solution_admin_profileAccount:
+    path:  /admin/profileAccount
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:profileAccount }
+    requirements:  { _method:  get|post }
+ 
+salon_solution_admin_updateProfile:
+    path:  /admin/updateProfile
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:updateProfile }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_updateProfile:
+    path:  /admin/updateProfile
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:updateProfile }
+    requirements:  { _method:  get|post }
+
+salon_solution_admin_changePassword:
+    path:  /admin/changePassword
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changePassword }
+    requirements:  { _method:  get|post } 
+
+
+salon_solution_admin_changeProfileImage:
+    path:  /admin/changeProfileImage
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:changeProfileImage }
+    requirements:  { _method:  get|post }
+ 
+ 
+salon_solution_admin_sendScheduledMailToAdmin:
+    path:  /admin/sendScheduledMailToAdmin
+    defaults: { _controller: SalonSolutionAdminBundle:RSJ:sendScheduledMailToAdmin }
+    requirements:  { _method:  get|post } 
+
+salon_solution_admin_sendScheduledMailToConsumer:
+    path:  /admin/sendScheduledMailToConsumer
+    defaults: { _controller: SalonSolutionAdminBundle:RSJ:sendScheduledMailToConsumer }
+    requirements:  { _method:  get|post } 
+
+
+salon_solution_admin_email:
+    path:  /admin/email
+    defaults: { _controller: SalonSolutionAdminBundle:Admin:email }
+    requirements:  { _method:  get|post }
+

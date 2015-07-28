@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\EmployeeBundle\Entity\SalonsolutionsAppointment" table="salonSolutions_appointment">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="consumerId" type="integer" column="consumer_id" nullable="true"/>
+    <field name="salonId" type="integer" column="salon_id" nullable="true"/>
+    <field name="serviceId" type="integer" column="service_id" nullable="true"/>
+    <field name="firstName" type="string" column="first_name" length="100" nullable="true"/>
+    <field name="lastName" type="string" column="last_name" length="100" nullable="true"/>
+    <field name="email" type="string" column="email" length="255" nullable="true"/>
+    <field name="address" type="string" column="address" length="255" nullable="true"/>
+    <field name="city" type="string" column="city" length="100" nullable="true"/>
+    <field name="state" type="string" column="state" length="100" nullable="true"/>
+    <field name="country" type="string" column="country" length="100" nullable="true"/>
+    <field name="zip" type="string" column="zip" length="15" nullable="true"/>
+    <field name="mobile" type="string" column="mobile" length="15" nullable="true"/>
+    <field name="landline" type="string" column="landline" length="15" nullable="true"/>
+    <field name="photo" type="string" column="photo" length="255" nullable="true"/>
+    <field name="scheduledDate" type="string" column="scheduled_date" length="255" nullable="true"/>
+    <field name="scheduledTime" type="string" column="scheduled_time" length="255" nullable="true"/>
+    <field name="bookingType" type="integer" column="booking_type" nullable="true"/>
+    <field name="notes" type="string" column="notes" length="255" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="creatorId" type="integer" column="creator_id" nullable="true"/>
+    <field name="creationDatetime" type="datetime" column="creation_datetime" nullable="true"/>
+    <field name="modifierId" type="integer" column="modifier_id" nullable="true"/>
+    <field name="modificationDatetime" type="datetime" column="modification_datetime" nullable="true"/>
+  </entity>
+</doctrine-mapping>

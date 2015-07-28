@@ -1,0 +1,163 @@
+
+
+
+{% include '::header.html.twig' %}
+
+
+
+
+<!-- Marketing messaging and featurettes
+    ================================================== --> 
+ <div class="container-fluid easy happyness">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 easy_text peo register">
+        <h4>Register</h4>
+        <div class="col-lg-12 col-md-12 col-sm-6 salon_in sula">
+         
+         <div class="in_text-2">
+    <div class="sign_up">
+    
+   <!-- <h4>Sign up </h4>-->
+   <form  method ="post"  {{ form_enctype(form) }}  > 	
+   
+      <div class="loginbox">
+        <ul>
+          <li>
+            <label class="login-k"><font><font> {{ form_label(form.firstName, null, {'label': 'First Name'}) }}:</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.firstName, {'attr': {'class': 'x-input inputstyle','required':'required'}}) }}  
+              </div>
+          </li>
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.firstName, null, {'label': 'Last Name'}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.lastName, {'attr': {'class': 'x-input inputstyle'}}) }}              
+              </div>
+          </li>
+          
+           <li>
+            <label class="login-k"><font><font>{{ form_label(form.email, null, {'label': 'E-mail'}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.email, {'attr': {'class': 'x-input'}}) }}               
+              </div>
+          </li>
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.username, null, {'label': 'Username ', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val passport_login_kocde">
+				{{ form_widget(form.username, {'attr': {'class': 'x-input x-input'}}) }}  
+           
+              <span style="display:none;" class="verifyCode">
+				  <img align="absmiddle" codesrc="/passport-verifyCode-s.html" src="#" id="vcode_img">
+				  <a href="javascript:void(0)" id="hdl_refresh_vcode"><font><font>&nbsp;Can not see clearly? Another picture</font></font></a> </span></div>
+          </li>
+             
+          
+          <li>
+            <label class="login-k"><font><font>	{{ form_label(form.password.first, null, {'label': 'Password'}) }} </font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.password.first, {'attr': {'class': 'x-input inputstyle'}}) }}
+             </div>
+          </li>
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.password.second, null, {'label': 'Confirm Password', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+            {{ form_widget(form.password.second, {'attr': {'class': 'x-input inputstyle'}}) }}   </div>
+          </li>
+         
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.address, null, {'label': 'Address', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.address, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.city, null, {'label': 'City', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.city, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.state, null, {'label': 'State', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.state, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+     
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.country, null, {'label': 'Country', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.country, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+     
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.zip, null, {'label': 'Zip', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.zip, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+     
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.mobile, null, {'label': 'Mobile', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.mobile, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.landline, null, {'label': 'Landline', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.landline, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+          
+          <li>
+            <label class="login-k"><font><font>{{ form_label(form.photo, null, {'label': 'Photo', 'label_attr': {'class': 'foo'}}) }}</font></font><i><font><font>*</font></font></i></label>
+            <div class="login-v common_form_val">
+				{{ form_widget(form.photo, {'attr': {'class': 'foo'}}) }}            
+              </div>
+          </li>
+          
+
+          
+          
+          
+        </ul>
+        
+        <div class="check_box">
+            <label class="login-k">&nbsp;</label>
+            <div class="login-v">
+              <input type="checkbox" autocomplete="off" id="license" name="license" value="agree" vtype="requried">
+              <font><font>I have read and agree to </font></font><a target="_blank" class="lnk" id="terms_error" href="#"><span id="terms_error_sym" class="FormText"><font><font>Registration Agreement</font></font></span></a><font><font> and </font></font><a target="_blank" class="lnk" id="privacy_error" href="#"><span id="privacy_error_sym" class="FormText"><font><font>Privacy Policy</font></font></span></a><font><font> .</font></font></div>
+          </div>
+          <div class="submit_b">
+            <label class="login-k">&nbsp;</label>
+            <div class="login-v common_form_sub signup_sub">
+				{{ form_widget(form.submit, {'attr': {'class': 'btn common-btn'}}) }}  
+             
+            </div>
+          </div>
+      </div>
+	  </form>
+    </div>
+  </div>
+         
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>   
+ 
+
+{% include '::footer.html.twig' %}
+
+
+

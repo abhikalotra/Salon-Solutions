@@ -1,0 +1,180 @@
+salon_solution_employee_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Default:index }
+  
+
+salon_solution_employee_login:
+    path:     /employee/login
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:login }
+    requirements:  { _method:  get|post }
+   
+
+
+salon_solution_employee_logout:
+    path:     /employee/logout
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:logout }
+      
+
+
+salon_solution_employee_employeeDashboard:
+    path:     /employee/dashboard
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:dashboard }
+
+
+salon_solution_employee_employeeDeleteRecentAppointment:
+    path:     /employee/deleteRecentAppointment/{id}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:deleteRecentAppointment }
+    requirements:  { _method:  get|post }
+
+salon_solution_employee_employeeAppointment:
+    path:     /employee/appointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:appointment }
+    
+
+salon_solution_employee_employeeBookAppointment:
+    path:     /employee/bookAppointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:bookAppointment }
+ 
+  
+salon_solution_employee_addClient:
+    path:     /employee/addClient
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:addClient }
+ 
+    
+
+salon_solution_employee_searchConsumers:
+    path:     /employee/searchConsumers
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:searchConsumers }
+  
+
+
+salon_solution_employee_employeeBookNewAppointment:
+    path:     /employee/bookNewAppointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:bookNewAppointment }
+  
+
+
+salon_solution_employee_changeAppointmentStatus:
+    path:     /employee/changeAppointmentStatus
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:changeAppointmentStatus }
+  
+
+  
+salon_solution_employee_employeeProfile:
+    path:     /employee/profile
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:employeeProfile }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_employee_employeeChangePassword:
+    path:     /employee/changePassword
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:employeeChangePassword }
+    requirements:  { _method:  get|post }
+ 
+salon_solution_employee_employeeAppointmentHistory:
+    path:     /employee/appointmentHistory
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:appointmentHistory }
+    requirements:  { _method:  get|post }
+  
+
+
+
+salon_solution_employee_employeeClients:
+    path:     /employee/clients
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:clients }
+    requirements:  { _method:  get|post }
+ 
+ 
+
+ 
+salon_solution_employee_changeStatusClients:
+    path:  /employee/changeStatusServices
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:changeStatusClients }
+    requirements:  { _method:  get|post }
+ 
+ 
+ 
+salon_solution_employee_employeeViewClient:
+    path:     /employee/viewClient/{id}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:viewClient }
+    requirements:  { _method:  get|post }
+ 
+ 
+salon_solution_employee_employeeEditClient:
+    path:     /employee/editClient/{id}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:editClient }
+    requirements:  { _method:  get|post }
+
+  
+salon_solution_employee_employeeDeleteClient:
+    path:     /employee/deleteClient/{id}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:deleteClient }
+    requirements:  { _method:  get|post }
+
+ 
+salon_solution_employee_employeeEditProfile:
+    path:     /employee/editProfile
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:editProfile }
+    requirements:  { _method:  get|post }
+ 
+
+
+
+salon_solution_employee_setSelectedDateInSession:
+    path:     /setSelectedDateInSession/employee
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:setSelectedDateInSession }
+        
+ 
+salon_solution_employee_bookConsumerAppointment:
+    path:     /bookConsumerAppointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:bookConsumerAppointment }
+    
+salon_solution_employee_consumerUnConfirmedAppointments:
+    path:     /consumerUnConfirmedAppointments
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:consumerUnConfirmedAppointments }    
+  
+
+salon_solution_employee_confirmConsumerAppointment:
+    path:     /confirmConsumerAppointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:confirmConsumerAppointment }  	
+
+salon_solution_employee_compareUserBooking:
+    path:     /compareUserBooking
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:compareUserBooking }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_employee_saveAppointmentNotes:
+    path:     /saveAppointmentNotes
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:saveAppointmentNotes }    
+
+
+salon_solution_employee_appointmentBookingType:
+    path:     /appointmentBookingType
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:appointmentBookingType }    
+
+
+salon_solution_employee_serviceMaintenance:
+    path:      /employee/serviceMaintenance
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:serviceMaintenance }    	
+
+salon_solution_employee_changeUnderMaintenanceStatus:
+    path:      /employee/changeUnderMaintenanceStatus
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:changeUnderMaintenanceStatus }    
+
+salon_solution_employee_arriveLateStatus:
+    path:      /employee/arriveLateStatus
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:arriveLateStatus }    
+
+salon_solution_employee_rebookAppointment:
+    path:      /employee/rebookAppointment/{id}&{firstName}
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:rebookAppointment }    
+
+salon_solution_employee_rebookConsumerAppointment:
+    path:      /employee/rebookConsumerAppointment
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:rebookConsumerAppointment }    
+
+salon_solution_employee_viewNotesPopUp:
+    path:      /employee/viewNotesPopUp
+    defaults: { _controller: SalonSolutionEmployeeBundle:Employee:viewNotesPopUp }    
+

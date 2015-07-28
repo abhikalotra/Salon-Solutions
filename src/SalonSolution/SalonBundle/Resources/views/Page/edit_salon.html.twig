@@ -1,0 +1,197 @@
+
+{% include '::header_salon.html.twig' %}
+
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Salon
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Salon </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Salon Information
+										</div>
+										<div class="tools">
+										
+											<a href="javascript:;" class="reload">
+											</a>
+										
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+							
+						
+							
+							{% for salon in updateSalonInformation  %}
+								 
+									
+							<form  action="" method="post"  enctype="multipart/form-data" class="form-horizontal">
+							
+																		
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Salon Name</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="name" value="{{ salon.name }}" class="form-control input-circle"/>
+										</div>
+							</div>					
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Domain</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="domain"  value="{{ salon.domain }}"  class="form-control input-circle"/>
+										</div>
+							</div> 
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Display Name</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="displayName"  value="{{ salon.displayName }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">description</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="description"  value="{{ salon.description }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">country</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="country"  value="{{ salon.country }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Province</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="state"  value="{{ salon.state }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+								<div class="form-group last">
+										<label class="col-md-3 control-label">city</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="city"  value="{{ salon.city }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">address</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"   name="address"  value="{{ salon.address }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+								
+							
+						
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">zip</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="zip"  value="{{ salon.zip }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">mobile</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="mobile"  value="{{ salon.mobile }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">landline</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="landline"  value="{{ salon.landline }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">logo</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="file"  name="logo"  value="{{ salon.logo }}" required class="form-control input-circle"/>
+										</div>
+							</div>
+							
+						
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+												<a href="{{ path('salon_solution_salon_manageSalons') }}" class="btn btn-circle blue">Cancel
+										</a>
+											<button type="submit" class="btn btn-circle blue">Submit</button>
+									
+										
+										</div>
+									</div>
+								</div>
+							
+							</form>
+								{% endfor %}		
+										<!-- END FORM-->
+									</div>
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+ 
+ 
+ 
+ 
+{% include '::footer_salon.html.twig' %}

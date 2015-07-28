@@ -1,0 +1,178 @@
+salon_solution_web_homepage:
+    path:     /
+    defaults: { _controller: SalonSolutionWebBundle:Web:index }
+    
+salon_solution_web_index:
+    path:     /index
+    defaults: { _controller: SalonSolutionWebBundle:Web:index }
+    
+salon_solution_web_stripe:
+    path:     /stripe
+    defaults: { _controller: SalonSolutionWebBundle:Web:stripe }
+
+salon_solution_web_customerRegistration:
+    path:     /customerRegistration
+    defaults: { _controller: SalonSolutionWebBundle:Web:registerCustomer }
+
+salon_solution_web_customerLogin:
+    path:     /customerLogin
+    defaults: { _controller: SalonSolutionWebBundle:Web:customerLogin }
+    
+salon_solution_web_login:
+    path:     /salon/login
+    defaults: { _controller: SalonSolutionWebBundle:Web:login }
+
+salon_solution_web_searchSalonData:
+    path:     /searchSalonData
+    defaults: { _controller: SalonSolutionWebBundle:Web:searchSalonData }
+
+
+salon_solution_web_searchSalon:
+    path:     /searchSalon
+    defaults: { _controller: SalonSolutionWebBundle:Web:searchSalon }
+    
+salon_solution_web_searchSalons:
+    path:     /searchSalons
+    defaults: { _controller: SalonSolutionWebBundle:Web:searchSalons }
+    
+salon_solution_web_getSalonDomain:
+    path:     /getSalonDomain
+    defaults: { _controller: SalonSolutionWebBundle:Web:getSalonDomain }
+
+salon_solution_web_searchService:
+    path:     /searchService
+    defaults: { _controller: SalonSolutionWebBundle:Web:searchService }
+
+salon_solution_web_searchZipCity:
+    path:     /searchZipCity
+    defaults: { _controller: SalonSolutionWebBundle:Web:searchZipCity }
+ 
+salon_solution_web_consumerRegistration:
+    path:     /consumerRegistration
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerRegistration }
+    requirements:  { _method:  get|post }
+      
+salon_solution_web_consumerLogin:
+    path:     /consumerLogin
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerLogin }
+    requirements:  { _method:  get|post }
+ 
+      
+salon_solution_web_consumerlogout:
+    path:     /consumerlogout
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerlogout }
+    requirements:  { _method:  get|post }
+       
+salon_solution_web_consumerRecoverPassword:
+    path:     /consumerRecoverPassword
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerRecoverPassword }
+    requirements:  { _method:  get|post }
+       
+
+salon_solution_web_consumerDashboard:
+    path:     /consumerDashboard
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerDashboard }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_consumerProfile:
+    path:     /consumerProfile
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerProfile }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_consumerChangePassword:
+    path:     /consumerChangePassword
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerChangePassword }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_consumerEditProfile:
+    path:     /consumerEditProfile
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerEditProfile }
+    requirements:  { _method:  get|post }
+ 
+
+
+
+salon_solution_web_consumerBookFriend:
+    path:     /consumerBookFriend
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerBookFriend }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_web_consumerAppointments:
+    path:     /consumerAppointments/consumer
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerAppointments }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_deleteConsumerAppointment:
+    path:     /deleteConsumerAppointment/{id}
+    defaults: { _controller: SalonSolutionWebBundle:Web:deleteConsumerAppointment }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_web_getAdvertisements:
+    path:     /getAdvertisements
+    defaults: { _controller: SalonSolutionWebBundle:Web:getAdvertisements }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_salonAds:
+    path:     /salonAds
+    defaults: { _controller: SalonSolutionWebBundle:Web:salonAds }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_web_compareUserBooking:
+    path:     /compareUserBooking
+    defaults: { _controller: SalonSolutionWebBundle:Web:compareUserBooking }
+    requirements:  { _method:  get|post }
+ 
+
+
+
+salon_solution_web_consumerAppointmentHistory:
+    path:     /consumerAppointmentHistory
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerAppointmentHistory }
+    requirements:  { _method:  get|post }
+
+
+
+salon_solution_web_aboutUs:
+    path:     /aboutUs
+    defaults: { _controller: SalonSolutionWebBundle:Web:aboutUs }
+    
+salon_solution_web_setSelectedDateInSession:
+    path:     /setSelectedDateInSession/consumer
+    defaults: { _controller: SalonSolutionWebBundle:Web:setSelectedDateInSession }
+     
+    
+    
+salon_solution_web_bookConsumerAppointment:
+    path:     /bookConsumerAppointment/consumer
+    defaults: { _controller: SalonSolutionWebBundle:Web:bookConsumerAppointment }
+    
+salon_solution_web_consumerUnConfirmedAppointments:
+    path:     /consumerUnConfirmedAppointments/Consumer  
+    defaults: { _controller: SalonSolutionWebBundle:Web:consumerUnConfirmedAppointments }    
+    
+salon_solution_web_confirmConsumerAppointment:
+    path:     /confirmConsumerAppointment/consumer
+    defaults: { _controller: SalonSolutionWebBundle:Web:confirmConsumerAppointment }  	
+
+salon_solution_web_bookFriendAppointment:
+    path:     /bookFriendAppointments
+    defaults: { _controller: SalonSolutionWebBundle:Web:bookFriendAppointments }
+    requirements:  { _method:  get|post } 
+
+
+salon_solution_web_setSalonInSession:
+    path:     /setSalonInSession/consumer
+    defaults: { _controller: SalonSolutionWebBundle:Web:setSalonInSession }
+    requirements:  { _method:  get|post } 
+
+

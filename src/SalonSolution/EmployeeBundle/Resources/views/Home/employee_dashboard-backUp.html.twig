@@ -1,0 +1,606 @@
+
+{% include '::header_employee.html.twig' %}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type= "text/javascript" src = "{{ asset('theme/frontend/js/MaxLength.min.js') }}"></script>
+
+
+<div class="container-fluid easy happyness book-b">
+	<div class="container"> 
+		<div class="row">
+
+			<div class="col-lg-12 ads"> 
+			{% include '::nav_employee.html.twig' %}
+			</div>
+	  
+					<input type="hidden" name="hidAppointmentId" id="hidAppointmentId" style="color: black;">
+					<input type="hidden" name="hidAppointmentStatus" id="hidAppointmentStatus" style="color: black;">
+					
+	<!--Mark - Arrived - Mark Late - Nodes  pop Up End -->
+				
+				<div id="divAppointmentOptionsPopUp" class="popUpDivOuter">
+					<div class="popUpDivInnerNotes">
+						<div class="portlet-title" style="padding: 10px;"> 
+						<div class="caption">
+						<i class="fa fa-edit"></i>
+						Appointment Details
+						</div>
+						<div class="tools" style="margin-right: -1%; margin-top: -27px;">
+
+						<a class="hover" title="Close" onclick="javascript: hideMarkAppointment();">
+
+						<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+						</a>
+						</div>
+						</div>
+							<ul>			
+							<li>
+								<div class="bookingDetails">
+								<div class="labelName"> Service Name: 
+												<div id="serviceName" class="sameName">	</div>
+								</div>
+								<div class="labelName"> User Name: 
+												<div id="clientName"   class="sameName">	</div>
+								</div>
+								<div class="labelName"> Booking Type: 
+												<div id="bookingType" class="sameName" >	</div>
+								</div>
+							</div>
+							<hr>
+							
+							<label class="login-k" style="margin: 0px 0px 4px 10px; font-size: 13px; font-weight: 200;">
+							<font><font style=" width: 100%; text-align: center; float: left;">
+							
+							{% if app.session.get('employeeMessage')   %}
+								{{ app.session.get('employeeMessage') }}       
+							{% endif %}
+							</font></font><i><font></font></i></label>
+
+							</li>
+							</ul>
+							<button type="button" class="btn btn-defaultArrived"  onclick="javascript: changeAppointmentStatus(2);">Mark Arrived</button>
+							<button type="button" class="btn btn-defaultLate" onclick="javascript: changeAppointmentStatus(3);">Mark Late</button>
+							<button type="button" class="btn btn-defaultCancelAp"  onclick="javascript: changeAppointmentStatus(4);">Cancel Appointment</button>
+							<button type="button" class="btn btn-defaultNotes"  onclick="javascript: addNotePopUp();">Add Notes</button>
+							
+					</div>
+				</div>	 
+	<!-- Mark - Arrived - Mark Late - Nodes  pop Up End -->
+	
+	
+	<!--Mid Show - Arrived - Mark Late - Nodes  pop Up End -->
+				
+				<div id="divStatusUpdateConfirmationPopUp" class="popUpDivOuter">
+					<div class="popUpDivInnerNotes">
+						<div class="portlet-title" style="padding: 10px;"> 
+						<div class="caption">
+						<i class="fa fa-edit"></i>
+						Confirmation - 	Appointment Status Update
+						</div>
+						<div class="tools" style="margin-right: -1%; margin-top: -27px;">
+
+						<a class="hover" title="Close" onclick="javascript: hideMarkAppointmentNotes();">
+
+						<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+						</a>
+						</div>
+						</div>
+						<ul>			
+							<li>
+							<label class="login-k" style="margin: 9px 0px 9px 11px; font-size: 13px; font-weight: 200;">
+							<font><font style=" width: 100%;text-align: center; float: left;">
+							Are you sure you want to proceed with current action?
+							
+							
+							</font></font><i><font></font></i></label>
+
+							</li>
+							</ul>
+						
+							<button type="button" class="btn btn-defaultArrived" onclick="javascript: cancelAppointmentStatusUpdate();">No, Go Back </button>
+							<button type="button" class="btn btn-defaultLate" onclick="javascript: confirmAppointmentStatusUpdate();">Yes</button>
+						
+					</div>
+				</div>	 
+	<!--Mid Show Mark - Arrived - Mark Late - Nodes  pop Up End -->
+
+		
+		<!--Add Note - 2 Sentences  pop Up Start -->
+				
+				<div id="divAddNotePopUp" class="popUpDivOuter">
+					<div class="popUpDivInnerNotes">
+						<div class="portlet-title" style="padding: 10px;"> 
+						<div class="caption">
+						<i class="fa fa-edit"></i>
+						Add Note 
+						</div>
+						<div class="tools" style="margin-right: -1%; margin-top: -27px;">
+
+						<a class="hover" title="Close" onclick="javascript: hideMarkAppointmentNotes();">
+
+						<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+						</a>
+						</div> 
+						</div>
+						 <div id="main">	
+							<div class="loginbox" style = "width: 80%; margin-left: 10%;">						
+								<form  action="" method="post" enctype="multipart/form-data" > 								
+									<div class="addnote">
+									<div class="addLabel">
+										<label class="fontLabel"><font><font>Add Note:</font></font><i><font><font>*</font></font></i></label>
+											<div class="textareaNotes">
+											  <textarea  name="notes"  id="notes" class="x-input inputstyle" ></textarea>
+											  <div id="counter"></div>
+											 </div> 
+									</div>									
+										<div class="addAppointmentNotes">
+										<button type="button" class="btn btn-defaultArrived" onclick="javascript: hideMarkAppointmentNotes();">Cancel </button>
+										<button type="button" class="btn btn-defaultLate" onclick="javascript: saveAppointmentNotes();">Submit</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+			
+<script type="text/javascript">
+    $(function () {
+      
+        //Specifying the Character Count control explicitly
+        $("#notes").MaxLength(
+        {
+            MaxLength: 150,
+            CharacterCountControl: $('#counter')
+        });
+
+       
+    });
+</script>
+					
+							
+						
+					</div>
+				</div>	 
+	<!--Add Note - 2 Sentences  pop Up End-->
+
+			
+			
+	<!-- Windows Onload pop Up Start -->
+				<div id="divEmployeeMessagePopUp" class="popUpDivOuter">
+					<div class="popUpDivInner">
+						<div class="portlet-title" style="padding: 10px;"> 
+						<div class="caption">
+						<i class="fa fa-edit"></i>
+						Message From Salon Admin 
+						</div>
+						<div class="tools" style="margin-right: -1%; margin-top: -27px;">
+
+						<a class="hover" title="Close" onclick="javascript: hideSalonListPopUp();">
+
+						<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+						</a>
+						</div>
+						</div>
+							<ul>			
+							<li>
+							<label class="login-k" style="margin: 9px 0px 9px 11px; font-size: 13px; font-weight: 200;">
+							<font><font style=" width: 100%;text-align: center; float: left;">
+							{% if app.session.get('employeeMessage')   %}
+							{{ app.session.get('employeeMessage') }}       
+							{% endif %}
+							</font></font><i><font></font></i></label>
+
+							</li>
+							</ul>
+							<button type="button" class="btn btn-defaultOk" onclick="javascript: hideSalonListPopUp();">OK</button>
+							
+					</div>
+				</div>	 
+			<!-- Windows Onload pop Up End -->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 bay">
+
+			<div  class="blank_clalander">
+			</div>
+
+						<!-- <div class="bookNewAppoientment" >
+							<a href="{{ asset('employee/bookNewAppointment') }}" class="btn common-btn"  > Book New Appointment       </a>
+						</div> --> 
+				<div class="col-lg-6 cod_center" style=" width: 64%;">
+					<div class="loginbox login_form" id="login_form">
+							<ul>
+								<h4> Appointments Overview </h4>
+								<li></li>
+								<li></li>
+							</ul> 
+ 
+						<div class="col-lg-6 cod_centerWidth" style="overflow: auto; max-height: 500px ! important;">
+							{% for salonTiming in arrTime  %}
+								<div class="col_inner">
+									<div class="col-md-3 col-1 col_01 btn-lg" style="width: {{ widthDivision }}%;">
+									<p><a class="btn btn-primary bnt_in" href="#" role="button">{{salonTiming}}</a></p>
+									</div>
+								{% for service in servicesDetail  %}
+									<div class="col-md-3 col-1 seat"  style="width: {{ widthDivision }}%;">
+										<div class="btn-toolbar" role="toolbar" aria-label="...">
+										{% if service.vacant > 0 %}
+											{% for i in 1..service.vacant %}
+												<div id="book_{{salonTiming}}_{{app.session.get('salonId')}}_{{service.id}}" class="btn-group r_button" role="group" style="background-color:{{service.color}}" title="Click to book {{service.title|capitalize}} service" >{{service.title|slice(0, 2)|capitalize}}</div>
+											{% endfor %} 
+										{% endif %}    
+										{% if service.booked > 0 %}
+											{% for i in 1..service.booked %} 
+												<div id="{{service.appointmentId}}"   class="btn-group r_button" role="group" style="background-color:{{service.color}};" title="Booked for: {{service.firstName|capitalize}} {{service.lastName|capitalize}}">{{service.firstName|slice(0, 1)|capitalize}} {{service.lastName|slice(0, 1)|capitalize}} 
+												 
+													<div class="pp">
+													<h4 title="BOOKED">B</h4>
+													</div>
+												</div>
+												
+												
+												
+												
+											{% endfor %}
+										{% endif %}
+										</div> 
+									</div>
+								{% endfor %}
+								</div> 
+							{% endfor %}
+						</div>
+					<!-- 	</div>
+					</div>
+					</div> -->
+
+
+
+					</div>
+				</div>
+
+			</div>
+
+		<!--
+		{% include '::sidebar_right_employee.html.twig' %}
+		-->
+		</div>
+	</div>
+	</div>
+	<!-- /.row --> 
+
+	</div>
+</div>
+</div>
+ 
+
+
+{% include '::footer_employee.html.twig' %}
+
+
+
+<script>
+	$(document).ready(function()
+	{
+		$('.col_inner', this).each(function() 
+		{
+			var maxHeight = 0;
+			$('.seat', this).each(function() 
+			{
+				if($(this).height() > maxHeight) 
+				{
+				 	maxHeight = $(this).height();  
+				}
+			});
+			$('.seat', this).each(function() 
+			{
+				$(this).height(maxHeight);
+			});
+			$('.btn-lg', this).height(maxHeight-6.9);
+		});
+	});
+</script>
+
+<style>
+	
+.bookNewAppoientment {
+position: absolute;
+right: 23px;
+}
+.col-md-3.col-1.col_01.btn-lg {
+width: 25% !important;
+}
+
+div#login_form {
+width: 100%;
+}
+.col-md-3.col-1.col_01.btn-lg {
+width: 15% !important;
+}
+.col-lg-6.cod_centerWidth {
+width: 100%;
+}
+
+.loginbox li {
+margin-left: 0% !important;
+}
+.loginbox ul {
+margin: 0px;  !important;
+}
+.loginbox.login_form li {
+width: 100% !important;
+}
+
+
+
+/*   yash
+.portlet-body {
+    float: left;
+    margin: 0 0 1px 17%;
+    width: 70%;
+}
+ 
+.form-control.popUpInput {
+    float: left;
+    width: 100%;
+}
+
+.popUpInput{
+   margin-left: 0 !important;
+}
+*/
+
+</style>
+
+<!-- ajax Start for consumer show : start -->
+
+<script>
+	 $(document).ready(function()
+   {
+	   
+   });
+   
+   	function searchConsumer()
+   	{
+		
+   		//$("#msgConsumer").hide();
+	   	var consumerSearchKey = $("#consumerName").val();	   	
+	   //	alert(consumerSearchKey);	   	
+	   	$.ajax({  
+	   		 url: '{{ path("salon_solution_employee_searchConsumers") }}',
+	   		 type: 'POST',
+	   		 data: {consumerSearchKey:consumerSearchKey},
+	   		 success:function(data)
+					 
+	   		{		
+	   			if(data == '')
+	   			{
+	   				$("#divConsumerList").removeClass("divActive");
+   					$("#divConsumerList").addClass("divInactive");
+   					$("#divAddNewClientOption").show();
+	   			}
+	   			else
+	   			{
+	   				$("#consumerList").html(data);
+	   				$("#divConsumerList").removeClass("divInactive");
+   					$("#divConsumerList").addClass("divActive");
+   					$("#divAddNewClientOption").hide();
+	   			}	   			
+	   		} 
+	   	});
+   	}
+   		function selectConsumer(consumerId, consumerName)
+   	{
+   		$('#hidConsumerId').val(consumerId);
+   		$('#consumerName').val(consumerName);
+   		$("#divConsumerList").removeClass("divActive");
+		$("#divConsumerList").addClass("divInactive");
+   	}
+   	
+   	/*function showAddNewClientOption()
+   	{		
+	}	
+	function hideAddNewClientOption()
+   	{		
+	}*/
+   	
+   	function addNewClient()
+   	{	
+		$("#consumerName").val('');		
+		//document.getElementById('consumerName').focus(); 
+		 document.getElementById('registerFormBook').style.display = "block";
+		 $("#divAddNewClientOption").hide();
+		/*var div = document.getElementById("registerFormBook");
+			if (div.style.display == "none") {
+			div.style.display = "none";
+			}
+			else {
+			div.style.display = "block";
+			}
+   		*/	 
+   	}
+</script>
+<style>
+
+.popUpDivInner {
+background: none repeat scroll 0 0 white !important;
+}
+
+.ui-autocomplete {
+max-height: 300px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+.bookNew {
+float: right;
+margin-bottom: 10px;
+}
+
+h4.newClient{
+font-size: 26px;
+font-weight: bold;
+margin: -2% 0 1%;
+text-align: center;
+}
+
+.registerFormBook{
+display:block;
+}
+hr {
+border-top: 1px solid #A3A2A2 !important;
+}
+button.btn.btn-defaultOk {
+background: #81cf56;
+border-radius: 0;
+color: #fff;
+width: 15%;
+} 
+
+
+ 
+.pp {
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 18px 16px 0;
+border-color: transparent red transparent transparent;
+position: absolute;
+right: 0px;
+top: 0px;
+}
+.pp h4 {
+font-size: 11px !important;
+position: absolute;
+background: none !important;
+top: -12px;
+font-weight: bold;
+right: -16px;
+transform: rotate(45deg) scale(1) skew(1deg) translate(0px);
+}
+
+.popUpDivInnerNotes {
+background: none repeat scroll 0 0 white;
+left: 30%;
+padding: 0 0 23px;
+position: fixed;
+top: 30%;
+width: 45%;
+z-index: 1111;
+}
+button.btn.btn-defaultArrived {
+background: #81cf56;
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+button.btn.btn-defaultLate {
+background: orange;
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+
+button.btn.btn-defaultCancelAp {
+background: red;
+border-radius: 0;
+color: #fff;
+width: 26%;
+}
+
+button.btn.btn-defaultNotes {
+background: rgb(180, 212, 13);
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+
+.addAppointmentNotes {
+float: left;
+width: 100%;
+}
+label.fontLabel i {
+color: red;
+}
+label.fontLabel {
+color: #555;
+display: block;
+float: left;
+height: auto;
+padding: 5px 10px 5px 0;
+text-align: left;
+width: 100%;
+}
+textarea#notes {
+width: 92%;
+float: left;
+margin: 3px 0px 16px 0px;
+color: black;
+padding: 4px;
+height: 75px;
+box-shadow: 0px 1px 8px 6px #ccc;
+}
+.textareaNotes {
+width: 100%;
+float: left;
+}
+label.fontLabel {
+color: #555; 
+display: block;
+float: left;
+height: auto;
+padding: 5px 10px 5px 0; 
+text-align: left;
+width: 100%;
+}
+.addLabel {
+float: left;
+width: 100%; 
+}
+.addnote {
+width: 100%;
+}
+div#counter {
+float: left;
+color: red;
+}
+
+
+.bookingDetails {
+  width: 100%;
+    margin-bottom: 10px;
+}
+.labelName {
+  width: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: gray;
+  margin-top: 12px; 
+
+  
+}
+div.sameName {
+float: right;
+  width: 40%;
+  font-size: 14px;
+  color: green; 
+}
+span.offlineSalonBooking {
+  color: red;
+} 
+.onlineWebBooking {
+    color: green; 
+}
+.btn-toolbar {
+color: black;
+}
+</style>
+
+
+<style>
+media="all"
+@media (min-width: 1200px)
+.col-lg-6 {
+ width: 100% !important;
+}
+</style>
+
+<!-- ajax Start for consumer show : start -->

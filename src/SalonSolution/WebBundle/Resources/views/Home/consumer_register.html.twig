@@ -1,0 +1,275 @@
+
+{% include '::header_consumer.html.twig' %}
+
+{% include '::js_consumer_register.html.twig' %}
+
+<script type= "text/javascript" src = "{{ asset('theme/frontend/js/country.js') }}"></script>
+ 
+<div class="container-fluid easy happyness book-b">
+	<div class="container">
+    	<div class="row">
+     
+      		<div class="col-lg-12 ads">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+       		</div>
+      
+      
+      		<div class="container">
+				<div class="row book_in">
+			  		<div class="col-lg-12 bay">
+						
+						{% include '::sidebar_left_consumer.html.twig' %}
+						
+					   	<div class="col-lg-6 cod_center">
+					   		<div class="loginbox regst_2">
+								<div id="main">
+									<form  action="" method="post" enctype="multipart/form-data"  class="cmxform" id="signupForm">
+		
+										<ul>
+											<h4>Consumer Register </h4>
+										  <li>
+
+											<label class="login-k"><font><font>First Name:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text" name="firstName" id="firstName"  class="x-input inputstyle" >
+
+											  </div>
+
+										  </li>
+
+										  <li>
+
+											<label class="login-k"><font><font> Last Name:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"   name="lastName" id="lastName"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+
+											<li>
+
+											<label class="login-k"><font><font> E-mail:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="email" name="email" id="email"   placeholder="yourname@xx.com">
+
+											  </div>
+
+										  </li>
+
+										  <li>
+
+											<label class="login-k"><font><font> Username:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val passport_login_kocde">
+
+											  <input type="text" name="username"  id="username" class="x-input x-input">
+
+											 
+
+										  </li>
+
+										  <li>
+
+											<label class="login-k"><font><font>Password:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="password"  name="password"  id="password"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+
+										  <li>
+
+											<label class="login-k"><font><font> Confirm password:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="password"  name="confirm_password" id="confirm_password" class="x-input inputstyle">
+
+											  </div>
+											  <span id='message'></span>
+
+										  </li>
+
+										 
+										   <li>
+											<label class="login-k"><font><font> Country:</font></font><i><font><font>*</font></font></i></label>
+						
+											   <div class="login-v common_form_val">
+													<select id="country" name="country" ></select>
+												  </div>
+										  </li>
+										  
+										  <li>
+
+											<label class="login-k"><font><font> Province:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <select name="state" id="state" ></select>
+
+											  </div>
+
+										  </li>
+										   <li>
+
+											<label class="login-k"><font><font> Address:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="address" id="address"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  <li>
+
+											<label class="login-k"><font><font> City:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="city" id="city"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+										 
+										  
+										 <li>
+
+											<label class="login-k"><font><font> Zip:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="zip" id="zip"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+										 <li>
+
+											<label class="login-k"><font><font> Photo:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											<input type="file"  name="photo"  id="photo"  >
+
+											  </div>
+
+										  </li>
+										  
+										   <li>
+
+											<label class="login-k"><font><font> Mobile:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="mobile"  id="mobile"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										   <li>
+
+											<label class="login-k"><font><font> Landline:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="landline"  id="landline"  class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+
+										 <!--<li>
+
+											<label class="login-k"><font><font> Salon Name:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <select name="ownerId"  id="ownerId">
+				
+													{% for salonOwner in salonOwners  %}		
+														<option value="{{ salonOwner.id }}">{{ salonOwner.name }} </option>											  
+													  {% endfor %}
+												</select>
+										  	</div>
+
+										  </li>-->
+									  
+
+										  
+				
+
+				
+
+										</ul>
+
+				
+
+										<div class="check_box">
+
+											<label class="login-k">&nbsp;</label>
+
+											<div class="login-v">
+											  <input type="checkbox"id="agree" name="agree">
+											  <font><font>I have read and agree to </font></font><a target="_blank" class="lnk" id="terms_error" href="#"><span id="terms_error_sym" class="FormText"><font><font>Registration Agreement</font></font></span></a><font><font> and </font></font><a target="_blank" class="lnk" id="privacy_error" href="#"><span id="privacy_error_sym" class="FormText"><font><font>Privacy Policy</font></font></span></a><font><font> .</font></font></div>
+										  </div>
+
+										  </div>
+
+										  <div class="submit_b">
+
+											<label class="login-k">&nbsp;</label>
+
+											<div class="login-v common_form_sub signup_sub">
+
+											  <button type="submit" name="submit" value="submit" class="btn common-btn"  ><span><span><font><font>Submit</font></font></span></span></button>
+
+						
+											</div>
+
+									  	</div>
+									</form >
+								</div>
+								<script language="javascript">
+									populateCountries("country", "state");
+						  		</script>
+							</div>
+							{% include '::sidebar_right_consumer.html.twig' %}
+						</div>
+			  		</div>
+				</div>
+        		
+      		</div>
+      		<!-- /.row --> 
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<style>
+	span.message 
+	{
+		color: red;
+	}
+</style>
+
+
+{% include '::footer_consumer.html.twig' %}
+
+
+

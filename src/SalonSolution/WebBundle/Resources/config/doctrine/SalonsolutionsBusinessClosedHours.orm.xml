@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\WebBundle\Entity\SalonsolutionsBusinessClosedHours" table="salonSolutions_business_closed_hours">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="salonId" type="integer" column="salon_id" nullable="true"/>
+    <field name="date" type="string" column="date" length="255" nullable="true"/>
+    <field name="closedFromTime" type="string" column="closed_from_time" length="255" nullable="true"/>
+    <field name="closedToTime" type="string" column="closed_to_time" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

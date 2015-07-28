@@ -1,0 +1,515 @@
+{% include '::header_salon.html.twig' %}
+
+
+<style>
+input#color {
+width: 68px;
+}
+</style>
+
+
+
+
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+		
+	<link rel="stylesheet"  href="{{  asset('theme/frontend/js/businessHours/jquery.timeentry.css') }}" type="text/css">
+	<script type="text/javascript" src="{{  asset('theme/frontend/js/businessHours/jquery.plugin.js') }}"></script>
+	<script type="text/javascript" src="{{  asset('theme/frontend/js/businessHours/jquery.timeentry.js') }}"></script>
+
+<!--
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+-->
+
+
+
+<!--
+	<link rel="stylesheet"  href="http://incitysearch.com/themes/web/css/whitelabel/style.css" type="text/css">
+-->
+<!--
+	<link rel="stylesheet"  href="http://incitysearch.com/themes/web/css/whitelabel/light/theme.css" type="text/css">
+-->
+
+
+
+<!-- Start script to fill time automatically -->
+<script>
+	
+	$(document).ready(function()
+	        		{
+	         
+	                   $("#time_1").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_2").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_3").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_4").timeEntry({show24Hours: false, showSeconds: false});
+	
+	                   $("#time_5").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_6").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_7").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_8").timeEntry({show24Hours: false, showSeconds: false});
+	
+	                   $("#time_9").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_10").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_11").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_12").timeEntry({show24Hours: false, showSeconds: false});
+	
+	                   $("#time_13").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_14").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_15").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_16").timeEntry({show24Hours: false, showSeconds: false});
+	
+	                   $("#time_17").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_18").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_19").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_20").timeEntry({show24Hours: false, showSeconds: false});
+	                  
+	                   $("#time_21").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_22").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_23").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_24").timeEntry({show24Hours: false, showSeconds: false});
+	
+					   $("#time_25").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_26").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_27").timeEntry({show24Hours: false, showSeconds: false});
+	                   $("#time_28").timeEntry({show24Hours: false, showSeconds: false});
+	
+	});
+</script>
+
+<script>
+	function update_time(id)
+	{
+	//alert(id);
+		if(document.getElementById(id).checked == true)
+		{
+			if(id=='all_days')
+	  		{
+				for(var countElement1=5; countElement1<29; countElement1=countElement1+4)
+				{
+					var countElement2 = countElement1+1;
+					var countElement3 = countElement2+1;
+					var countElement4 = countElement3+1;
+	
+					document.getElementById('time_'+countElement1).value = document.getElementById('time_1').value;
+					document.getElementById('time_'+countElement2).value = document.getElementById('time_2').value;
+					document.getElementById('time_'+countElement3).value = document.getElementById('time_3').value;
+					document.getElementById('time_'+countElement4).value = document.getElementById('time_4').value;	
+				}	
+	
+	
+			}
+			else if(id=='week_days' )
+	 		{
+						for(var countElement1=5; countElement1<25; countElement1=countElement1+4)
+						{
+							var countElement2 = countElement1+1;
+							var countElement3 = countElement2+1;
+							var countElement4 = countElement3+1;
+	
+							document.getElementById('time_'+countElement1).value = document.getElementById('time_1').value;
+							document.getElementById('time_'+countElement2).value = document.getElementById('time_2').value;
+							document.getElementById('time_'+countElement3).value = document.getElementById('time_3').value;
+							document.getElementById('time_'+countElement4).value = document.getElementById('time_4').value;	
+						}	
+	
+										
+	
+					for(var countElement1=25; countElement1<29; countElement1=countElement1+4)
+						{
+							var countElement2 = countElement1+1;
+							var countElement3 = countElement2+1;
+							var countElement4 = countElement3+1;
+	
+							document.getElementById('time_'+countElement1).value = "";
+							document.getElementById('time_'+countElement2).value = "";
+							document.getElementById('time_'+countElement3).value = "";
+							document.getElementById('time_'+countElement4).value = "";	
+						}
+	
+	                       }
+		}
+		
+	}
+	       
+</script>
+<!-- End script to fill time automatically -->
+
+<script>
+	function validateForm()
+	{
+		for(var i=1; i<=28; i++)
+		{
+			$("#time_"+i).css('border-color', 'auto');
+		}
+		for(var counter=1; counter<=28; counter++)
+		{
+			if( counter != 1 && counter != 5 && counter != 9 && counter != 13 && counter != 17 && counter != 21 && counter != 25 )
+			{
+				var prevCounter = counter - 1;
+
+				if( $("#time_"+counter).val() < $("#time_"+prevCounter).val() )
+				{
+					alert("The time entered should be greater than the time entered in previous box.");
+					$("#time_"+counter).css('border-color', 'red');
+					//$("#time_"+counter).focus();
+					$("#time_"+counter).click();
+					return false;
+				}
+				else
+				{
+					$("#time_"+counter).css('border-color', 'auto');
+				}
+			}
+			else
+			{
+				$("#time_"+counter).css('border-color', 'auto');
+			}
+		}
+
+		//$("#hidBusinessImage").val($("#businessImage").attr('src'));
+
+		document.getElementById("businessAddForm").submit();
+	}
+</script>	
+
+
+<!-- End script to fill time automatically -->
+<style>
+
+::selection {
+background: #bada55;
+color: #ffffff;
+text-shadow: none;
+}
+</style>
+<script>
+	function validateForm()
+	{
+		//alert("sad");
+		for(var i=1; i<=28; i++)
+		{
+			$("#time_"+i).css('border-color', 'auto');
+		}
+		for(var counter=1; counter<=28; counter++)
+		{
+		//alert(counter);
+			if( counter != 1 && counter != 5 && counter != 9 && counter != 13 && counter != 17 && counter != 21 && counter != 25 )
+			{
+				var prevCounter = counter - 1;
+
+				if( $("#time_"+counter).val() < $("#time_"+prevCounter).val() )
+				{
+					alert("The time entered should be greater than the time entered in previous box.");
+					$("#time_"+counter).css('border-color', 'red');
+					//$("#time_"+counter).focus();
+					$("#time_"+counter).click();
+					return false;
+				}
+				else
+				{
+					$("#time_"+counter).css('border-color', 'auto');
+				}
+			}
+			else
+			{
+				$("#time_"+counter).css('border-color', 'auto');
+			}
+		}
+
+		//$("#hidBusinessImage").val($("#businessImage").attr('src'));
+
+		document.getElementById("businessAddForm").submit();
+	}
+</script>
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+	
+	
+<link rel="stylesheet"  href="{{  asset('theme/frontend/js/businessHours/jquery.timeentry.css') }}" type="text/css">
+<script type="text/javascript" src="{{  asset('theme/frontend/js/businessHours/jquery.plugin.js') }}"></script>
+<script type="text/javascript" src="{{  asset('theme/frontend/js/businessHours/jquery.timeentry.js') }}"></script>
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			  <!-- BEGIN PAGE HEADER-->
+         <div class="page-bar">
+            <ul class="page-breadcrumb">
+               <li>
+                  <i class="fa fa-home"></i>
+                  <a href="{{ path('salon_solution_salon_dashboard') }}">Home</a>
+                  <i class="fa fa-angle-right"></i>
+               </li>
+               <li>
+                  <a href="{{ path('salon_solution_salon_manageBusinessHours') }}">Manage Business Hour</a>
+                  <i class="fa fa-angle-right"></i>
+               </li>
+            
+            </ul>
+         </div>
+     
+
+
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage CMS </a>
+							</li>
+							
+						</ul>
+-->
+
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box blue">
+									<div class="portlet-title">
+
+										<div class="caption">
+											<i class="fa fa-gift"></i> Manage Business Hour
+										</div>
+
+										<div class="tools">
+									
+											<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+
+                       
+									
+	<div class="portlet-body form">
+				
+				</br><div class="col-md-6" style=" float: right; width: 24%;">
+					<div class="btn-group">
+					<a href="{{ asset('salon/closedDays') }}"  class="btn green">Manage Closed Hours </a>
+					</div>
+					</div>
+										<!-- BEGIN FORM-->
+
+				
+	<section id="content">
+		<div class="g12">						
+		<form id="businessAddForm" action="" method="post" autocomplete="off" enctype="multipart/form-data" data-validate="parsley">
+	
+		{% for businessHours in updateSalonHours %}
+		
+		<fieldset>
+				<label style="margin-top:16px;">Business Hours</label>
+				<label class="spanlabel">First Half	</label>
+				<label  class="spanlabel" style="margin-left:9%;">Second Half</label>
+				<div class="hour">
+				</div>
+				
+				<label style="margin-top: 34px;" class="form-group last">Monday</label>
+				<div class="hour">
+					<input type="text" id="time_1"  name="sfmon"  value="{{ businessHours.monFhalfStart  }}"  style="width:40px;" >-
+					<input  type="text" id="time_2"  name="efmon"  value="{{ businessHours.monFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text" id="time_3" name="ssmon"   value="{{ businessHours.monShalfStart  }}" style="width:40px;" >-
+					<input  type="text" id="time_4"  name="esmon"   value="{{ businessHours.monShalfEnd  }}" style="width:40px;"></span>
+					<span class="radio_top">
+					<span class="spanlabel"> Apply this to: </span>
+					<input type="radio" name='days' id="all_days" onchange="javascript: update_time(this.id);" >All Days
+					<input type="radio" name='days' id="week_days" onchange="javascript: update_time(this.id);" >Week Days</span>
+				</div>
+				<label class="form-group last">Tuesday</label>
+				<div class="hour">
+					<input type="text"  name="sftues" id="time_5"  value="{{ businessHours.tuesFhalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="eftues" id="time_6"  value="{{ businessHours.tuesFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="sstues" id="time_7"   value="{{ businessHours.tuesShalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="estues" id="time_8"   value="{{ businessHours.tuesShalfEnd  }}" style="width:40px;"></span>
+				</div>
+				<label class="form-group last">Wednesday</label>
+				<div class="hour">
+					<input type="text"  name="sfwed"  id="time_9"  value="{{ businessHours.wedFhalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="efwed" id="time_10"   value="{{ businessHours.wedFhalfEnd  }}" style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="sswed" id="time_11"  value="{{ businessHours.wedShalfStart  }}"  style="width:40px;" >-
+					<input  type="text"  name="eswed" id="time_12"  value="{{ businessHours.wedShalfEnd  }}"  style="width:40px;"></span>
+				</div>
+				<label class="form-group last">Thursday</label>
+				<div class="hour">
+					<input type="text"  name="sfthu" id="time_13"  value="{{ businessHours.thuFhalfStart  }}"  style="width:40px;" >-
+					<input  type="text"  name="efthu" id="time_14"  value="{{ businessHours.thuFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="ssthu" id="time_15"  value="{{ businessHours.thuShalfStart  }}"  style="width:40px;" >-
+					<input  type="text"  name="esthu" id="time_16"   value="{{ businessHours.thuShalfEnd  }}" style="width:40px;"></span>
+				</div>
+				<label class="form-group last">Friday</label>
+				<div class="hour">
+					<input type="text"  name="sffri" id="time_17"   value="{{ businessHours.friFhalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="effri" id="time_18"  value="{{ businessHours.friFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="ssfri" id="time_19"  value="{{ businessHours.friShalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="esfri"  id="time_20"  value="{{ businessHours.friShalfEnd  }}"  style="width:40px;"></span>
+				</div>
+				<label class="form-group last">Saturday</label>
+				<div class="hour">
+					<input type="text"  name="sfsat" id="time_21"  value="{{ businessHours.satFhalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="efsat" id="time_22"  value="{{ businessHours.satFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="sssat" id="time_23"  value="{{ businessHours.satShalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="essat" id="time_24"  value="{{ businessHours.satShalfEnd  }}"  style="width:40px;"></span>
+				</div>
+				<label class="form-group last">Sunday</label>
+				<div class="hour">
+					<input type="text"  name="sfsun" id="time_25"  value="{{ businessHours.sunFhalfStart  }}" style="width:40px;" >-
+					<input  type="text"  name="efsun" id="time_26"  value="{{ businessHours.sunFhalfEnd  }}"  style="width:40px;">
+					<span class="spanlabel">
+					<input type="text"  name="sssun" id="time_27"  value="{{ businessHours.sunShalfStart  }}"  style="width:40px;" >-
+					<input  type="text"  name="essun" id="time_28"   value="{{ businessHours.sunShalfEnd  }}" style="width:40px;"></span>
+				</div>
+				
+			</section>	
+			
+				
+		{% endfor %} 	
+		
+			
+			<section class="chrome">
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">						
+<!--
+									<a href="{{ path('salon_solution_salon_manageBusinessHours') }}" class="btn btn-circle blue">Cancel</a>
+-->
+							
+<!--
+								<button type="submit" class="btn btn-circle blue"  onclick="javascript: validateForm();">submit</button>
+-->
+								<button type="button" name="submitbuttonname" value="submitbuttonvalue" onclick="javascript: validateForm();" class="btn btn-circle blue">Submit</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</fieldset>
+		</form>
+
+			
+	
+	<!-- END FORM-->
+									</div>
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+
+
+ <style>
+
+.spanlabel {
+margin-left: 5%;
+}
+form fieldset > section label {
+margin-top: 13px;
+}
+form fieldset > section > div {
+border-left-color: #e7e7e7;
+}
+form fieldset > section > div {
+padding: 15px 1%;
+width: 78%;
+float: right;
+border-left: 1px solid;
+}
+form fieldset > section label {
+border: 0;
+cursor: pointer;
+font-size: 13px;
+font-weight: 100;
+float: left;
+background: none;
+filter: none;
+margin: 0;
+width: 16%;
+padding-left: 2px;
+margin-left: 8px;
+text-align: left;
+}
+form fieldset > section > div {
+border-left-color: #e7e7e7;
+}
+form fieldset > section > div {
+padding: 15px 1%;
+width: 78%;
+float: right;
+border-left: 1px solid;
+}
+.hour > input {
+width: 12% !important;
+}
+.radio_top {
+float: right;
+width: 40%;
+margin-top: -35px;
+}
+
+.g12 {
+width: 93%;
+float: right;
+}
+section#content {
+width: 100%;
+}
+.time > input {
+width: 11% !important;
+}
+.is-timeEntry {
+width: 11% !important;
+}
+label.form-group.last {
+margin-top: 14px;
+}
+</style>
+
+ 
+
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-migrate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-ui/jquery-ui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap/js/bootstrap.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.blockui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.cokie.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/uniform/jquery.uniform.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/select2/select2.min.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/ckeditor/ckeditor.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/lib/markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/form-validation.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/scripts/metronic.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/layout.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/quick-sidebar.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/demo.js') }}"  type="text/javascript"/></script>
+
+ 

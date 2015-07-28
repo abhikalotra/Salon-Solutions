@@ -1,0 +1,274 @@
+<!-- footer section start here -->
+
+<div id="divSalonListPopUp" class="popUpDivOuter">
+	<div class="popUpDivInner">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-edit"></i>Select Your Salon
+			</div>
+			<div class="tools">
+				<!--<a title="" data-original-title="" href="javascript:;" class="collapse">
+				</a>
+				<a title="" data-original-title="" href="#portlet-config" data-toggle="modal" class="config">
+				</a>
+				<a title="" data-original-title="" href="javascript:;" class="reload">
+				</a>-->
+				<a class="hover" title="Close" onclick="javascript: hideSalonListPopUp();">
+			
+					<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+				</a>
+			</div>
+		</div>
+		<div class="portlet-body">
+			<input type="text" name="salonName" id="salonName" placeholder="Salon Name" class="form-control popUpInput" onkeyup="javascript: searchSalons();">
+			<label id="msgSalon" class="divError divInactive"></label>
+			
+			<div id="divSalonList" class="popUpAjxDiv">
+				<ul id="salonList" class="popUpAjxList">
+				</ul>
+			</div>
+			
+			<div style="margin-top: 5%; text-align: center; margin-left: 40%; width: 16%;">
+				<button type="button" name="submit" class="btn btn-default" style="height: 40px; padding: 0px;" onclick="javascript: redirectToSalonDomain();">
+					Go
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid footer">
+  <footer>
+    <div class="container modal-footer">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-lg-3 footer-text">
+            <ul>
+              <h4>About Us</h4>
+              <li> <a href="#">About</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 footer-text">
+            <ul>
+              <h4>Customer Service</h4>
+              <li> <a href="#">Help</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 footer-text">
+            <ul>
+              <h4>Salon & Spa Partners</h4>
+              <li> <a href="#">Join Our Network</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 footer-text last">
+            <ul>
+              <h4>Connect</h4>
+              <li> <a href="#"> info@abcd.com</a> </li>
+              <li><a href="#"> 1-800-400-5048</a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="social_icon">
+        <ul>
+          <li><a href="#"><img src="{{ asset('theme/frontend/images/icon_01_03.png') }}" alt=""></a></li>
+          <li><a href="#"><img src="{{ asset('theme/frontend/images/icon_01_05.png') }}" alt=""></a></li>
+          <li><a href="#"><img src="{{ asset('theme/frontend/images/icon_01_07.png') }}" alt=""></a></li>
+          <li><a href="#"><img src="{{ asset('theme/frontend/images/icon_01_09.png') }}" alt=""></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+<div class="container-fluid b_footer">
+  <div class="container">
+    <div class="cont_f">
+      <h4> © 2015. All rights resevered. Designed by Browswire </h4>
+    </div>
+  </div>
+</div>
+<script>
+   $(document).ready(function()
+   {
+   	
+   	
+   });
+   function showSalonListPopUp()
+   	{
+	   	$('#divSalonListPopUp').show();
+	   
+   	}
+   	function searchSalons()
+   	{
+   		$("#msgSalon").hide();
+	   	var salonSearchKey = $("#salonName").val();
+	   	$.ajax({
+	   		 url: '{{ path("salon_solution_web_searchSalons") }}',
+	   		 type: 'POST',
+	   		 data: {salonSearchKey:salonSearchKey},
+	   		 success:function(data)
+	   		 {
+	   			if(data == '')
+	   			{
+	   				$("#divSalonList").removeClass("divActive");
+   					$("#divSalonList").addClass("divInactive");
+	   			}
+	   			else
+	   			{
+	   				$("#salonList").html(data);
+	   				$("#divSalonList").removeClass("divInactive");
+   					$("#divSalonList").addClass("divActive");
+	   			}
+	   		 }
+	   	});
+   	}
+   	
+	function selectSalon(salonName)
+   	{
+   		$('#salonName').val(salonName);
+   		$("#divSalonList").removeClass("divActive");
+		$("#divSalonList").addClass("divInactive");
+   	}
+   	
+   	function hideSalonListPopUp()
+   	{
+   		$('#divSalonListPopUp').hide();
+   	}
+   	
+   	function redirectToSalonDomain()
+   	{
+   		//alert('in');
+   		var salonName = $('#salonName').val();
+   		if( salonName == '' )
+   		{//alert('1');
+   			//$("#msgSalon").removeClass('divInactive');
+			//$("#msgSalon").addClass('divActive');
+			$("#msgSalon").html('Please enter your salon name first.');
+   			$("#msgSalon").show();
+   			$('#salonName').focus();
+   			return false;
+   		}
+   		else
+   		{//alert('2');
+			$.ajax(
+			{
+	   			url: '{{ path("salon_solution_web_searchSalons") }}',
+	   		 	type: 'POST',
+	   		 	data: {salonSearchKey:salonName, criteria:'EQUAL'},
+	   		 	success:function(data)
+	   		 	{
+		   			if(data == '')
+		   			{
+		   				$("#msgSalon").html('The salon name you entered does not exist.');
+			   			$("#msgSalon").show();
+			   			$('#salonName').focus();
+			   			return false;
+		   			}
+		   			else
+		   			{
+		   				$("#msgSalon").hide();
+	   					$('#divSalonListPopUp').hide();
+		   				
+		   				$.ajax(
+						{
+			   				url: '{{ path("salon_solution_web_getSalonDomain") }}',
+				   		 	type: 'POST',
+				   		 	data: {salonName:salonName},
+				   		 	success:function(subDomainUrl)
+				   		 	{
+					   			if(subDomainUrl == '')
+					   			{
+					   				
+					   			}
+					   			else
+					   			{
+					   				//alert(subDomainUrl);
+					   				window.location.href = 'http://'+subDomainUrl;
+					   			}
+				   		 	}
+					   	});
+		   			}
+	   		 	}
+		   	});
+   		}
+   	}
+	
+   function searchService()
+   {
+   	var serviceSearchKey = $("#serviceName").val()
+   	$.ajax({
+   		 url: '{{ path("salon_solution_web_searchService") }}',
+   		 type: 'POST',
+   		 data: {serviceSearchKey:serviceSearchKey},
+   		 success:function(data)
+   		 {
+   			if(data == '')
+   			{
+   				$("#divServiceList").removeClass("divActive");
+   				$("#divServiceList").addClass("divInactive");
+   			}
+   			else
+   			{
+   				$("#serviceList").html(data);
+   				$("#divServiceList").removeClass("divInactive");
+   				$("#divServiceList").addClass("divActive");
+   			}
+   		 }
+   	});
+   }
+   
+   function searchZipCity()
+   {
+   	var zipCitySearchKey = $("#cityZip").val()
+   	$.ajax({
+   		 url: '{{ path("salon_solution_web_searchZipCity") }}',
+   		 type: 'POST',
+   		 data: {zipCitySearchKey:zipCitySearchKey},
+   		 success:function(data)
+   		 {
+   			if(data == '')
+   			{
+   				$("#divZipList").removeClass("divActive");
+   				$("#divZipList").addClass("divInactive");
+   			}
+   			else
+   			{
+   				$("#ZipList").html(data);
+   				$("#divZipList").removeClass("divInactive");
+   				$("#divZipList").addClass("divActive");
+   			}
+   		 }
+   	});
+   }
+   function selectService(serviceName)
+   {
+   	$('#serviceName').val(serviceName);
+   	$("#divServiceList").removeClass("divActive");
+   				$("#divServiceList").addClass("divInactive");
+   }
+   function selectCityZip(cityZipValue)
+   {
+   	$('#cityZip').val(cityZipValue);
+   	$("#divZipList").removeClass("divActive");
+   	$("#divZipList").addClass("divInactive");
+   }
+   
+   
+</script>
+
+
+<script src="{{ asset('theme/frontend/js/bootstrap.min.js') }}"  ></script>
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+-->
+
+<script src="{{ asset('theme/frontend/assets/js/vendor/holder.js') }}"  ></script>
+<script src="{{ asset('theme/frontend/assets/js/ie10-viewport-bug-workaround.js') }}"  ></script>
+
+
+</body>
+</html>

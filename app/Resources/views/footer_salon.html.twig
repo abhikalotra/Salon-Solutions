@@ -1,0 +1,342 @@
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 © 2015. All rights resevered. Designed by Browswire. <a href="#" target="_blank">Salon Solution!</a>
+		 	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-migrate.min.js') }}"  type="text/javascript"/></script>
+
+
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-ui/jquery-ui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap/js/bootstrap.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.blockui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.cokie.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/uniform/jquery.uniform.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"  type="text/javascript"/></script>
+
+
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/flot/jquery.flot.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/flot/jquery.flot.resize.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/flot/jquery.flot.categories.min.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.pulsate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-daterangepicker/moment.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"  type="text/javascript"/></script>
+
+<!-- IMPORTANT! fullcalendar depends on jquery-ui.min.js for drag & drop support -->
+<script src="{{ asset('theme/backend/assets/global/plugins/fullcalendar/fullcalendar.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.sparkline.min.js') }}"  type="text/javascript"/></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{ asset('theme/backend/assets/global/scripts/metronic.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/layout.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/quick-sidebar.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/demo.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/index.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/tasks.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/salon.js') }}"  type="text/javascript"/></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+
+
+
+
+<script>
+$(document).ready(function() 
+	{    
+	   	Metronic.init(); // init metronic core componets
+	   	Layout.init(); // init layout
+	   	QuickSidebar.init(); // init quick sidebar
+		Demo.init(); // init demo features
+	   	Index.init();   
+	   	Index.initDashboardDaterange();
+	   	Index.initJQVMAP(); // init index page's custom scripts
+	   	Index.initCalendar(); // init index page's custom scripts
+	   	Index.initCharts(); // init index page's custom scripts
+	   	Index.initChat();
+	   	Index.initMiniCharts();
+	   	Tasks.initDashboardWidget();
+	   	
+	   	var currentUrl = document.URL;
+	   	var arrUrl = currentUrl.split('/salon/');
+		var page = arrUrl[1];
+	   	if( page != '' )
+	   	{
+	   		if( page == 'dashboard' )
+	   		{
+	   			$('#listDashboard').addClass('start active open');
+	   			$('#listDashboard a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageSalons' )
+	   		{
+	   			$('#listSalon').addClass('start active open');
+	   			$('#listSalon a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageConsumers' )
+	   		{
+	   			$('#listConsumer').addClass('start active open');
+	   			$('#listConsumer a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'managePayments' )
+	   		{
+	   			$('#listPayment').addClass('start active open');
+	   			$('#listPayment a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageServices' )
+	   		{
+	   			$('#listService').addClass('start active open');
+	   			$('#listService a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageAppointments' )
+	   		{
+	   			$('#listAppointment').addClass('start active open');
+	   			$('#listAppointment a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageAdvertisements' )
+	   		{
+	   			$('#listAdvertisement').addClass('start active open');
+	   			$('#listAdvertisement a span:last-child').addClass('selected');
+	   		}	   		
+	   		else if( page == 'manageEmployee' )
+	   		{
+	   			$('#listEmployee').addClass('start active open');
+	   			$('#listEmployee a span:last-child').addClass('selected');
+	   		}	   		
+	   		else if( page == 'manageEmployeeMessages' )
+	   		{
+	   			$('#listMessage').addClass('start active open');
+	   			$('#listMessage a span:last-child').addClass('selected');
+	   		}
+	   		else if( page == 'manageBusinessHours' )
+	   		{
+	   			$('#listBusinessHour').addClass('start active open');
+	   			$('#listBusinessHour a span:last-child').addClass('selected');
+	   		}
+			else if( page == 'manageAppointmentsPerDay' )
+	   		{
+	   			$('#listManageAppointmentsPerDay').addClass('start active open');
+	   			$('#listManageAppointmentsPerDay a span:last-child').addClass('selected');
+	   		}
+	   		
+	   	}
+	});
+
+
+
+	function changeStatusSalons(id, currentStatus)
+	{
+		var arrId = id.split('-');
+		id = arrId[1];
+		$.ajax({
+			 url: '{{ path("salon_solution_salon_changeStatusSalons") }}',
+			 type: 'POST',
+			 data: {id:id, currentStatus:currentStatus, objectType:'Salon'},
+			 success:function(updatedStatus)
+			 {
+				$("#divStatus-"+id).html(updatedStatus);
+			 }
+		});
+	}
+
+	function changeStatusConsumers(id, currentStatus)
+	{
+		var arrId = id.split('-');
+		id = arrId[1];
+		$.ajax({
+			 url: '{{ path("salon_solution_salon_changeStatusConsumers") }}',
+			 type: 'POST',
+			 data: {id:id, currentStatus:currentStatus, objectType:'Consumer'},
+			 success:function(updatedStatus)
+			 {
+				$("#divStatus-"+id).html(updatedStatus);
+			 }
+		});
+	}
+
+	function changeStatusAppointment(id, currentStatus)
+	{
+		var arrId = id.split('-');
+		id = arrId[1];
+		$.ajax({
+			 url: '{{ path("salon_solution_salon_changeStatusAppointment") }}',
+			 type: 'POST',
+			 data: {id:id, currentStatus:currentStatus, objectType:'Appointment'},
+			 success:function(updatedStatus)
+			 {
+				$("#divStatus-"+id).html(updatedStatus);
+			 }
+		});
+	}
+	
+	
+	function changeStatusServices(id, currentStatus)
+	{
+		var arrId = id.split('-');
+		id = arrId[1];
+		$.ajax({
+			 url: '{{ path("salon_solution_salon_changeStatusServices") }}',
+			 type: 'POST',
+			 data: {id:id, currentStatus:currentStatus, objectType:'Service'},
+			 success:function(updatedStatus)
+			 {
+				$("#divStatus-"+id).html(updatedStatus);
+			 }
+		});
+	}
+
+	function updateProfile()
+	{
+		var formData = $('#frmEditProfile').serialize();
+
+		$.ajax({
+	   		 url: '{{ path("salon_solution_salon_updateProfile") }}',
+	   		 type: 'POST',
+	   		 data: formData,
+	   		 success:function(result)
+	   		 {
+				location.reload();
+	   		 }
+	   	});
+	}
+
+	function changePassword()
+	{
+		var formData = $('#frmChangePassword').serialize();
+		$.ajax({
+	   		 url: '{{ path("salon_solution_salon_changePassword") }}',
+	   		 type: 'POST',
+	   		 data: formData,
+	   		 success:function(result)
+	   		 {
+				if( result == 'OLD_MISMATCH' )
+				{
+					$("#divFlashMessage").removeClass('msgSuccess');
+					$("#divFlashMessage").addClass('msgError');
+					$("#divFlashMessage").html("The Current Password entered by you is wrong.");
+					$("#oldPassword").focus();
+					return false;
+				}
+				else if( result == 'NEW_MISMATCH' )
+				{
+					$("#divFlashMessage").removeClass('msgSuccess');
+					$("#divFlashMessage").addClass('msgError');
+					$("#divFlashMessage").html("The password does not match.");
+					$("#repeatPassword").focus();
+					return false;
+				}
+				else
+				{
+					$("#divFlashMessage").removeClass('msgError');
+					$("#divFlashMessage").addClass('msgSuccess');
+					$("#divFlashMessage").html("Your password has been changed successfully.");
+					location.reload();
+				}
+	   		 }
+	   	});
+	}
+
+	function deleteSalonImage(imageId)
+	{
+		$.ajax({
+	   		 url: '{{ path("salon_solution_salon_deleteSalonImage") }}',
+	   		 type: 'POST',
+	   		 data: {imageId:imageId},
+	   		 success:function(result)
+	   		 {
+				 //alert(result);
+				location.reload();
+	   		 }
+	   	});
+	}
+
+
+
+function cancel()
+{
+    $("#divDelete").hide();
+}
+
+function showDeleteBox(url)
+{
+    $("#divDelete").show();
+    $("#btnDel").attr('href', url);
+}
+
+function showAjaxDeleteBox(id)
+{
+    $("#divDelete").show();
+    //if( objectType == 'image' )
+    //{ 
+		//alert("hello");return false;
+		$("#btnDel").attr('onclick', 'javascript: deleteSalonImage('+id+')');
+	//}
+}
+
+</script>
+
+
+
+<!-- END JAVASCRIPTS -->
+
+
+<div id="divDelete" style="position: absolute; float: left; width: 100%; height: 100%; left: 0px; opacity: 1; z-index: 33333333; text-align: center; background-color: rgba(0, 0, 0, 0.3); display: none; top: -75px; min-height: 728px;">
+	<div class="portlet box blue" style="display: block; z-index: 1111; position: fixed; top: 50%; width: 25%; padding: 20px; margin-left: 40%;">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-edit"></i>Deletion Confirmation
+			</div>
+			<div class="tools">
+				<!--<a title="" data-original-title="" href="javascript:;" class="collapse">
+				</a>
+				<a title="" data-original-title="" href="#portlet-config" data-toggle="modal" class="config">
+				</a>
+				<a title="" data-original-title="" href="javascript:;" class="reload">
+				</a>-->
+				<a onclick="cancel()" title="Close">
+			
+					<img src="{{ asset('images/icons/portlet-remove-icon-white.png') }}">
+				</a>
+			</div>
+		</div>
+		<div class="portlet-body">
+			<p>  Are You Sure you want to delete this record?</p>
+			<button id="sample_editable_1_new" onclick="cancel()" class="btn green">No</button>
+			<a id="btnDel" href="#">
+				<button id="sample_editable_1_new" onclick="cancel()" class="btn green">Yes</button>
+			</a>    
+		</div>
+	</div>
+</div>
+	
+
+
+
+
+
+
+
+
+</body>
+<!-- END BODY -->
+</html>

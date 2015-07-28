@@ -1,0 +1,484 @@
+	<!-- footer section start here -->
+
+	<div class="container-fluid footer">
+	  <footer>
+		<div class="container modal-footer">
+		  <div class="row">
+		    <div class="col-lg-12">
+		      <div class="col-lg-3 footer-text tanning">
+		        <ul>
+		          <p> Extreme Tanning Centre<br/>
+		            Bayfield North<br/>
+		            389 Bayfield Street <br/>
+		            705.727.1422 </p>
+		        </ul>
+		      </div>
+		      <div class="col-lg-3 footer-text tanning">
+		        <ul>
+		          <p> Extreme Tanning Centre<br/>
+		            Bayfield South<br/>
+		            157 Bayfield Street<br/>
+		            705.721.8264 </p>
+		        </ul>
+		      </div>
+		      <div class="col-lg-3 footer-text tanning">
+		        <ul>
+		          <p>Extreme Tanning Centre<br/>
+		            Big Bay Point<br/>
+		            350 Big Bay Point Rd<br/>
+		            705.739.5151 </p>
+		        </ul>
+		      </div>
+		      <div class="col-lg-3 footer-text tanning">
+		        <ul>
+		          <p>Extreme Tanning Centre<br/>
+		            Big Bay Point<br/>
+		            350 Big Bay Point Rd<br/>
+		            705.739.5151 </p>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	  </footer>
+	</div>
+	<div class="container-fluid b_footer">
+	  <div class="container">
+		<div class="cont_f">
+		  <h4> © 2015. All rights resevered. Designed by Browswire </h4>
+		</div>
+	  </div>
+	</div>
+
+	<!--<script src="{{ asset('theme/frontend/js/bootstrap.min.js') }}"  ></script>-->
+
+	<!--
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+	-->
+	<script src="{{ asset('theme/frontend/js/vendor/holder.js') }}"  ></script>
+	<script src="{{ asset('theme/frontend/js/ie10-viewport-bug-workaround.js') }}"  ></script>
+
+
+	<!--<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+	<script src="{{ asset('theme/frontend/js/eye.js') }}"></script>
+	<!--<script src="{{ asset('theme/frontend/js/layout.js') }}"></script>-->
+	<script src="{{ asset('theme/frontend/js/calendar/ie-emulation-modes-warning.js') }}"></script>
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="{{ asset('theme/frontend/js/calendar/glDatePicker.min.js') }}"  ></script>
+
+ 
+		<script>
+		
+			$(document).ready(function()
+			{
+				//$(".prev-arrow").html('<');
+				//$(".next-arrow").html('>');
+				$('#divBookFriendAppointmentPopUp').fadeIn("slow");
+				
+			});  
+
+			$(window).load(function()
+			{
+				if( "{{app.session.get('consumerEmail')}}" )
+				{		
+					
+					$(".prev-arrow").html('<');
+					$(".next-arrow").html('>');
+					//$('input').glDatePicker();
+					
+					if( "{{app.session.get('appointmentDate')}}" )
+					{		
+						var selectedDate = "{{app.session.get('appointmentDate')}}"; //alert(selectedDate);
+						var arrDate = selectedDate.split('-');
+						day = arrDate[0];
+						month = arrDate[1];
+						year = arrDate[2];
+					}
+					else
+					{
+						var dateObj = new Date();
+						//var month = dateObj.getUTCMonth() + 1; //months from 1-12
+						var month = dateObj.getUTCMonth(); //months from 1-12
+						var day = dateObj.getUTCDate();
+						var year = dateObj.getUTCFullYear();
+					}
+					
+					showCalendar(month, day, year);
+				}
+				else
+				{
+					$('.gldp-default').css('display', 'none');
+				}
+				
+			});
+
+			function showCalendar(month, day, year)
+			{ 
+				var todaysDate = day;
+				
+				var dateObj = new Date();
+				//var month = dateObj.getUTCMonth() + 1; //months from 1-12
+				var curMonth = dateObj.getUTCMonth(); //months from 1-12
+				var curDay = dateObj.getUTCDate();
+				var curYear = dateObj.getUTCFullYear();
+				
+				var lastMonth = curMonth;
+				var lastDay = curDay + 15;
+				var lastYear = curYear;
+				
+				if( lastDay > 30 )
+				{
+					lastMonth = curMonth + 1;
+					lastDay = lastDay - 30;
+					if( lastMonth > 12 )
+					{
+						lastMonth = 1;
+						lastYear = curYear + 1;
+					}
+						
+				}
+				
+				if( "{{app.session.get('appointmentDate')}}" )
+				{
+					var selectedDate = "{{app.session.get('appointmentDate')}}";  //alert(todaysDate);
+					var arrDate = selectedDate.split('-');
+					day = arrDate[0];
+					month = arrDate[1];
+					year = arrDate[2];
+				}
+				else
+				{
+					//month = month-1; //orginal abhi
+					//month = month-1;
+					
+				}
+				
+				$('#txtSelectedDate').glDatePicker(
+				{
+					showAlways: true,
+					allowMonthSelect: true,
+					allowYearSelect: false,
+					//prevArrow: '',
+					//nextArrow: '',
+					selectedDate: new Date(year, month, day),
+					selectableDateRange: [
+						{ from: new Date(curYear, curMonth, curDay),
+							to: new Date(lastYear, lastMonth, lastDay) },
+						/*{ from: new Date(year, month, 19),
+							to: new Date(year, month, 22) },*/
+					],
+					selectableDates: [
+						/*{ date: new Date(year, month, 24) },
+						{ date: new Date(year, month, 30) }*/
+					],
+					
+					specialDates: [
+						{
+							date: new Date(year, month, todaysDate),
+							data: { message: '' },
+							repeatMonth: false
+						},
+						
+					],
+					
+					 onClick: function(target, cell, date, data) 
+					 {
+
+						target.val(date.getMonth() + '-' + date.getDate()+ '-' + date.getFullYear());					
+						setSelectedDateInSession(date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear());
+						
+						//setSelectedDateInSession(target.val());
+						//alert(setSelectedDateInSession(target.val()));
+						if(data != null) 
+						{
+							alert(data.message + '\n' + date);
+						}
+					}
+				});
+			}
+			
+			function setSelectedDateInSession(appointmentDate)
+			{
+				//alert(appointmentDate+ '-- set')
+				$.ajax(
+				{
+			   		 url: '{{ path("salon_solution_web_setSelectedDateInSession") }}',
+			   		 type: 'POST',
+			   		 data: {appointmentDate : appointmentDate},
+			   		 success:function(result)
+			   		 {						
+			   		 	location.reload();  
+			   		 }
+			   	});
+			}
+
+			function changePassword()
+			{
+				var formData = $('#frmChangePassword').serialize();
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_consumerChangePassword") }}',
+			   		 type: 'POST',
+			   		 data: formData,
+			   		 success:function(result)
+			   		 {
+						if( result == 'OLD_MISMATCH' )
+						{
+							$("#divFlashMessage").removeClass('msgSuccess');
+							$("#divFlashMessage").addClass('msgError');
+							$("#divFlashMessage").html("The Current Password entered by you is wrong.");
+							$("#oldPassword").focus();
+							return false;
+						}
+						else if( result == 'NEW_MISMATCH' )
+						{
+							$("#divFlashMessage").removeClass('msgSuccess');
+							$("#divFlashMessage").addClass('msgError');
+							$("#divFlashMessage").html("The password does not match.");
+							$("#repeatPassword").focus();
+							return false;
+						}
+						else
+						{
+							$("#divFlashMessage").removeClass('msgError');
+							$("#divFlashMessage").addClass('msgSuccess');
+							$("#divFlashMessage").html("Your password has been changed successfully.");
+							location.reload();
+						}
+			   		 }
+			   	});
+			}
+			
+			function bookConsumerAppointment(appointmentDetailString)
+			{
+			//alert(appointmentDetailString);
+				/*$.ajax({
+			   		 url: '{{ path("salon_solution_web_compareUserBooking") }}',
+			   		 type: 'POST',
+			   		 data: {},
+			   		 success:function(data)
+			   		 {
+			   			if(data == 'MAX_BOOKED')
+			   			{
+							$("#divMaxAppointmentPopUp").fadeIn("slow");
+			   				return false;
+			   			}
+			   			else
+			   			{
+			   				alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	}); */ 
+		
+				var arrAppointmentDetail = appointmentDetailString.split('_');
+		
+				var appointmentTime = arrAppointmentDetail[1];
+				var appointmentSalonId = arrAppointmentDetail[2];
+				var appointmentServiceId = arrAppointmentDetail[3];
+				var appointmentConsumerId = arrAppointmentDetail[4];
+				//var appointmentStatus = '0';
+		
+				//alert(appointmentTime+'---'+appointmentSalonId+'---'+appointmentServiceId+'---'+appointmentConsumerId+'--'+appointmentStatus);
+				//return false;
+		
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_bookConsumerAppointment") }}',
+			   		 type: 'POST',
+			   		 data: {appointmentTime: appointmentTime, appointmentSalonId: appointmentSalonId, appointmentServiceId: appointmentServiceId, appointmentConsumerId: appointmentConsumerId},
+			   		 success:function(data)
+			   		 {
+					
+			   			if(data == 'SUCCESS')
+			   			{
+							//alert(data);
+			   				window.location.href = '{{ path("salon_solution_web_consumerUnConfirmedAppointments") }}';
+			   			}
+			   			else
+			   			{
+			   				alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	});
+		   	}
+			
+			//abhi start bookFriendAppointment 
+			
+			function showBookFriendAppointmentPopUp(appointmentDetailString)
+			{ 	
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_compareUserBooking") }}',
+			   		 type: 'POST',
+			   		 data: {},
+			   		 success:function(data)
+			   		 {
+			   			if(data == 'MAX_BOOKED')
+			   			{
+							$("#divMaxAppointmentFriendPopUp").fadeIn("slow");
+			   				return false;
+			   			}
+			   			else
+			   			{
+			   				//alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	});
+				
+				$('#divSalonListPopUp').fadeIn("slow");				
+				//$('#divBookFriendAppointmentPopUp').css('display', 'block');
+				$('#hidAppointmentDetail').val(appointmentDetailString);
+				
+		   	}
+			
+			function bookFriendAppointment()
+			{
+						
+				if( $('#friendFN').val() == '' && $('#friendLN').val() == '' && $('#friendEmail').val() == '' && $('#friendPhone').val() == ''  )				
+				{
+					$('#friendFN').focus();
+					$('#friendLN').focus();
+					$('#friendEmail').focus();
+					$('#friendPhone').focus();
+					
+				}
+				else{
+				
+				$('#divSalonListPopUp').fadeOut("slow");
+			
+				var appointmentDetailString = $('#hidAppointmentDetail').val();
+				
+				var arrAppointmentDetail = appointmentDetailString.split('_');
+		
+				var appointmentTime = arrAppointmentDetail[1];
+				var appointmentSalonId = arrAppointmentDetail[2];
+				var appointmentServiceId = arrAppointmentDetail[3];
+				var appointmentConsumerId = arrAppointmentDetail[4];
+				
+				var friendFN = $('#friendFN').val();
+				var friendLN = $('#friendLN').val();
+				var friendEmail = $('#friendEmail').val();
+				var friendPhone = $('#friendPhone').val();
+		  
+				//alert(appointmentTime+'---'+appointmentSalonId+'---'+appointmentServiceId+'------'+friendFN+'----'+friendEmail+'----'+friendLN+'---'+appointmentConsumerId);
+				//return false;
+		
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_bookFriendAppointment") }}',
+			   		 type: 'POST',
+			   		 data: {appointmentTime: appointmentTime, appointmentSalonId: appointmentSalonId, appointmentServiceId: appointmentServiceId, appointmentConsumerId: appointmentConsumerId, friendFN: friendFN, friendLN: friendLN, friendEmail: friendEmail, friendPhone: friendPhone},
+			   		 success:function(data)
+			   		 {
+						//alert(data);
+			   			if(data == 'SUCCESS')
+			   			{
+			   				window.location.href = '{{ path("salon_solution_web_consumerUnConfirmedAppointments") }}';
+			   			}
+			   			else
+			   			{
+			   				alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	});
+				
+				}
+				
+				
+				
+		   	}
+		   	
+		   	function confirmAppointment(appointmentId)
+			{
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_confirmConsumerAppointment") }}',
+			   		 type: 'POST',
+			   		 data: {appointmentId: appointmentId},
+			   		 success:function(data)
+			   		 {
+			   			if(data == 'SUCCESS')
+			   			{
+			   				window.location.href = '{{ path("salon_solution_web_consumerAppointments") }}';
+			   			}
+			   			else
+			   			{
+			   				alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	});
+		   	}	
+			
+			
+			function reloadSalon(salonId)
+			{
+			
+			//alert(salonId);
+			
+				$.ajax({
+			   		 url: '{{ path("salon_solution_web_setSalonInSession") }}',
+			   		 type: 'POST',
+			   		 data: {salonId: salonId},
+			   		 success:function(data)
+			   		 {
+			   			if(data == 'SUCCESS')
+			   			{
+			   				location.reload();
+			   			}
+			   			else
+			   			{
+			   				alert('Error');
+			   				return false;
+			   			}
+			   		 }
+			   	});
+		   	}
+			
+			
+			 function hideSalonListPopUp()
+				{
+					$('#divSalonListPopUp').fadeOut("slow");
+				}
+		 </script>
+		 
+	
+	
+<script>
+$(document).ready(function() 
+	{    
+	   	var currentUrl = document.URL; 
+		
+		if( currentUrl.indexOf('consumerDashboard') >= 0 )
+		{
+			$('#listConsumerDashboard').addClass('active');
+		}
+		else if( currentUrl.indexOf('consumerBookFriend') >= 0 )
+		{
+			$('#listConsumerBookFriend').addClass('active');
+		}
+		else if( currentUrl.indexOf('consumerAppointments') >= 0 )
+		{
+			$('#listMyAppointments').addClass('active');
+		}
+		else if( currentUrl.indexOf('consumerAppointmentHistory') >= 0 )
+		{
+			$('#listAppointmentHistory').addClass('active');
+		}
+		else if( currentUrl.indexOf('consumerProfile') >= 0 || currentUrl.indexOf('consumerEditProfile') >= 0 )
+		{
+			$('#listMyProfile').addClass('active');
+		}
+		else if( currentUrl.indexOf('consumerChangePassword') >= 0 )
+		{
+			$('#listChangePassword').addClass('active');
+		}
+	   	//getSalonLocation(document.getElementById('salonId'));
+	});	 
+</script>
+		 
+		 
+		 
+	</body>
+</html>

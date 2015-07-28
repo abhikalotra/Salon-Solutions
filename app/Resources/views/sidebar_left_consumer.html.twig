@@ -1,0 +1,56 @@
+<div class="col-lg-3 cld">
+	{% if app.session.get('consumerEmail') is defined and app.session.get('consumerEmail') != '' %}
+		<input type="text" id="txtSelectedDate" gldp-id="mydate" style="background-color: rgb(227, 91, 90); border: medium none;"/>
+		<div gldp-el="mydate"
+			 style="width:400px; height:300px; position:absolute; top:70px; left:100px;">
+		</div>
+	
+		<div class="adv_img top_1" >
+			{% if app.session.get('advertisementDisplay') == 1 %}
+				{% for advertisement in app.session.get('leftRandomAdvertisements')  %}
+					&nbsp; 
+				{% endfor  %}
+			{% endif %}
+			{% if app.session.get('advertisementDisplay') == 2 %}
+				
+				<img src="{{ asset('theme/frontend/images/adv_img.jpg') }}" alt=""> 
+				<img src="{{ asset('theme/frontend/images/new_banner12.jpg') }}" alt=""> 
+				<img src="{{ asset('theme/frontend/images/photo-shoot-banner.jpg') }}" alt=""> 
+				
+			{% endif %}
+			{% if app.session.get('advertisementDisplay') == 3 %}
+				{% for advertisement in app.session.get('leftRandomAdvertisements')  %}
+					<img href="{{advertisement.url}}" src="{{ asset('uploads/advertisements/')}}{{advertisement.image}} " alt="{{advertisement.title}}"> 
+				{% endfor  %}
+			{% endif %}
+	  	</div>
+		
+	{% else %}
+		<div class="adv_img top_0" >
+			{% if app.session.get('advertisementDisplay') == 1 %}
+				{% for advertisement in app.session.get('leftRandomAdvertisements')  %}
+					&nbsp; 
+				{% endfor  %}
+			{% endif %}
+			{% if app.session.get('advertisementDisplay') == 2 %}
+				<img src="{{ asset('theme/frontend/images/adv_img.jpg') }}" alt=""> 
+				<img src="{{ asset('theme/frontend/images/new_banner12.jpg') }}" alt=""> 
+				<img src="{{ asset('theme/frontend/images/photo-shoot-banner.jpg') }}" alt=""> 
+				<img src="{{ asset('theme/frontend/images/saki.jpg') }}" alt="">
+			{% endif %}
+			{% if app.session.get('advertisementDisplay') == 3 %}
+				{% for advertisement in app.session.get('leftRandomAdvertisements')  %}
+					<img href="{{advertisement.url}}" src="{{ asset('uploads/advertisements/')}}{{advertisement.image}} " alt="{{advertisement.title}}"> 
+				{% endfor  %}
+			{% endif %}
+
+		</div>
+	{% endif %}
+</div>
+
+<style>
+.adv_img.top_1 > img:nth-child(3) {
+    height: 194px;
+    width: 100%;
+}
+</style>

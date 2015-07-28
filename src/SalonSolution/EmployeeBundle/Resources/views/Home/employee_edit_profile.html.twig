@@ -1,0 +1,208 @@
+
+{% include '::header_employee.html.twig' %}
+
+ <script type= "text/javascript" src = "{{ asset('theme/frontend/js/country.js') }}"></script>
+ 
+ 
+<div class="container-fluid easy happyness book-b">
+  	<div class="container">
+    	<div class="row">
+     		<div class="col-lg-12 ads">
+			  
+			  {% include '::nav_employee.html.twig' %}
+			  
+		   	</div>
+      
+      		<div class="container">
+        		<div class="row book_in">
+          			<div class="col-lg-12 bay">
+						<h4>
+						  </br>
+						  HALF PRICE SPRAY TANS EVERY FRIDAY!!
+					
+						</h4>
+
+						{% include '::sidebar_left_employee.html.twig' %}
+						
+					   <div class="col-lg-6 cod_center">
+							<div class="loginbox regst_2">
+						  		{% for employeeEdit in employeeEditProfile  %}
+									<form  action="" method="post" enctype="multipart/form-data" > 	
+										<ul>
+											<h4>Edit Profile </h4>
+										  	<li>
+												<label class="login-k"><font><font>First Name:</font></font><i><font><font>*</font></font></i></label>
+												<div class="login-v common_form_val">
+													<input type="text" name="firstName" value="{{ employeeEdit.firstName }}" class="x-input inputstyle" >
+												</div>
+											</li>
+
+										  	<li>
+												<label class="login-k"><font><font> Last Name:</font></font><i><font><font>*</font></font></i></label>
+												<div class="login-v common_form_val">
+													<input type="text"   name="lastName" value="{{ employeeEdit.lastName }}" class="x-input inputstyle">
+												</div>
+											</li>
+
+											<li>
+
+											<label class="login-k"><font><font> E-mail:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="email" name="email" value="{{ employeeEdit.email }}"  readonly placeholder="yourname@xx.com">
+
+											  </div>
+
+										  </li>
+
+										  <li>
+
+											<label class="login-k"><font><font> Username:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val passport_login_kocde">
+
+											  <input type="text" name="username"  value="{{ employeeEdit.username }}" class="x-input x-input">
+										</li>
+
+										 <li>
+											<label class="login-k"><font><font> Country:</font></font><i><font><font>*</font></font></i></label>
+										   
+											<select id="country" name="country" value="{{ employeeEdit.country }}" required></select>
+		
+										  </li>
+										  
+										  <li>
+
+											<label class="login-k"><font><font> Province:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <select name="state" id="state" value="{{ employeeEdit.state }}" required></select>
+
+											  </div>
+
+										  </li>
+										   <li>
+
+											<label class="login-k"><font><font> Address:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="address" value="{{ employeeEdit.address }}" class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  <li>
+
+											<label class="login-k"><font><font> City:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="city" value="{{ employeeEdit.city }}" class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+										 
+										  
+										 <li>
+
+											<label class="login-k"><font><font> Zip:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="zip" value="{{ employeeEdit.zip }}" class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+										 <li>
+
+											<label class="login-k"><font><font> Photo:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											<input type="file"  name="photo" value="{{ employeeEdit.photo }}" required>
+
+											  </div>
+
+										  </li>
+										  
+										   <li>
+
+											<label class="login-k"><font><font> Mobile:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="mobile" value="{{ employeeEdit.mobile }}" class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										   <li>
+
+											<label class="login-k"><font><font> Landline:</font></font><i><font><font>*</font></font></i></label>
+
+											<div class="login-v common_form_val">
+
+											  <input type="text"  name="landline"  value="{{ employeeEdit.landline }}" class="x-input inputstyle">
+
+											  </div>
+
+										  </li>
+										  
+										</ul>
+
+										<div class="submit_b">
+											<label class="login-k">&nbsp;</label>
+											<div class="login-v common_form_sub signup_sub">
+												<button type="submit" name="submit" value="Update Profile" class="btn common-btn"  ><span><span><font><font>Update Profile</font></font></span></span></button>
+											</div>
+										</div>
+									</form >
+								{% endfor %}
+			
+	<script language="javascript">
+	populateCountries("country", "state");
+	</script>
+							</div>
+			
+						</div>
+				   
+<!--
+						{% include '::sidebar_right_consumer.html.twig' %}
+-->
+					</div>
+				</div>
+			</div>
+			<!-- /.row --> 
+      
+    	</div>
+  	</div>
+</div>
+
+<style>
+span.message 
+{
+	color: red;
+}
+input.btn.green-haze {
+background: #E35B5A !important;
+color: #FFF;
+}
+
+li#listMyProfile a {
+color: #E35B5A !important;
+background-color: white !important;
+}
+</style>
+
+
+{% include '::footer_employee.html.twig' %}
+
+
+

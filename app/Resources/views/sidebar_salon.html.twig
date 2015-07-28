@@ -1,0 +1,186 @@
+<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler">
+					</div>
+					<!-- END SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+				<li class="sidebar-search-wrapper">
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+					<!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+					<form class="sidebar-search " action="" method="POST">
+						<a href="javascript:;" class="remove">
+						<i class="icon-close"></i>
+						</a>
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+							</span>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+					
+			<!-- BEGIN:- Dashboard link -->
+                <li id="listDashboard" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Dashboard">
+                    <a href="{{ asset('salon/dashboard') }}" >
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Dashboard </span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:- Dashboard link -->
+            
+            
+            
+                    <!-- BEGIN:- Salons link  -->
+                <li id="listSalon" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Salons">
+                    <a href="{{ asset('salon/manageSalons') }}" >
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Salons</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End Salons link -->
+            
+				 <!-- BEGIN:-  Services link  -->
+				<li id="listService" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Manage Services">
+				<a href="{{ asset('salon/manageServices') }}">
+					<i class="icon-home"></i>
+					<span class="title">
+					 Manage Services</span>
+					 <span class=""></span>
+				</a>
+				</li>       <!-- End:-  Appointment link -->
+
+                
+                <!-- BEGIN:- Manage Clients link -->
+                <li id="listConsumer" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Manage Clients">
+                    <a href="{{ asset('salon/manageConsumers') }}">
+                        <i class="icon-basket"></i>
+                        <span class="title"> Manage Clients</span>
+                        <span class=""></span>
+                    </a>
+                    
+                </li>  <!-- End:- Manage Clients link -->
+            
+			
+			
+			
+			      <!-- BEGIN:-    Manage Employee   link  -->
+                <li id="listEmployee" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Manage Employees">
+                    <a href="{{ asset('salon/manageEmployee') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Employees</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-   Manage Employee link -->
+
+				
+			      <!-- BEGIN:-   Employee Messages  link  -->
+                <li id="listMessage" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title=" Manage Messages">
+                    <a href="{{ asset('salon/manageEmployeeMessages') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Messages</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  Employee Messages link -->
+
+                
+				 
+				        
+                    <!-- BEGIN:-   Manage Advertisements link  -->
+                <li id="listAdvertisement" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title=" Manage Advertisements">
+                    <a href="{{ asset('salon/manageAdvertisements') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Advertisements</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-   Manage Advertisements link -->
+
+				        
+                    <!-- BEGIN:-  Manage Business Hours link  -->
+                <li id="listBusinessHour" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Manage Business Hours">
+                    <a href="{{ asset('salon/manageBusinessHours') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Business Hours</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  Manage Business Hours link -->
+
+				
+			 <!-- BEGIN:-  Manage Appointments Per Day link  -->
+                <li id="listManageAppointmentsPerDay" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title=" Manage Appointments Per Day">
+                    <a href="{{ asset('salon/manageAppointmentsPerDay') }}" style="font-size: 12px;">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Appointments Per Day</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  Advertisement link -->
+
+				 
+				   
+                
+                    <!-- BEGIN:-  Payment link  -->
+<!--
+                <li id="listPayment" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Payment">
+                    <a href="angularjs" target="_blank">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Payments</span>
+                         <span class=""></span>
+                    </a>
+                </li>  
+-->
+                     <!-- End:-  Payment link -->
+            
+                
+                
+           
+                
+                    <!-- BEGIN:-  Appointment link  -->
+
+               <!--  <li id="listAppointment" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Appointment">
+                    <a href="{{ asset('salon/manageAppointments') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Appointments</span>
+                         <span class=""></span>
+                    </a>
+                </li>  -->    
+
+                
+                  <!-- End:-  Appointment link -->    
+			
+				
+			
+		
+			
+				
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+	<!-- BEGIN CONTENT -->

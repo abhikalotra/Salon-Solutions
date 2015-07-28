@@ -1,0 +1,406 @@
+
+{% include '::header.html.twig' %}
+
+ <div class="container-fluid easy happyness">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 easy_text peo register">
+	
+	
+
+
+
+        <h4>Payment</h4>
+        <div class="col-lg-12 col-md-12 col-sm-6 salon_in sula">
+         
+         <div class="in_text-2">
+    <div class="sign_up">
+		
+   
+<div id="main">		
+		
+			{% if message %}
+					<div class="mainrib">	
+					<div class="ribs">
+					<h1 class="ribbon">
+					<i><u>{{ message }}</u></i>
+					</h1>
+					</div>
+					<div class="stickmessage">
+						<div class="imgstic">
+							<img src='http://stickynotemaker.com/gen.sticky.php?if=291c2&font=c&img=e&title=You+pay+only+%2410&message=Stripe+is+easy+for+payment+or+100%25+TRUSTED%21%0D%0A%0D%0AGood+Luck%21%21%21+Have+a++nice+day%21%21&title_color=%23a0002d&message_color=%23007e1b' border='0' class="stick">
+						</div>
+					</div>
+					</div>
+					 <div class="clr">
+					 </div>
+		{% else %}
+		
+			<div class="mainrib">	
+			<div class="ribs">
+				<h1 class="ribbon">
+					<i><u>Welcome to Stripe Payment Gate Way</u></i>
+				</h1>
+			</div>
+			<div class="stickmessage">
+				<div class="imgstic">
+					<img src='http://stickynotemaker.com/gen.sticky.php?if=291c2&font=c&img=e&title=You+pay+only+%2410&message=Stripe+is+easy+for+payment+or+100%25+TRUSTED%21%0D%0A%0D%0AGood+Luck%21%21%21+Have+a++nice+day%21%21&title_color=%23a0002d&message_color=%23007e1b' border='0' class="stick">
+				</div>
+			</div>
+			</div>
+			 <div class="clr">
+			 </div>
+	{% endif %}
+
+
+
+
+<div class="bottomdiv">
+<a href="#" class="ribbon-containerbottom">
+	<img src="http://placehold.it/240x160" alt="" class="bottomimage">
+	
+	<span class="ribbonbottom">Click heare to Payment  &nbsp;&nbsp;&nbsp; <strong>-->  --></strong></span>
+</a>
+ </div>
+
+
+ 
+	<div class="formsubmitPayment">
+		<form action="{{ path('salon_solution_web_stripe') }}" method="post">
+		<input type="hidden" name="test" value="{{ firstName }}"/>
+		<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+			  data-key="pk_test_c8kyXRamJtkaY78RUtKq8vPZ" 
+			  data-data-amount="1900" 
+			  data-data-description="One year's subscription"
+			  data-address='true'
+			  data-name='Salon Solutions'
+			  data-description='Charges Are  ($10.00)'
+			  data-panel-label='Checkout'
+			  >
+		</script>
+		</form>
+	</div>
+    
+    
+    
+    </div>
+    </div>
+  </div>
+         
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>   
+
+
+{% include '::footer.html.twig' %}
+
+
+
+<script>
+	$(window).load(function() {
+	document.querySelector('input').addEventListener('change', function() {
+    this.previousElementSibling.style.width = this.value + 'px'
+})
+</script>
+
+<style>
+
+
+	
+	
+	
+.content {
+width: 62%;
+}
+.triangle-isosceles.top {
+background: -webkit-gradient(linear, left top, left bottom, from(#f3961c), to(#f9d835));
+background: -moz-linear-gradient(top, #f3961c, #f9d835);
+background: -o-linear-gradient(top, #f3961c, #f9d835);
+}
+.triangle-isosceles {
+position: relative;
+padding: 15px;
+margin: 1em 0 3em;
+color: #000;
+background: #f3961c;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+background: -webkit-gradient(linear, left top, left bottom, from(#f9d835), to(#f3961c));
+background: -moz-linear-gradient(top, #f9d835, #f3961c);
+background: -o-linear-gradient(top, #f9d835, #f3961c);
+}
+.triangle-isosceles.top:after {
+top: -15px;
+right: 50px;
+bottom: auto;
+left: auto;
+border-width: 0 15px 15px;
+border-color: #f3961c transparent;
+}
+.triangle-isosceles:after {
+content: "";
+display: block;
+position: absolute;
+bottom: -15px;
+left: 50px;
+width: 0;
+height: 0;
+border-width: 15px 15px 0;
+border-style: solid;
+border-color: #f3961c transparent;
+}
+</style>
+
+
+
+
+
+<style>
+
+.formsubmitPayment {
+float: right;
+margin-top: 35px;
+width: 218px;
+margin: 32px 11% 5px 2px;
+}
+
+.clr {
+clear: both;
+}
+.bottomdiv {
+margin-left: 147px;
+width: 383px;
+float: left;
+margin-top: 18px;
+}
+img.bottomimage {
+width: 367px;
+height: 68px;
+}
+.ribbon-containerbottom {
+position: relative;
+display: inline-block;
+line-height: 1;
+}
+.ribbon-containerbottom img {
+vertical-align: middle;
+}
+.ribbonbottom {
+position: absolute;
+bottom: 1em;
+left: 0;
+margin-right: 1em;
+padding: .75em 5.25em 0.75em 4.75em;
+border-radius: 0 .5em .5em 0;
+background-color: #39f;
+background-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.1) 100%);
+box-shadow: inset 0 .062em 0 rgba(255,255,255,.6), 0 .125em .25em rgba(0,0,0,.2);
+color: #fff;
+text-shadow: 0 -.062em 0 rgba(0,0,0,.2);
+white-space: nowrap;
+transition: background-color .2s ease-in-out;
+}
+.ribbonbottom:before,
+.ribbonbottom:after {
+position: absolute;
+background-color: inherit;
+content: "";
+}
+.ribbonbottom:before {
+bottom: 0;
+left: -.5em;
+width: .5em;
+height: 3em;
+border-radius: 0 0 0 .5em;
+background-image: linear-gradient(to right, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 100%);
+}
+.ribbonbottom:after {
+top: -1em;
+left: -.5em;
+width: .5em;
+height: 1em;
+border-radius: .5em 0 0 .5em;
+background-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 100%);
+box-shadow: 0 .062em 0 rgba(255,255,255,.6);
+}
+.ribbon-containerbottom:hover .ribbonbottom {
+background-color: #7acc29;
+}
+</style>
+
+
+
+
+
+<style>
+.mainrib {
+width: 100%;
+}
+
+img.stick {
+width: 61%;
+float: left;
+text-align: center;
+margin-left: 17%;
+}
+.stickmessage {
+width: 100%;
+float: left;
+}
+
+
+.ribs {
+width: 100%;
+height: 124px;
+    background-color: #ded8c5;
+    margin: 0 auto;
+    padding: 20px 0px;
+    -webkit-transition: .2s;
+       -moz-transition: .2s;
+        -ms-transition: .2s;
+         -o-transition: .2s;
+            transition: .2s;
+}
+
+input {
+    display: block;
+    width: 130px;
+    margin: 20px auto;
+}
+
+/* Ribbon */
+.ribbon {
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+.ribbon:before,
+.ribbon i:before {
+    content: '';
+    position: absolute;
+    bottom: -23px;
+    border: 24px solid #c45045;
+}
+
+.ribbon:before {
+    left: -54px;
+    border-left-color: transparent;
+    -webkit-transform: rotate(-16deg);
+       -moz-transform: rotate(-16deg);
+        -ms-transform: rotate(-16deg);
+         -o-transform: rotate(-16deg);
+            transform: rotate(-16deg);
+}
+.oldie .ribbon:before {
+    left: -48px;
+}
+
+.ribbon i:before {
+    right: -54px;
+    border-right-color: transparent;
+    -webkit-transform: rotate(16deg);
+       -moz-transform: rotate(16deg);
+        -ms-transform: rotate(16deg);
+         -o-transform: rotate(16deg);
+            transform: rotate(16deg);
+    z-index: -1;
+}
+.oldie .ribbon i:before {
+    right: -48px;
+}
+
+.ribbon i:after,
+.ribbon u:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    bottom: -16px;
+    z-index: 0;
+}
+
+.ribbon i:after {
+    right: -16px;
+    border-color: transparent transparent transparent #a33d33;
+    border-width: 0 0 16px 16px;
+}
+
+.ribbon u:after {
+    left: 0;
+    border-color: transparent #a33d33 transparent transparent;
+    border-width: 0 16px 16px 0;
+}
+
+.ribbon u {
+    display: block;
+    position: relative;
+    width: 100%;
+    left: -16px;
+    padding: 0 16px 16px;
+    background: #d0726a;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d0726a), to(#c7574d));
+    background-image: -webkit-linear-gradient(#d0726a, #c7574d);
+    background-image:    -moz-linear-gradient(#d0726a, #c7574d);
+    background-image:     -ms-linear-gradient(#d0726a, #c7574d);
+    background-image:         linear-gradient(#d0726a, #c7574d);
+    -webkit-border-top-left-radius: 50% 16px;
+            border-top-left-radius: 50% 16px;
+    -webkit-border-top-right-radius: 50% 16px;
+            border-top-right-radius: 50% 16px;
+    text-align: center;
+    font: 28px/48px Museo, cursive;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(163, 61, 51, .8), 0 2px 1px rgba(163, 61, 51, .6);
+}
+.oldie .ribbon u {
+    padding: 0 16px;
+    *left: 0px;
+    *padding: 0;
+}
+
+.ribbon u {
+    left: 0;
+    margin: 0 -16px;
+    width: auto;
+}
+
+.ribbon u::selection { background-color: #a33d33; }
+.ribbon u::-moz-selection { background-color: #a33d33; }
+
+.ribbon u:before,
+.ribbon:after {
+    content: '';
+    position: absolute;
+    height: 16px;
+    left: 0;
+    bottom: 0;
+    -webkit-border-top-left-radius: 50% 16px;
+            border-top-left-radius: 50% 16px;
+    -webkit-border-top-right-radius: 50% 16px;
+            border-top-right-radius: 50% 16px;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, .3);
+}
+.oldie .ribbon u:before,
+.oldie .ribbon:after {
+    content: none;
+}
+
+.ribbon u:before {
+    width: 100%;
+    background: #a33d33;
+}
+
+.ribbon:after {
+    width: 100%;
+    background: #ded8c5;
+    z-index: 1;
+}
+</style>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\WebBundle\Entity\SalonsolutionsReminder" table="salonSolutions_reminder">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userId" type="integer" column="user_id" nullable="true"/>
+    <field name="appointmentId" type="integer" column="appointment_id" nullable="true"/>
+    <field name="salonId" type="integer" column="salon_id" nullable="true"/>
+    <field name="title" type="string" column="title" length="255" nullable="true"/>
+    <field name="description" type="string" column="description" length="255" nullable="true"/>
+    <field name="remDate" type="string" column="rem_date" length="100" nullable="true"/>
+    <field name="remTime" type="string" column="rem_time" length="100" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="creatorId" type="integer" column="creator_id" nullable="true"/>
+    <field name="creationDatetime" type="datetime" column="creation_datetime" nullable="true"/>
+    <field name="modifierId" type="integer" column="modifier_id" nullable="true"/>
+    <field name="modificationDatetime" type="datetime" column="modification_datetime" nullable="true"/>
+  </entity>
+</doctrine-mapping>

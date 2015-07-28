@@ -1,0 +1,197 @@
+
+
+{% include '::header_salon.html.twig' %}
+
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Consumer
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Consumer  </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Consumer Information
+										</div>
+										<div class="tools">
+										
+											<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+								
+					{% for consumer in updateConsumerInformation  %}
+								 
+									
+							<form  action="" method="post" class="form-horizontal"  enctype="multipart/form-data" >
+							
+																		
+						<div class="form-group last">
+										<label class="col-md-3 control-label">First Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="firstName" value="{{ consumer.firstName }}" class="form-control input-circle" >
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label"> Last Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"   name="lastName" value="{{ consumer.lastName }}" class="form-control input-circle">
+
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">E-mail:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="email" name="email" value="{{ consumer.email }}" readonly class="form-control input-circle"/>
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Username:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text" name="username" value="{{ consumer.username }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+						
+						<div class="form-group last">
+										<label class="col-md-3 control-label">Country</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="country"  value="{{ consumer.country }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Province</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="state"  value="{{ consumer.state }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+						
+						
+								
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">City</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="city"  value="{{ consumer.city }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+								<div class="form-group last">
+										<label class="col-md-3 control-label">Address</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"   name="address"  value="{{ consumer.address }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Zip</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="zip"  value="{{ consumer.zip }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Mobile</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="mobile"  value="{{ consumer.mobile }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Landline</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="landline"  value="{{ consumer.landline }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Photo</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="file"  name="photo"  value="{{ consumer.photo }}" required class="form-control input-circle"/>
+										</div>
+							</div>
+							
+						
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+										
+										<a href="{{ path('salon_solution_salon_manageConsumers') }}" class="btn btn-circle blue">Cancel </a>
+											<button type="submit" class="btn btn-circle blue">Submit</button>
+											
+										</div>
+									</div>
+								</div>
+							
+							</form>
+								{% endfor %}		
+										<!-- END FORM-->	
+								
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+ 
+ 
+ 
+ 
+{% include '::footer_salon.html.twig' %}

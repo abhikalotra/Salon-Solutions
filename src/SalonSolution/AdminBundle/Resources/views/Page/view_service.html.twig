@@ -1,0 +1,188 @@
+{% include '::header_admin.html.twig' %}
+
+<link href="{{ asset('theme/backend/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+<link href="{{ asset('theme/backend/assets/admin/pages/css/profile-old.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_admin.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			
+
+
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+		
+		
+		<div class="row profile">
+				<div class="col-md-12">
+					<!--BEGIN TABS-->
+					<div class="tabbable-line tabbable-full-width">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_1_1" data-toggle="tab" aria-expanded="true">
+								Overview </a>
+							</li>						
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_1_1">
+								<div class="row">
+									
+							{% for view in viewService  %}
+									<div class="col-md-3">
+										<ul class="list-unstyled profile-nav">
+												<li style="background: {{ view.color }};">
+													   	<img src="{{ asset('uploads/default_image/') }}default_avatar.png" class="img-responsive" alt="">
+													 
+											</li>
+											  
+										</ul>
+									</div>
+									
+									
+										<div class="col-md-9">
+										<div class="row">
+											<div class="col-md-8 profile-info"> 
+												<h1 >Name (  {{ view.title }} )  Location(  {{ getSalonLocation }}  )</h1>  
+												<p>
+														{{ view.description }}
+													 													    
+													  
+												</p>
+												
+												<ul class="list-inline">
+													<li>
+														<i class="fa fa-map-marker"></i> {{ view.title }}
+													</li>
+													<li>
+														<i class="fa-automobile"></i> {{ view.description }}
+													</li>
+													<li>
+														<i class="fa fa-briefcase"></i> {{ view.color }}
+													</li>
+													<li>
+														<i class="fa fa-star"></i> {{ getSalonLocation }}
+													</li>
+													<li>
+														<i class="fa fa-heart"></i>  {{ view.availability }} 
+													</li>
+												</ul>
+											</div>
+											<!--end col-md-8-->
+										
+										</div>
+										<!--end row-->
+										<div class="tabbable-line tabbable-custom-profile">
+											<ul class="nav nav-tabs">
+												<li class="active">
+													<a href="#tab_1_11" data-toggle="tab" aria-expanded="true">
+													Service  View</a>
+												</li>
+												
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_1_11">
+													<div class="portlet-body">
+														<table class="table table-striped table-bordered table-advance table-hover">
+														<thead>
+														<tr>
+															<th>
+																<i class="fa fa-briefcase"></i> Title
+															</th>
+															<th>
+																<i class="fa fa-paper-plane-o"></i> Description
+															</th>
+															<th>
+																<i class="fa fa-automobile"></i> Color
+															</th>
+															<th>
+																<i class="fa fa-space-shuttle"></i> Location
+															</th>
+															<th>
+																<i class="fa fa-tachometer"></i> Bed Available 
+															</th>
+														
+														</tr>
+														</thead>
+														<tbody>
+														<tr>
+															<td >
+																<a href="javascript:;">
+															{{ view.title }}</a>
+															</td>
+															<td class="hidden-xs" >
+																{{ view.description }}
+															</td>
+															<td style="background: {{ view.color }};">
+																
+															</td >
+															<td>
+																 {{ getSalonLocation }}
+															</td>
+															<td >
+																{{ view.availability }}
+															</td>
+												 		
+														</tr>
+																												
+														</tbody>
+														</table>
+													</div>
+												</div>
+												<!--tab-pane-->
+											
+											</div>
+										</div>
+									</div>
+								
+									{% endfor %}
+							
+								</div>
+							</div>
+							
+							<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+											<a href="{{ path('salon_solution_admin_manageServices') }}" class="btn btn-circle blue">Cancel </a>
+									
+										</div>
+									</div>
+								</div>
+							
+							<!--tab_1_2-->
+							<!--end tab-pane-->
+							</div>
+					</div>
+					<!--END TABS-->
+				</div>
+			</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+});
+</script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}"  type="text/javascript"/></script>
+
+
+{% include '::footer_admin.html.twig' %}

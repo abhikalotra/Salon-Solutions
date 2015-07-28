@@ -1,0 +1,84 @@
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>
+
+
+	
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+		  $( "#signupForm" ).submit();
+		}
+	});
+
+	$().ready(function() {
+		
+		//alert("sda");
+		// validate the comment form when it is submitted
+	//	$("#commentForm").validate();
+
+		// validate signup form on keyup and submit
+		$("#signupForm").validate({
+			rules: {
+				
+				title: "required",
+				description: "required",
+				displayName: "required",
+				color: "required",
+				price: "required",
+				salon_id: "required",
+				availability: "required",
+				//agree: "required"
+			},
+			
+			messages: {
+				title: "Please enter your Title",				
+				displayName: "Please enter your Display Name",				
+				description: "Please enter your Description",				
+				color: "Please enter your Color",
+				price: "Please enter your Price",
+				salon_id: "Please enter your Salon_id",
+				availability: "Please enter your Availability",
+				//agree: "Please accept our policy"
+			}
+		});
+
+		// propose title by combining first- and description
+		$("#title").focus(function() {
+			var name = $("#title").val();
+			var description = $("#description").val();
+			if (title && description && !this.value) {
+				this.value = title + "." + description;
+			}
+		});
+
+		//code to hide topic selection, disable for demo
+		var newsletter = $("#newsletter");
+		// newsletter topics are optional, hide at first
+		var inital = newsletter.is(":checked");
+		var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+		var topicInputs = topics.find("input").attr("disabled", !inital);
+		
+		 
+	});
+	</script>
+
+<style>
+form.cmxform label.error, label.error {
+color: red;
+font-style: italic
+font-size: 14px !important;
+font-weight: normal;
+}
+input.error {
+border: 1px dotted red; 
+}
+
+.login-v.common_form_val input {
+float: left;
+}
+.login-v.common_form_val select {
+float: left;
+}
+
+</style>

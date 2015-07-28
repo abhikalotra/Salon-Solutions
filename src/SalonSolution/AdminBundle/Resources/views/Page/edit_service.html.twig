@@ -1,0 +1,182 @@
+
+
+{% include '::header_admin.html.twig' %}
+
+<style>
+input#color {
+width: 68px;
+}
+</style>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_admin.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Customer
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Customer </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Service Information
+										</div>
+										<div class="tools">
+										<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+									<div class="portlet-body form">
+					
+										<!-- BEGIN FORM-->
+		 	{% for updateService in updateServiceInformation  %}
+		 		
+						<form action="" method="post" class="form-horizontal" enctype="multipart/form-data"  >
+							
+																		
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Title:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="title"   value="{{ updateService.title }}"  class="form-control input-circle" >
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Description:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"   name="description"   value="{{ updateService.description }}" id="description"  class="form-control input-circle">
+
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Color:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="color" name="color"  value="{{ updateService.color }}"  id="color"  class="form-control input-circle"/>
+										</div>
+							</div>
+							<!-- <div class="form-group last">
+										<label class="col-md-3 control-label">Price:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text" name="price"    value="{{ updateService.price }}" id="price"   class="form-control input-circle"/>
+										</div>
+							</div> -->
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Salon Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										
+										 <select name = "salonId" id="salonId" onchange="getSalonLocation(this)" >	
+										 	
+											{% for salonId, salonName in arrSalon  %}		
+											
+												<option value="{{ salonId }}" {% if updateService.salonId == salonId %} selected {%endif %}>{{ salonName }} </option>											  
+											{% endfor %}
+											</select>
+										    
+										
+										</div>
+							</div>
+							
+							<div class="form-group last">
+								<label class="col-md-3 control-label">Salon Location:</label>
+								<div class="col-md-4">
+									<span class="form-control-static">
+								
+									<select name="salonLocation" id="salonLocation" style="display:none;" >	
+										
+									</select>
+								</div>
+							</div>
+		
+		
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Availability (No. of Beds):</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+												<input type="text" name="availability"  value="{{ updateService.availability }}"  id="availability"  class="form-control input-circle"/>
+											</div>
+							</div>
+					
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+										<a href="{{ path('salon_solution_admin_manageServices') }}" class="btn btn-circle blue">Cancel </a>
+											<button type="submit" class="btn btn-circle blue">submit</button>
+											
+									
+										</div>
+									</div>
+								</div>
+							
+							</form>
+				{% endfor %}						<!-- END FORM-->
+									</div>
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+<script>
+		function getSalonLocation(id)
+		{
+			var salonId = id.value;  
+	
+			$.ajax({
+               		url : '{{ path("salon_solution_admin_getSalonLocation") }}',
+                	type:'POST',
+                	data:{'salonId':salonId},
+                	//dataType:'html',   
+                	success:function(data)
+                	{
+						$('#salonLocation').html(data);
+						$('#salonLocation').css('display', 'block');
+					}
+            });
+		}
+		
+	</script>
+ 
+ 
+ 
+ 
+{% include '::footer_admin.html.twig' %}

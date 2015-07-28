@@ -1,0 +1,398 @@
+salon_solution_salon_homepage:
+    path:  /salon
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:login }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_login:
+    path:  /salon/login
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:login }
+    requirements:  { _method:  get|post }
+   
+salon_solution_salon_recoverPassword:
+    path:  /salon/recoverPassword
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:recoverPassword }
+    requirements:  { _method:  get|post }
+    
+salon_solution_salon_logout:
+    path:  /salon/logout
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:logout }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_dashboard:
+    path:  /salon/dashboard
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:dashboard }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_manageConsumers:
+    path:  /salon/manageConsumers
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageConsumers }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_changeStatusConsumers:
+    path:  /salon/changeStatusConsumers
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changeStatusConsumers }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_viewConsumer:
+    path:  /salon/viewConsumer/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewConsumer }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_addConsumer:
+    path:  /salon/addConsumer
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addConsumer }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_editConsumer:
+    path:  /salon/editConsumer/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editConsumer }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_deleteConsumer:
+    path:  /salon/deleteConsumer/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteConsumer }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_images:
+    path:  /salon/images/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:images }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_deleteSalonImage:
+    path:  /salon/deleteSalonImage
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteSalonImage }
+    requirements:  { _method:  get|post }
+    
+
+
+
+
+
+
+salon_solution_salon_manageSalons:
+    path:  /salon/manageSalons
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageSalons }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_changeStatusSalons:
+    path:  /salon/changeStatusSalons
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changeStatusSalons }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_addSalon:
+    path:  /salon/addSalon
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addSalon }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_viewSalon:
+    path:  /salon/viewSalon/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewSalon }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_editSalon:
+    path:  /salon/editSalon/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editSalon }
+    requirements:  { _method:  get|post }
+    
+
+
+salon_solution_salon_deleteSalon:
+    path:  /salon/deleteSalon/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteSalon }
+    requirements:  { _method:  get|post }
+
+  
+
+
+salon_solution_salon_manageServices:
+    path:  /salon/manageServices
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageServices }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_changeStatusServices:
+    path:  /salon/changeStatusServices
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changeStatusServices }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_viewServices:
+    path:  /salon/viewService/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_addService:
+    path:  /salon/addService
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_deleteService:
+    path:  /salon/deleteService/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteService }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_editService:
+    path:  /salon/editService/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editService }
+    requirements:  { _method:  get|post }
+    
+
+
+salon_solution_salon_manageAppointments:
+    path:  /salon/manageAppointments
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageAppointments }
+    requirements:  { _method:  get|post }
+    
+salon_solution_salon_addAppointment:
+    path:  /salon/addAppointment
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addAppointment }
+    requirements:  { _method:  get|post }
+         
+salon_solution_salon_deleteAppointment:
+    path:  /salon/deleteAppointment/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteAppointment }
+    requirements:  { _method:  get|post }  
+    
+salon_solution_salon_editAppointment:
+    path:  /salon/editAppointment/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editAppointment }
+    requirements:  { _method:  get|post }
+   
+
+salon_solution_salon_changeStatusAppointment:
+    path:  /salon/changeStatusAppointment
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changeStatusAppointment }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_salon_viewAppointment:
+    path:  /salon/viewAppointment/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewAppointment }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_getServices:
+    path:  /salon/getServices
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:getServices }
+    requirements:  { _method:  get|post }
+   
+
+salon_solution_salon_getConsumers:
+    path:  /salon/getConsumers
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:getConsumers }
+    requirements:  { _method:  get|post }
+   
+
+
+
+
+
+
+salon_solution_salon_manageAdvertisements:
+    path:  /salon/manageAdvertisements
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageAdvertisements }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_addAdvertisement:
+    path:  /salon/addAdvertisement
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addAdvertisement }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_editAdvertisement:
+    path:  /salon/editAdvertisement/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editAdvertisement }
+    requirements:  { _method:  get|post }
+ 
+
+salon_solution_salon_viewAdvertisement:
+    path:  /salon/viewAdvertisement/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewAdvertisement }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_salon_deleteAdvertisement:
+    path:  /salon/deleteAdvertisement/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteAdvertisement }
+    requirements:  { _method:  get|post }
+    
+
+salon_solution_salon_manageAdvertisementDisplay:
+    path:  /salon/manageAdvertisementDisplay
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageAdvertisementDisplay }
+    requirements:  { _method:  get|post }
+  
+ 
+ 
+
+
+salon_solution_salon_manageEmployee:
+    path:  /salon/manageEmployee
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageEmployee }
+    requirements:  { _method:  get|post }
+ 
+
+
+salon_solution_salon_addEmployee:
+    path:  /salon/addEmployee
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addEmployee }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_viewEmployee:
+    path:  /salon/viewEmployee/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewEmployee }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_editEmployee:
+    path:  /salon/editEmployee/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editEmployee }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_deleteEmployee:
+    path:  /salon/deleteEmployee/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteEmployee }
+    requirements:  { _method:  get|post }
+  
+  
+
+
+
+salon_solution_salon_manageEmployeeMessages:
+    path:  /salon/manageEmployeeMessages
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageEmployeeMessages }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_addEmployeeMessage:
+    path:  /salon/addEmployeeMessage
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addEmployeeMessage }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_viewEmployeeMessage:
+    path:  /salon/viewEmployeeMessage/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewEmployeeMessage }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_editEmployeeMessage:
+    path:  /salon/editEmployeeMessage/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editEmployeeMessage }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_deleteEmployeeMessage:
+    path:  /salon/deleteEmployeeMessage/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteEmployeeMessage }
+    requirements:  { _method:  get|post }
+  
+
+
+
+
+salon_solution_salon_manageBusinessHours:
+    path:  /salon/manageBusinessHours
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageBusinessHours }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_closedDays:
+    path:  /salon/closedDays
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:closedDays }
+    requirements:  { _method:  get|post }
+  
+
+
+salon_solution_salon_addClosedHour:
+    path:  /salon/addClosedHour
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:addClosedHour }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_viewClosedHour:
+    path:  /salon/viewClosedHour/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:viewClosedHour }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_editClosedHour:
+    path:  /salon/editClosedHour/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:editClosedHour }
+    requirements:  { _method:  get|post }
+  
+
+salon_solution_salon_deleteClosedHour:
+    path:  /salon/deleteClosedHour/{id}
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:deleteClosedHour }
+    requirements:  { _method:  get|post }
+  
+
+
+salon_solution_salon_manageAppointmentsPerDay:
+    path:  /salon/manageAppointmentsPerDay
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:manageAppointmentsPerDay }
+    requirements:  { _method:  get|post }
+  
+
+
+
+
+
+
+
+
+
+
+salon_solution_salon_profile:
+    path:  /salon/profile
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:profile }
+    requirements:  { _method:  get|post }
+  
+salon_solution_salon_profileAccount:
+    path:  /salon/profileAccount
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:profileAccount }
+    requirements:  { _method:  get|post }
+    
+salon_solution_salon_changeProfileImage:
+    path:  /salon/changeProfileImage
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changeProfileImage }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_updateProfile:
+    path:  /salon/updateProfile
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:updateProfile }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_updateProfile:
+    path:  /salon/updateProfile
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:updateProfile }
+    requirements:  { _method:  get|post }
+
+salon_solution_salon_changePassword:
+    path:  /salon/changePassword
+    defaults: { _controller: SalonSolutionSalonBundle:Salon:changePassword }
+    requirements:  { _method:  get|post } 
+
+ 
+
+

@@ -1,0 +1,1799 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@font-face {
+ font-family: 'open_sansbold';
+ src: url('../fonts/opensans-bold.eot');
+ src: url('../fonts/opensans-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/opensans-bold.woff') format('woff'), url('../fonts/opensans-bold.ttf') format('truetype'), url('../fonts/opensans-bold.svg#open_sansbold') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'open_sansregular';
+ src: url('../fonts/opensans-regular.eot');
+ src: url('../fonts/opensans-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/opensans-regular.woff') format('woff'), url('../fonts/opensans-regular.ttf') format('truetype'), url('../fonts/opensans-regular.svg#open_sansregular') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'open_sansextrabold';
+ src: url('../fonts/opensans-extrabold.eot');
+ src: url('../fonts/opensans-extrabold.eot?#iefix') format('embedded-opentype'), url('../fonts/opensans-extrabold.woff') format('woff'), url('../fonts/opensans-extrabold.ttf') format('truetype'), url('../fonts/opensans-extrabold.svg#open_sansextrabold') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'open_sanssemibold';
+ src: url('../fonts/opensans-semibold.eot');
+ src: url('../fonts/opensans-semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/opensans-semibold.woff') format('woff'), url('../fonts/opensans-semibold.ttf') format('truetype'), url('../fonts/opensans-semibold.svg#open_sanssemibold') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+body {
+	font-family: 'open_sansregular';
+}
+.container-fluid.banner {
+	background: rgba(0, 0, 0, 0) url("../images/banner_img.jpg") no-repeat scroll 100% 100% / cover;
+	height: 620px;
+	margin-top: 6%;
+}
+.container.bann_text {
+	margin-top: 11%;
+}
+.col-lg-12.book_your > h2 {
+      background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-family: "open_sansbold";
+    font-size: 34px;
+    margin: auto;
+    padding: 13px 0;
+    text-align: center;
+    width: 79%;
+}
+.btn.btn-default.try {
+     background-color: rgba(255, 255, 255, 0.75);
+    color: #3c3939;
+    font-size: 20px;
+    height: 48px;
+    margin: 4% auto auto;
+    text-align: center;
+    width: 15%;
+	font-family: 'open_sanssemibold';
+}
+.try {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+.row.input_button {
+    margin: 20% auto auto;
+    width: 77%;
+}
+.col-lg-3.col-md-5.right_top {
+	float: right;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 33%;
+}
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 50px;
+    line-height: 1.42857;
+    padding: 6px 15px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.input-group {
+    border-collapse: separate;
+    display: block;
+}
+.btn.btn-default {
+   background: #81cf56 none repeat scroll 0 0;
+    border-radius: 0;
+    color: #fff;
+    font-size: 21px;
+    height: 50px;
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top li {
+	border-right: 1px solid #e35b5a;
+	float: left;
+	line-height: 0;
+	list-style: outside none none;
+	margin-top: 7px;
+	padding: 6px 0 2px;
+}
+.col-lg-3.col-md-5.right_top a {
+	padding: 0 12px;
+	text-decoration:none;
+	color:#e35b5a;
+}
+.col-lg-3.col-md-5.right_top li:last-child {
+	border-right: medium none !important;
+}
+/* easy section start here */
+
+.container-fluid.easy {
+	background: #e35b5a none repeat scroll 0 0;
+	padding: 126px 0;
+	color:#FFF;
+}
+.col-lg-12.easy_text h4 {
+	font-size: 32px;
+	margin-bottom: 10%;
+	text-align: center;
+	font-family: 'open_sansbold';
+}
+.col-lg-4.salon_in {
+	text-align: center;
+}
+.img-circle {
+	background: #215a8c none repeat scroll 0 0;
+	border: 3px solid #fff;
+	border-radius: 120px;
+	display: inline-block;
+	height: 120px;
+	text-align: center;
+	width: 120px;
+}
+.col-lg-4.salon_in > p {
+	font-size: 16px;
+	margin: auto;
+	width: 77%;
+}
+.img-circle > h1 {
+	font-size: 56px;
+	margin-top: 23%;
+}
+.col-lg-4.salon_in > h2 {
+	font-family: "open_sanssemibold";
+	font-size: 24px;
+}
+.col-lg-8.guaranty > h2 {
+	font-size: 32px;
+	font-family: 'open_sansbold';
+}
+/* happiness  section start here */
+.container-fluid.easy.happyness {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	padding: 15px 0;
+}
+.col-lg-8.guaranty {
+	color: #000;
+}
+.col-lg-8.guaranty > p {
+	font-size: 16px;
+	margin: 40px 0;
+}
+.col-lg-8.guaranty li {
+	 font-size: 16px;
+    list-style: outside none none;
+    padding: 6px 0;
+}
+/* people css start here */
+.col-lg-12.easy_text.peo {
+	color: #000;
+}
+.col-lg-6.salon_in.sula {
+	margin: 0;
+	padding: 0;
+}
+.saying_img {
+	float: left;
+	margin-right: 4%;
+}
+.saying_img h5 {
+	font-size: 18px;
+	text-align: center;
+}
+.col-lg-6.salon_in.sula > p {
+	color: #7d7474;
+	font-size: 16px;
+	margin: 18px 0;
+	padding: 0;
+	width: 95%;
+}
+.dont_img {
+	padding-top: 19%;
+	text-align: center;
+}
+.col-lg-6.col-md-6.col-sm-6.salon_in.sula {
+	float: left;
+}
+/* footer css start here */
+.container-fluid.footer {
+	background: #215a8c none repeat scroll 0 0;
+	padding: 50px 0;
+}
+.container.modal-footer {
+	
+	border: medium none;
+}
+.container-fluid.logo {
+    padding: 16px 0 39px;
+}
+.col-lg-3.footer-text {
+	text-align: left;
+	color: #fff;
+}
+.col-lg-3.footer-text > ul {
+	margin:0;
+	padding:0;
+}
+.col-lg-3.footer-text li {
+	list-style: outside none none;
+	padding: 4px 0;
+	text-decoration: none;
+}
+.col-lg-3.footer-text a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+}
+.social_icon {
+	margin: 5% auto auto;
+	width: 24%;
+}
+.col-lg-3.footer-text.last {
+    float: right;
+    width: 21%;
+}
+.social_icon li {
+	float: left;
+	list-style: outside none none;
+}
+.social_icon a {
+	list-style: outside none none;
+	padding: 11px 4px;
+	text-decoration: none;
+}
+.container-fluid.b_footer {
+	background: #1a456a none repeat scroll 0 0;
+}
+.cont_f > h4 {
+	color: #fff;
+	font-size: 14px;
+	padding: 11px 0;
+	text-align: center;
+}
+.col-lg-3.footer-text h4 {
+	font-family: 'open_sanssemibold';
+}
+/*simple css start here */
+
+.col-lg-12.simple {
+    color: #000;
+}
+.col-lg-12.simple > h4 {
+   font-family: "open_sansbold";
+    font-size: 32px;
+    text-align: center;
+}
+.col-lg-12.simple > p {
+    font-size: 16px;
+    margin: 3% auto 6%;
+    text-align: center;
+    width: 77%;
+}
+.col-lg-4 li {
+     font-size: 16px;
+    list-style: outside none none;
+    padding: 5px 0;
+}
+.col-lg-8.right_img > img {
+    float: left;
+    width: 100%;
+}
+.col-lg-8.guaranty > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.col-lg-4.self > ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Begin - CSS by Pankaj Sharma */
+select#salonLocation {
+color: #000;
+float: left;
+font-size: 16px;
+padding-bottom: 0;
+padding-left: 0;
+padding-right: 22px;
+margin-top: 15px;
+}
+
+#mydate
+{
+	background: none repeat scroll 0 0 #e35b5a;
+    border: medium none;
+    color: #e35b5a;
+}
+
+.popUpDivOuter
+{
+	background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    float: left;
+    height: 100%;
+    left: 0;
+    min-height: 3480px;
+    opacity: 1;
+    position: absolute;
+    text-align: center;
+    top: -75px;
+    width: 100%;
+    z-index: 33333333;
+}
+.popUpDivInner
+{
+	background: none repeat scroll 0 0 white;
+    left: 35%;
+    padding: 0 0 23px;
+    position: fixed;
+    top: 30%;
+    width: 30%;
+    z-index: 1111;
+}
+.popUpInput
+{
+	background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 1.42857;
+    padding: 6px 15px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    margin-left: 15%;
+    width: 70%;
+}
+.popUpAjxDiv
+{
+	text-align: left; 
+	width: 70%; 
+	margin-left: 15%;
+}
+.popUpAjxList
+{
+	float: left; 
+	width: 100%; 
+	padding: 0px; 
+	margin-top: -1px; 
+	text-indent: 15px; 
+	border: 1px solid lightgrey;
+}
+.popUpAjxList > li
+{
+    list-style: none;
+}
+.popUpAjxList > li:hover 
+{
+    cursor: pointer;
+    background-color: #E35B5A;
+    color: white;
+}
+.portlet-title 
+{
+    background-color: #215a8c;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.tools 
+{
+    float: right;
+    margin-right: 2%;
+    margin-top: -30px;
+}
+.portlet-body 
+{
+    margin-top: 10%;
+}
+
+
+.col-lg-3.col-md-5.right_top a:hover 
+{
+    font-size: 15px;
+    color: #215A8C;
+}
+
+.hover
+{
+	cursor: pointer;
+}
+
+.divError
+{
+	color: red;
+	font-weight: normal !important;
+}
+
+.divSuccess
+{
+	color: green;
+	font-weight: normal !important;
+}
+
+.divActive
+{
+	display: block;
+}
+
+.divInactive
+{
+	display: none;
+}
+
+/* End - CSS by Pankaj Sharma */
+
+
+
+/* responsive css start here */
+
+@media (max-width: 768px) {
+	.container-fluid.banner {
+    margin-top: 12%;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 17px;
+    margin-top: 3%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 23px;
+    width: 90%;
+}
+.btn.btn-default.try{
+	width:21%;
+}
+.col-lg-4.salon_in {
+    margin-bottom: 7%;
+    width: 31%;
+	float:left;
+}
+.col-lg-3.footer-text.last {
+    float: inherit;
+    width: 21%;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 32%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 37%;
+}
+	
+}
+
+@media (max-width: 640px) {
+.container-fluid.banner {
+    margin-top: 15%;
+}
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+}
+
+@media (max-width: 480px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 38%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+}
+
+@media (max-width: 360px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 51%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+.navbar-brand > img {
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top {
+    float: right;
+    width: 74%;
+}
+.col-lg-3.col-md-5.right_top a {
+    font-size: 12px;
+    padding: 0 6px;
+}
+.col-lg-8.guaranty > h2 {
+    font-family: "open_sansbold";
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+.col-lg-8.guaranty > p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+.col-lg-12.easy_text h4 {
+      font-size: 20px;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 66%;
+}
+.social_icon {
+      width: 91%;
+}
+}
+
+@media (max-width: 320px) {
+.col-lg-12.simple > p {
+    font-size: 16px;
+    margin: 3% auto 6%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+    font-size: 14px;
+}
+.container-fluid.easy {
+      padding: 23px 0;
+}
+.col-lg-4.left_img > img {
+    width: 100%;
+}
+.saying_img {
+     margin-right: 4%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 99%;
+}
+
+}
+
+
+
+
+
+/* register page css start here */
+
+
+.in_text-2 {
+    margin: auto;
+    width: 1000px;
+}
+
+.sign_up {
+    
+    margin:auto;
+    padding: 15px;
+    width: 90%;
+}
+.sect {
+    padding: 7px 5px;
+    width: 88%;
+	border:1px solid #ddd;
+}
+
+.loginbox {
+    clear: both;
+    margin: 8px 0 12px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.loginbox ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+}
+
+.loginbox li {
+       float: left;
+    margin-left: 5%;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 45%;
+}
+.check_box {
+    float: left;
+    margin-left: 5%;
+    width: 93%;
+}
+
+.login-k {
+    color: #555;
+    display: block;
+    float: left;
+    height: auto;
+    padding: 5px 10px 5px 0;
+    text-align: left;
+    width: 100%;
+}
+.submit_b {
+    float: right;
+    margin-right: 5%;
+}
+
+.login-k i {
+    color: red;
+    margin-right: 5px;
+}
+
+.login-k i {
+    color: red;
+}
+.login-v {
+    color: #555;
+    font-size: 14px;
+}
+.col-lg-12.easy_text.peo.register > h4 {
+   	   border-bottom: 3px solid;
+    margin: auto auto 32px;
+    padding-bottom: 2%;
+    width: 79%;
+}
+.common_form_val input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    height: 35px;
+    line-height: 35px;
+   
+    padding: 0 6px;
+    width: 88%;
+}
+.btn.common-btn {
+    background: #E35B5A;
+	color:#FFF;
+}
+.login-v {
+    color: #555;
+    font-size: 14px;
+}
+
+.comment.caution.notice-inline {
+    color: #555;
+    font-size: 13px;
+}
+
+.comment.caution.notice-inline {
+    color: #555;
+    font-size: 13px;
+}
+
+.comment.caution.notice-inline {
+    color: #555;
+    font-size: 13px;
+}
+
+/* search css start here */
+
+.in_text-2.salon_logo > img {
+    float: left;
+}
+.salon_in h2 {
+     font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+.col-lg-12.easy_text.peo.register.search > h4 {
+    width: 100%;
+}
+.col-lg-12.col-md-12.col-sm-6.salon_in.sula.seaech_in {
+    margin: 0;
+    padding: 0;
+}
+
+/* responsive css start here */
+
+@media (max-width: 768px) {
+	.container-fluid.banner {
+    margin-top: 12%;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 17px;
+    margin-top: 3%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 23px;
+    width: 90%;
+}
+.btn.btn-default.try{
+	width:21%;
+}
+.col-lg-4.salon_in {
+    margin-bottom: 7%;
+    width: 31%;
+	float:left;
+}
+.col-lg-3.footer-text.last {
+    float: inherit;
+    width: 21%;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 32%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 37%;
+}
+/* register page css here */
+
+.sign_up {
+    float: left;
+    width: 69%;
+}
+	
+}
+
+@media (max-width: 640px) {
+.container-fluid.banner {
+    margin-top: 15%;
+}
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+/* register page css here */
+
+.sign_up {
+    float: left;
+    width: 58%;
+}
+}
+
+@media (max-width: 480px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 38%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+/* register page css here */
+.col-lg-12.easy_text.peo.register {
+    margin-top: 21%;
+}
+.sign_up {
+    float: left;
+    width: 42%;
+}
+.loginbox li {
+      width: 100%;
+}
+}
+
+@media (max-width: 360px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 51%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+.navbar-brand > img {
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top {
+    float: right;
+    width: 74%;
+}
+.col-lg-3.col-md-5.right_top a {
+    font-size: 12px;
+    padding: 0 6px;
+}
+.col-lg-8.guaranty > h2 {
+    font-family: "open_sansbold";
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+.col-lg-8.guaranty > p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+.col-lg-12.easy_text h4 {
+      font-size: 20px;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 66%;
+}
+.social_icon {
+      width: 91%;
+}
+/* register page css here */
+.col-lg-12.easy_text.peo.register {
+    margin-top: 21%;
+}
+.sign_up {
+    float: left;
+    width: 30%;
+}
+.loginbox li {
+      width: 100%;
+}
+}
+
+@media (max-width: 320px) {
+.col-lg-12.simple > p {
+    font-size: 16px;
+    margin: 3% auto 6%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+    font-size: 14px;
+}
+.container-fluid.easy {
+      padding: 23px 0;
+}
+.col-lg-4.left_img > img {
+    width: 100%;
+}
+.saying_img {
+     margin-right: 4%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 99%;
+}
+/* register page css here */
+.sign_up {
+    float: left;
+    width: 26%;
+}
+
+}
+
+.listStyleNone
+{
+	list-style: none;
+}
+.divActive
+{
+	display: block;
+}
+.divInactive
+{
+	display: none;
+}
+ul.listStyleNone li {
+    background: none repeat scroll 0 0 #fff;
+    float: left;
+    padding: 0 18px;
+    width: 100%;
+}
+
+ul.listStyleNone li:hover
+{
+
+}
+
+
+.form-control.listStyleNone {
+    background: none repeat scroll 0 0 #fff;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+/* search css start here */
+
+.in_text-2.salon_logo > img {
+    float: left;
+}
+.salon_in h2 {
+     font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+img.imagelogo_salon {
+width: 122px;
+height: 86px;
+vertical-align: middle !important;
+border: 1px solid;
+margin-bottom: 21px;
+margin-top: -15px;
+}
+.col-lg-12.easy_text.peo.register.search > h4 {
+    width: 100%;
+}
+.col-lg-12.col-md-12.col-sm-6.salon_in.sula.seaech_in {
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 3%;
+    padding: 0;
+}
+.in_text-2.salon_logo {
+    margin: 0;
+    padding: 0;
+}
+.col-lg-2.servi {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+.row.input_button.search_outer {
+    margin-top: 3%;
+}
+.col-lg-12.col-md-12.col-sm-6.salon_in.sula.seaech_in.first {
+    border-top: 1px solid #ccc;
+    margin-top: 4%;
+    padding-top: 3%;
+}
+/* responsive css start here */
+
+@media (max-width: 768px) {
+	.container-fluid.banner {
+    margin-top: 12%;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 17px;
+    margin-top: 3%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 23px;
+    width: 90%;
+}
+.btn.btn-default.try{
+	width:21%;
+}
+.col-lg-4.salon_in {
+    margin-bottom: 7%;
+    width: 31%;
+	float:left;
+}
+.col-lg-3.footer-text.last {
+    float: inherit;
+    width: 21%;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 32%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 37%;
+}
+/* register page css here */
+
+.sign_up {
+    float: left;
+    width: 69%;
+}
+	
+}
+
+@media (max-width: 640px) {
+.container-fluid.banner {
+    margin-top: 15%;
+}
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+/* register page css here */
+
+.sign_up {
+    float: left;
+    width: 58%;
+}
+}
+
+@media (max-width: 480px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 38%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+/* register page css here */
+.col-lg-12.easy_text.peo.register {
+    margin-top: 21%;
+}
+.sign_up {
+    float: left;
+    width: 42%;
+}
+.loginbox li {
+      width: 100%;
+}
+}
+
+@media (max-width: 360px) {
+.container-fluid.banner {
+    margin-top: 16%;
+}
+
+.navbar-header {
+    float: left;
+}
+.col-lg-12.book_your > h2 {
+     width: 100%;
+}
+.social_icon {
+    margin: 5% auto auto;
+    width: 45%;
+}
+.navbar-header {
+    float: left;
+    width: 36%;
+}
+.btn.btn-default.try {
+    width: 51%;
+}
+.col-lg-12.book_your > h2 {
+    font-size: 16px;
+    width: 100%;
+}
+.col-lg-3.in_button {
+    float: left;
+    margin: 0 0 4%;
+    padding: 0;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+      font-size: 20px;
+   
+}
+.col-lg-4.salon_in {
+      width: 100%;
+}
+.social_icon {
+       width: 64%;
+}
+.container-fluid.easy.happyness {
+     padding: 13px 0;
+}
+.navbar-brand > img {
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top {
+    float: right;
+    width: 74%;
+}
+.col-lg-3.col-md-5.right_top a {
+    font-size: 12px;
+    padding: 0 6px;
+}
+.col-lg-8.guaranty > h2 {
+    font-family: "open_sansbold";
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+.col-lg-8.guaranty > p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+.col-lg-12.easy_text h4 {
+      font-size: 20px;
+}
+.col-lg-3.footer-text > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 66%;
+}
+.social_icon {
+      width: 91%;
+}
+/* register page css here */
+.col-lg-12.easy_text.peo.register {
+    margin-top: 21%;
+}
+.sign_up {
+    float: left;
+    width: 30%;
+}
+.loginbox li {
+      width: 100%;
+}
+}
+
+@media (max-width: 320px) {
+.col-lg-12.simple > p {
+    font-size: 16px;
+    margin: 3% auto 6%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-12.simple > h4 {
+    font-size: 14px;
+}
+.container-fluid.easy {
+      padding: 23px 0;
+}
+.col-lg-4.left_img > img {
+    width: 100%;
+}
+.saying_img {
+     margin-right: 4%;
+    text-align: center;
+    width: 100%;
+}
+.col-lg-3.col-md-5.right_top > ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 99%;
+}
+/* register page css here */
+.sign_up {
+    float: left;
+    width: 26%;
+}
+
+}
+
+/* Consumer-2 page css start here */
+.loginbox.login_form {
+	border: 2px solid #ccc;
+	margin: auto;
+	width: 56%;
+}
+.loginbox.regst_2 {
+	border: 2px solid #ccc;
+	margin: auto;
+}
+.loginbox.regst_2 h4 {
+	background: #215a8c none repeat scroll 0 0;
+	color: white;
+	font-size: 28px;
+	padding: 12px 0;
+	text-align: center;
+}
+.leftAligned
+{
+	text-align : left;
+	margin-left: 5%;
+}
+.leftAlignedList li
+{
+	margin-left : 0 !important;
+}
+select#country {
+color: rgb(85, 85, 85);
+}
+.navbar-wrapper.login_in {
+border-bottom: 4px solid #e35b5a;
+}
+
+/* login page css start here */
+
+.navbar-wrapper.login_in {
+	border-bottom: 4px solid #e35b5a;
+}
+.col-lg-12.easy_text.peo.register.login {
+	margin-top: 4%;
+}
+.loginbox.login_form {
+	border: 2px solid #ccc;
+	margin: auto;
+	width: 80%;
+}
+.loginbox.login_form h4 {
+	background: #215a8c none repeat scroll 0 0;
+	color: #fff;
+	font-size: 28px;
+	padding: 12px 0;
+}
+.loginbox.login_form li {
+	float: left;
+	width: 94%;
+}
+.login-k.login_b {
+	float: left;
+	width: 30%;
+}
+.login-v.common_form_val.log input {
+	width: 95%;
+}
+
+
+
+
+
+
+
+
+
+
+/* consumer-dashboard css start here */
+.btn-group.sel_button {
+	float: right;
+}
+.select_button {
+	background: #e35b5a none repeat scroll 0 0;
+	border: medium none;
+	padding: 4px 11px;
+	width: 100%;
+}
+.btn-group.sel_button {
+	float: right;
+	width: 13%;
+}
+.blog-post > p {
+	color: #000;
+}
+.sidebar-module.sidebar-module-inset > p {
+	color: #000;
+}
+.container-fluid.easy.happyness.book {
+	padding:40px 0;
+}
+.row.book_in {
+	color: #000;
+}
+.col-lg-3.cld {
+	background: #e35b5a none repeat scroll 0 0;
+	padding: 7px 11px;
+	width: 19%;
+	text-align:center;
+}
+.col-lg-12.bay > h4 {
+	 font-size: 26px;
+    font-weight: bold;
+    margin: -2% 0 1%;
+    text-align: center;
+}
+.cld_img > img {
+	width: 100%;
+}
+.col-lg-3.cld_r {
+	float: right;
+    padding: 0;
+    width: 21%;
+}
+.col-lg-6.cod_center {
+	 float: left;
+    margin-bottom: 3%;
+    width: 60%;
+}
+.col-md-3.col-1 {
+      -moz-border-bottom-colors: none;
+     -moz-border-right-colors: none;
+      border-bottom: medium none !important;
+    border-image: none;
+    border-right: 1px solid #ccc;
+    margin-right: 1px;
+    padding: 8px 0 6px 8px;
+    width: 21.05%;
+}
+.col-md-3.col-1 > input {
+	margin-bottom: 2%;
+}
+.col-md-2.col-2 {
+    border-right: 1px solid #ccc;
+    margin: 0;
+    padding: 0;
+    text-align: center !important;
+}
+.col-md-2.col-3 {
+	
+	margin-right: 1px;
+}
+.col-md-2.col-4 {
+	
+	margin-right: 1px;
+	text-align:center;
+}
+.col-md-2.col-5 {
+	
+	margin-right: 1px;
+}
+.col-md-2.col-2 > input {
+	margin: 25.5% 2px;
+}
+.col-md-2.col-3 > input {
+	margin: 25.5% 2px;
+}
+.col-md-2.col-4 > input {
+	margin: 25.5% 2px;
+}
+.col-md-2.col-5 > input {
+	margin: 25.5% 2px;
+}
+.adv_img > img {
+	float: left;
+	width: 100%;
+}
+.cld_img input[type="button"] {
+	float: right;
+	margin-bottom: 2%;
+	margin-top: 8%;
+}
+.hasDatepicker {
+	margin-top: 5%;
+}
+.col_inner {
+	border: 1px solid #ccc;
+    float: left;
+    width: 100%;
+	border-bottom:none;
+}
+.adv_img.top_0 {
+	float: left;
+	margin-top: 0px;
+}
+.adv_img.top_1 {
+	float: left;
+	margin-top: 206px;
+}
+.adv_img.top_1 > img {
+	margin-bottom: 4%;
+}
+.headerHeading
+{
+	width: 100%; 
+	text-align: center;
+	margin-top: 20px !important; 
+	font-weight: bold; 
+	font-size: 40px;
+}
+.noLink
+{
+	text-decoration:none !important;
+	color: #337ab7 !important;
+}
+.noLink: hover
+{
+	text-decoration:none !important;
+	color: #337ab7 !important;
+	cursor: default !important;
+}
+.col-lg-3.footer-text.tanning {
+	width: 25%;
+}
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+	color: #E35B5A;
+}
+.navbar-brand.dash {
+    margin-bottom: -7%;
+    margin-top: 5%;
+    padding: 0;
+}
+
+.container-fluid.easy.happyness.book-b {
+    padding: 0px 0;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #000;
+    float: left;
+    font-size: 16px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 30px;
+}
+.btn-group.r_button {
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+    margin-bottom: 3%;
+    padding: 4px 10px;
+}
+.btn-group.r_button:hover {
+    background: #e6e6e6 none repeat scroll 0 0;
+}
+.btn-toolbar {
+    margin-left: 0;
+}
+.btn-group-lg > .btn, .btn-lg {
+    border-radius: 0;
+    font-size: 14px;
+    line-height: 1.333;
+    margin-top: 7%;
+    padding: 8px 14px;
+}
+ .col-md-2.col-2 > p {
+    margin: 35px 0;
+    max-height: 40px;
+}
+ .col-md-2.col-3 > p {
+    margin: 35px 0;
+    max-height: 40px;
+}
+ .col-md-2.col-4 > p {
+    margin: 35px 0;
+    max-height: 40px;
+}
+ .col-md-2.col-5 > p {
+    margin: 35px 0;
+    max-height: 40px;
+}
+.col-md-3.col-1.col_01 {
+   border-right: 1px solid #ccc;
+    padding: 0 0 20.9px;
+    text-align: center;
+    width: 17%;
+}
+.btn-toolbar {
+    margin-left: -4px !important;
+    margin-top: 2%;
+}
+.col-md-3.col-1.col_01:last-child {
+    border-right: medium none;
+}
+.col_inner:last-child{
+	border-bottom:1px solid #ccc;
+}
+.col-md-3.col-1.col_01 > p {
+    margin-top: 13%;
+}
+.col-lg-12.ads {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.col-lg-3.col-md-5.right_top li:last-child {
+    float: right;
+}
+.col-lg-3.col-md-5.right_top {
+    float: right;
+    width: auto;
+}
+.col-lg-12.bay {
+    margin-bottom: 2%;
+}
+.col-lg-3.col-md-5.right_top.emu  a{
+	padding:0 7px;
+}
+.col-lg-3.cld > h4 {
+    color: #fff;
+    font-size: 18px !important;
+    margin: 0 0 -3px;
+}
+.col-md-3.col-1.col_01.btn-lg {
+    border-radius: 0;
+    float: left;
+    margin-top: 0;
+    width: 15%;
+}
+.btn.btn-primary.bnt_in {
+     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 24%;
+}
+.navbar-inverse .navbar-nav>.active>a{
+color: #E35B5A;
+background-color: white !important;
+}
+.navbar-nav > li > a:hover {
+color: #E35B5A !important;
+}
+
+
+
+
+/* responsive css start here */
+
+@media (max-width: 768px) {
+ .container-fluid.banner {
+ margin-top: 12%;
+}
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+ margin-left: 17px;
+ margin-top: 3%;
+}
+.col-lg-12.book_your > h2 {
+ font-size: 23px;
+ width: 90%;
+}
+.btn.btn-default.try {
+ width:21%;
+}
+.col-lg-4.salon_in {
+ margin-bottom: 7%;
+ width: 31%;
+ float:left;
+}
+.col-lg-3.footer-text.last {
+ float: inherit;
+ width: 21%;
+}
+.col-lg-3.footer-text > ul {
+ float: left;
+ margin: 0;
+ padding: 0;
+ width: 32%;
+}
+.social_icon {
+ margin: 5% auto auto;
+ width: 37%;
+}
+}
+
+.col-md-3.col-1.seat:last-child 
+{
+    border-right: medium none;
+}
+
+.btn-group.r_button 
+{
+    border: 1px solid;
+}
+
+.btn-group.r_button:hover 
+{
+    font-size: 20px;
+    padding: 4px 8px;
+}
+
+.wd90per
+{
+	width: 90%;
+}
+
+.bookedService
+{
+	opacity: 0.4;
+	cursor: default;
+}
+
+.bookedService:hover 
+{
+    font-size: 14px !important;
+    padding: 4px 10px !important;
+}
+
+
+.blank_clalander {
+float: left;
+width: 204px;
+margin: 1px;
+}
+.row.book_in {
+color: #000 !important;
+}
+
+

@@ -1,0 +1,196 @@
+
+
+{% include '::header_salon.html.twig' %}
+
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Consumer
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Consumer  </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Employee Information
+										</div>
+										<div class="tools">
+										
+											<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+								
+					{% for employee in updateEmployeeInformation  %}
+								 
+									
+							<form  action="" method="post" class="form-horizontal"  enctype="multipart/form-data" >
+							
+																		
+						<div class="form-group last">
+										<label class="col-md-3 control-label">First Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="firstName" value="{{ employee.firstName }}" class="form-control input-circle" required >
+								</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label"> Last Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"   name="lastName" value="{{ employee.lastName }}" class="form-control input-circle" required >
+
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">E-mail:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="email" name="email" value="{{ employee.email }}" readonly class="form-control input-circle" required />
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Username:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text" name="username" value="{{ employee.username }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+						
+						<div class="form-group last">
+										<label class="col-md-3 control-label">Country</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="country"  value="{{ employee.country }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Province</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="state"  value="{{ employee.state }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+						
+						
+								
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">City</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="city"  value="{{ employee.city }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+							
+								<div class="form-group last">
+										<label class="col-md-3 control-label">Address</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"   name="address"  value="{{ employee.address }}"  class="form-control input-circle"required />
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Zip</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="zip"  value="{{ employee.zip }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Mobile</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="mobile"  value="{{ employee.mobile }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Landline</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="landline"  value="{{ employee.landline }}"  class="form-control input-circle" required />
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Photo</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="file"  name="photo"  value="{{ employee.photo }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+						
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+										<a href="{{ path('salon_solution_salon_manageEmployee') }}" class="btn btn-circle blue">Cancel </a>
+											<button type="submit" class="btn btn-circle blue">submit</button>
+											
+										</div>
+									</div>
+								</div>
+							
+							</form>
+								{% endfor %}		
+										<!-- END FORM-->	
+								
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+ 
+ 
+ 
+ 
+{% include '::footer_salon.html.twig' %}

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">              
+              <li id="listDashboard" ><a href="{{ asset('employee/dashboard') }}">Dashboard </a></li> 
+                <li id="listAppointment"><a   href="{{ asset('employee/appointment') }}">Book Appointments </a></li>
+                <li id="listMyProfile"><a href="{{ asset('employee/profile') }}">My Profile </a></li>
+                <li id="listChangePassword"><a href="{{ asset('employee/changePassword') }}">Change Password </a></li>
+                <li id="listClient"><a href="{{ asset('employee/clients') }}">Clients </a></li>
+                <li id="listServiceMaintenance"><a href="{{ asset('employee/serviceMaintenance') }}">Service Maintenance </a></li>
+                <li class="dropdown">
+<!--
+					{% if allSalons is defined and allSalons|length > 0 %}
+						<select id="salonLocation" name="salonLocation">
+							{% for salon in allSalons  %}
+								{% if loop.first %}
+									<option value="{{ salon.id }}" onchange="javascript:reloadSalon();" selected>
+										{{ salon.city }}
+									</option>
+								{% else %}
+									<option value="{{ salon.id }}" onchange="javascript:reloadSalon();">
+										{{ salon.city }}
+						 			</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					{% endif %}
+-->
+				</li>
+                <!--<li class="dropdown"> 
+					{% if allSalons is defined and allSalons|length > 0 %}	
+						{% for salon in allSalons  %}
+							{% if loop.first %}
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+									{{ salon.city }} 
+									<span class="caret"></span>
+								</a>
+							{% else %}
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="#">{{ salon.city }}</a></li>
+								</ul>
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+                </li>-->
+              </ul>
+            </div>
+          </div>
+        </nav>
+      
+   <style>
+   
+.navbar-inverse .navbar-nav > li > a:hover {
+color: #E35B5A;
+}
+   </style>

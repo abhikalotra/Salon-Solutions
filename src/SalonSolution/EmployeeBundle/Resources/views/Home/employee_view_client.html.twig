@@ -1,0 +1,118 @@
+
+{% include '::header_employee.html.twig' %}
+
+ 
+<div class="container-fluid easy happyness book-b">
+  <div class="container">
+    <div class="row">
+     
+      <div class="col-lg-12 ads">
+		  
+		  {% include '::nav_employee.html.twig' %}
+		  
+       </div>
+      
+      
+      <div class="container">
+        <div class="row book_in">
+          <div class="col-lg-12 bay">
+          
+            {% include '::sidebar_left_employee.html.twig' %}
+            
+           	<div class="col-lg-6 cod_center">
+        		<div class="loginbox regst_2">
+				  
+			   	{% for Profile in viewClientsDetails  %}
+
+					<form  action="" method="post" enctype="multipart/form-data" > 	
+		
+						<ul class="leftAlignedList">
+							<h4>Client Profile </h4>
+							
+							<li>
+								<div class="login-v common_form_val">
+									<img src="{{ asset('uploads/consumers/') }}{{ Profile.photo }}"> 
+								</div>
+							</li>
+							
+						  	<li>
+								<div class="login-v common_form_val leftAligned">
+									<b>Name: &nbsp;</b>{{ Profile.firstName }} {{ Profile.lastName }}
+									<br/><br/>
+									
+									<b>Username: &nbsp;</b>{{ Profile.username }}
+									<br/><br/>
+									
+									<b>Email Id: &nbsp;</b>{{ Profile.email }}
+									<br/><br/>
+									
+									<b>Address: &nbsp;</b><br/>
+									{{ Profile.address }}
+									{% if Profile.address != '' %},&nbsp;{% endif %}
+									{{ Profile.city }} 
+									{% if Profile.city != '' %},&nbsp;{% endif %}
+								 	{{ Profile.state }} 
+								 	{% if Profile.state != '' %},&nbsp;{% endif %}
+								 	{{ Profile.country }}
+									<br/><br/>
+									
+									<b>Contact Number(s): &nbsp;</b><br/>
+									{{ Profile.mobile }} 
+									{% if Profile.mobile != '' %},&nbsp;{% endif %}
+									{{ Profile.landline }}
+								</div>
+							</li>
+
+						</ul>
+
+						  <div class="submit_b">
+
+							<label class="login-k">&nbsp;</label>
+
+							<div class="login-v common_form_sub signup_sub">
+
+								<a href="{{ path('salon_solution_employee_employeeClients') }}" class="btn common-btn">Back </a>
+
+						
+							</div>
+
+						  </div>
+		
+
+					</form >
+    
+				{% endfor %}
+    			
+			
+    		</div>
+    		
+            </div>
+       
+
+			
+        </div>
+        </div>
+      </div>
+      <!-- /.row --> 
+      
+    </div>
+  </div>
+</div>
+
+<style>
+	span.message 
+	{
+		color: red;
+	}
+
+	li#listClient a {
+color: #E35B5A !important;
+background-color: white !important;
+}
+</style>
+
+
+{% include '::footer_employee.html.twig' %}
+
+
+

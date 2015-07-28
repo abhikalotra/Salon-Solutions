@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="styles/glDatePicker.default.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>
+		<input type="text" id="mydate" gldp-id="mydate" />
+		<div gldp-el="mydate"
+		     style="width:400px; height:300px; position:absolute; top:70px; left:100px;">
+		</div>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="glDatePicker.min.js"></script>
+
+		<script type="text/javascript">
+		    $(window).load(function()
+		    {
+		        //$('input').glDatePicker();
+		        
+		        var dateObj = new Date();
+				var month = dateObj.getUTCMonth() + 1; //months from 1-12
+				var day = dateObj.getUTCDate();
+				var year = dateObj.getUTCFullYear();
+
+				month = month-1;
+		        
+		        $('input').glDatePicker(
+				{
+					showAlways: true,
+					allowMonthSelect: false,
+					allowYearSelect: false,
+					prevArrow: '',
+					nextArrow: '',
+					selectedDate: new Date(year, month, day),
+					selectableDateRange: [
+						{ from: new Date(year, month, day),
+							to: new Date(year, month, day+15) },
+						/*{ from: new Date(year, month, 19),
+							to: new Date(year, month, 22) },*/
+					],
+					selectableDates: [
+						/*{ date: new Date(year, month, 24) },
+						{ date: new Date(year, month, 30) }*/
+					],
+					 onClick: function(target, cell, date, data) 
+					 {
+						target.val(date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate());
+
+						alert(target.val());
+						if(data != null) 
+						{
+							alert(data.message + '\n' + date);
+						}
+					}
+				});
+		    });
+		</script>
+	</body>
+</html>
+

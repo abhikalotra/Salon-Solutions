@@ -1,0 +1,114 @@
+
+{% include '::header_consumer.html.twig' %}
+
+ 
+<div class="container-fluid easy happyness book-b">
+  <div class="container">
+    <div class="row">
+     
+      <div class="col-lg-12 ads">
+		  
+		  {% include '::nav_consumer.html.twig' %}
+		  
+       </div>
+      
+      
+      <div class="container">
+        <div class="row book_in">
+          <div class="col-lg-12 bay">
+            <h4>
+             {% include '::nav_consumer_offering_message.html.twig' %}
+            </h4>
+
+            {% include '::sidebar_left_consumer.html.twig' %}
+            
+           <div class="col-lg-6 cod_center">
+            
+		        <div class="loginbox login_form" id="login_form">
+				
+                       <ul>
+                          <h4>  Confirm Appointment(s)  </h4>
+                         <li></li>
+                         <li></li>
+                       </ul>
+						
+					   {% if appointmentDetail is defined and appointmentDetail|length > 0 %}
+	                      		{% for appointments in appointmentDetail  %}	
+								  	<div class="col_inner" style="background: {{ appointments.serviceColor }};">
+									  
+										   <div class="col-md-3 col-1 col_01 btn-lg" id="appointment">
+											  <p>{{ appointments.scheduledDate }}</p>
+											</div>
+							
+											<div class="col-md-3 col-1 col_01" id="appointment">
+											  <p>{{ appointments.scheduledTime }}</p>
+											</div>
+								
+											<div class="col-md-3 col-1 col_01" id="appointment">
+											  <p>{{ appointments.serviceTitle }}</p>
+											</div>
+			
+											<div class="col-md-3 col-1 col_01" id="appointment">
+											  <p>{{ consumerFirstName }}  {{ consumerLastName }}</p>
+											</div>
+											<div class="col-md-3 col-1 col_01" id="appointment">
+											  <p>{{ salonName }}</p>
+											</div>
+											<div class="col-md-3 col-1 col_01" id="appointment">
+											  <p>{{ salonCity }}</p>
+											</div>
+								
+											<div class="col-md-3 col-1 col_01">
+											  <p>
+												  <a class="btn btn-primary btn-lg" href="#" onclick="javascript: confirmAppointment({{ appointments.id }});">Confirm</a>
+			<!--
+												  <a class="btn btn-primary btn-lg" onclick="deleteAppointment('{{ appointments.id }}');" >Delete</a>
+			-->
+												  </p>
+											</div>
+									</div>
+				
+					 		{% endfor %}
+         				{% endif %}
+				</div>
+            </div>
+       
+			{% include '::sidebar_right_consumer.html.twig' %}
+        </div>
+        </div>
+      </div>
+      <!-- /.row --> 
+      
+    </div>
+  </div>
+</div>
+
+<style>
+span.message 
+{
+	color: red;
+}
+#appointment {
+float: left;
+width: 13%;
+margin-top: 16px;
+}
+#login_form {
+width: 98%;
+}
+</style>
+
+<script>
+	function deleteAppointment(id){
+		alert(id);
+		}
+</script>
+
+
+
+
+
+{% include '::footer_consumer.html.twig' %}
+
+
+

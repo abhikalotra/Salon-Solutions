@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\EmployeeBundle\Entity\SalonsolutionsZipcode" table="salonSolutions_zipcode">
+    <id name="zip" type="string" column="zip" length="100">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="country" type="string" column="country" length="100" nullable="false"/>
+    <field name="city" type="string" column="city" length="100" nullable="true"/>
+    <field name="state" type="string" column="state" length="100" nullable="true"/>
+    <field name="latitude" type="string" column="latitude" length="100" nullable="true"/>
+    <field name="longitude" type="string" column="longitude" length="100" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,976 @@
+<?php
+
+	namespace SalonSolution\WebBundle\Controller;
+	
+	
+	use Symfony\Component\HttpFoundation\Request;   
+	use Symfony\Component\HttpFoundation\Response;
+	use Symfony\Component\Form\AbstractType;
+	use Symfony\Component\Form\FormBuilderInterface;
+
+	
+	use SalonSolution\WebBundle\Entity\SalonsolutionsUser;            //SalonsolutionsUser
+	use SalonSolution\WebBundle\Resources\SalonsolutionsUserType;  			  //SalonsolutionsUserType
+	
+	use SalonSolution\WebBundle\Entity\SalonsolutionsSalon;            //SalonsolutionsSalon
+	use SalonSolution\WebBundle\Resources\SalonsolutionsSalonType;  			  //SalonsolutionsSalonType
+	
+	
+																	
+			use Symfony\Component\DependencyInjection\ContainerAware;  //stripe start
+			use Symfony\Component\Security\Core\SecurityContext;
+			use Stripe;
+			use Stripe\Util;
+			
+			
+		use Symfony\Component\HttpKernel\Exception\HttpException;
+	//use SalonSolution\WebBundle\Entity\SalonsolutionsGlobalType;
+	//use Test\TestBundle\Resources\SalonsolutionsGlobalTypeType;  
+
+	use Symfony\Component\HttpFoundation\Session\Session;
+	use Symfony\Component\HttpFoundation\RedirectResponse;
+	
+	
+	use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+	use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+	class WebController extends Controller 
+	{
+		/**************************** Begin : Function to display home page ********************************/
+		public function indexAction()
+		{
+			return $this->render('SalonSolutionWebBundle:Home:index.html.twig');
+		}
+		/*------------------------------- End : Function to display home page ------------------------------*/
+				
+	
+		/**************************** Begin : Function to register the customers ********************************/
+	  
+		public function registerCustomerAction(Request $request)
+		{
+			
+			/* $request = $this->container->get('request');
+				
+				$message = '';
+				if($request->get('test'))
+				{
+					require_once('charge.php');
+					
+					$result = runStripe();
+					echo $result;die;
+				}				
+				*/
+						
+				if ($request->getMethod() == 'POST') 
+					{
+						
+						$firstName = $request->get("firstName");  	
+						$lastName = $request->get("lastName");
+						$email = $request->get("email");
+						$username = $request->get("username");
+						$password = $request->get("password");
+						$salonName = $request->get("salonName");
+						$domain = $request->get("domain");
+						$address = $request->get("address");						
+						$city = $request->get("city");
+						$state = $request->get("state");
+						$countle = $request->get("mobile"); 
+						$landline = $request->get("landline"); 
+						$basePath = $this->getBasePathAction();	   						
+						$photo = $_FILES['photo']['name'];  	
+							$ranPhotoUpload = rand(1,10000);  		
+							$targetFilePhoto = $basePath."/".$this->container->getParameter('gbl_uploadPath_customers').$ranPhotoUpload.$photo;
+							move_uploaded_file($_FILES['photo']['tmp_name'], $targetFilePhoto);					
+					
+						$logo = $_FILES['logo']['name'];  	
+							$ranPhotoLogo = rand(1,10000);  							
+							$targetFileLogo = $basePath."/".$this->container->getParameter('gbl_uploadPath_salons').$ranPhotoLogo.$logo;
+							move_uploaded_file($_FILES['logo']['tmp_name'], $targetFileLogo);					
+					
+						$customer = new SalonsolutionsUser();
+						
+						$customer->setFirstName($firstName);   
+						$customer->setLastName($lastName);
+						$customer->setEmail($email);
+						$customer->setUsername($username);						
+						$customer->setPassword(md5($password));
+						$customer->setAddress($address);
+						$customer->setCity($city);
+						$customer->setState($state);
+						$customer->setCountry($country);
+						$customer->setZip($zip);						
+						$customer->setMobile($mobile);						
+						$customer->setLandline($landline);						
+						$customer->setPhoto($ranPhotoUpload.$photo);
+						$customer->setType('2');
+						$customer->setStatus('1');	
+							
+						$em = $this->getDoctrine()->getEntityManager();
+						$em->persist($customer);
+						$em->flush();
+																					// next ---------> table insert
+						$customerId = $customer->getId();
+																														
+						$salon = new SalonsolutionsSalon();
+						
+						$salon->setName($salonName);   
+						$salon->setAddress($address);
+						$salon->setDomain($domain);
+						$salon->setCity($city);
+						$salon->setState($state);
+						$salon->setCountry($country);
+						$salon->setZip($zip);
+						$salon->setMobile($mobile);						
+						$salon->setLandline($landline);		
+						$salon->setLogo($ranPhotoLogo.$logo);
+						$salon->setStatus('0');
+						$salon->setOwnerId($customerId);
+						
+						$em = $this->getDoctrine()->getEntityManager();
+						$em->persist($salon);
+						$em->flush();
+					}
+							
+				/*	if ($request->isMethod('POST')) {		
+							
+							$forms->bind($request);		     					 //   for entry data code process by this code
+							
+							$data = $forms->getData(); 	
+															
+							$password = $data->password;
+							$data->password	= md5($password);	
+							//echo "<pre>"; print_r($_SERVER);die;
+							//echo $this->get('request')->getBaseUrl();die;
+							$basePath = $this->getBasePathAction();
+							$fileName = $_FILES['SalonsolutionsUser']['name']['photo'];
+							$data->photo = $fileName;	
+							$targetFile = $basePath."/".$this->container->getParameter('gbl_uploadPath_customers').$fileName;	
+								
+							move_uploaded_file($_FILES['SalonsolutionsUser']['tmp_name']['photo'], $targetFile);
+					
+											
+																				 
+								$em = $this->getDoctrine()->getEntityManager();
+								$em->persist($data);
+								$em->flush();     
+									
+								$lastinsertd= $data->getId();	 					// this is get the last inser id symfony method
+								  
+																						echo "<pre>"; print_r($lastinsertd); 	
+									//$id = 	->set('userId', $salonid); 
+							
+							
+							
+						//	return $this->redirect($this->generateUrl('salon_solution_web_index'));
+							} */
+					
+			
+			return $this->render('SalonSolutionWebBundle:Home:user_register.html.twig');
+		}
+		/*------------------------------- End : Function to register the customers ------------------------------*/
+		
+		
+		/**************************** Begin : Function to Login the customers ********************************/
+	  
+		public function loginAction()
+		{
+			//echo "dsff";
+			
+			return $this->render('SalonSolutionWebBundle:Home:login.html.twig');
+		}
+		/*------------------------------- End : Function to Login the customers ------------------------------*/
+		
+		
+		public function getBasePathAction()
+		{
+			$basePath = $_SERVER['DOCUMENT_ROOT'].$this->get('request')->getBaseUrl();
+			return $basePath;
+		}
+		
+		public function getBaseUrlAction()
+		{
+			$baseUrl = "http://".$_SERVER['HTTP_HOST'].$this->get('request')->getBaseUrl();
+			return $baseUrl;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		public function searchSalonAction()
+		{
+			
+			$em = $this->getDoctrine()->getEntityManager();
+			
+			if( isset($_POST) && is_array($_POST) && count($_POST) > 0 )
+			{
+				if( isset($_POST['serviceName']) && $_POST['serviceName'] != '' )
+				{
+					$serviceName = $_POST['serviceName'];
+				}
+				if( isset($_POST['cityZip']) && $_POST['cityZip'] != '' )
+				{
+					$cityZip = $_POST['cityZip'];
+					$arrCityZip = explode(', ', $cityZip);
+					$cityName = $arrCityZip[0];
+					$zipCode = $arrCityZip[1];
+				}
+				
+				if( isset($serviceName) && isset($cityName) )
+				{
+					$arrSalon = $em->createQueryBuilder()
+					->select('SalonsolutionsSalon', 'SalonsolutionsService.title')
+					->from('SalonSolutionWebBundle:SalonsolutionsSalon', 'SalonsolutionsSalon')
+					->leftJoin('SalonSolutionWebBundle:SalonsolutionsService', 'SalonsolutionsService', "WITH", "SalonsolutionsService.salonId=SalonsolutionsSalon.id")
+					->where('SalonsolutionsSalon.city=:cityName')
+					->setParameter('cityName', $cityName)
+					->orWhere('SalonsolutionsSalon.zip=:zipCode')
+					->setParameter('zipCode', $zipCode)
+					->andWhere('SalonsolutionsService.title=:serviceName')
+					->setParameter('serviceName', $serviceName)
+					->setMaxResults(5)
+					->getQuery()
+					->getArrayResult();
+				}
+				else
+				{
+					if( isset($serviceName) )
+					{
+						$arrSalon = $em->createQueryBuilder()
+						->select('SalonsolutionsSalon', 'SalonsolutionsService.title')
+						->from('SalonSolutionWebBundle:SalonsolutionsSalon', 'SalonsolutionsSalon')
+						->leftJoin('SalonSolutionWebBundle:SalonsolutionsService', 'SalonsolutionsService', "WITH", "SalonsolutionsService.salonId=SalonsolutionsSalon.id")
+						->where('SalonsolutionsService.title=:serviceName')
+						->setParameter('serviceName', $serviceName)
+						->setMaxResults(5)
+						->getQuery()
+						//->getSql();
+						->getArrayResult();
+					}
+					else
+					{
+						$arrSalon = $em->createQueryBuilder()
+						->select('SalonsolutionsSalon', 'SalonsolutionsService.title')
+						->from('SalonSolutionWebBundle:SalonsolutionsSalon', 'SalonsolutionsSalon')
+						->leftJoin('SalonSolutionWebBundle:SalonsolutionsService', 'SalonsolutionsService', "WITH", "SalonsolutionsService.salonId=SalonsolutionsSalon.id")
+						->where('SalonsolutionsSalon.city=:cityName')
+						->setParameter('cityName', $cityName)
+						->orWhere('SalonsolutionsSalon.zip=:zipCode')
+						->setParameter('zipCode', $zipCode)
+						->setMaxResults(5)
+						->getQuery()
+						->getArrayResult();
+					}
+				}
+			//	echo "<pre>";
+			//	print_r($arrSalon);   
+			//	die;
+				
+				/*$userUpdate = $em->createQueryBuilder()
+				->select('a')
+				->update('InCitySearchBundle:Service', 'a')
+				->set('a.status', ':status')
+				->setParameter('status', $status)
+				->where('a.addedby=:userid')
+				->setParameter('userid', $id)
+				->getQuery()
+				->getResult();*/
+				
+				return $this->render('SalonSolutionWebBundle:Home:search_salons.html.twig', array('arrSalon' => $arrSalon));
+			}
+			
+			//return $this->render('SalonSolutionWebBundle:Home:search_salons.html.twig');
+			
+		}
+		
+		public function searchServiceAction()
+		{
+			$servicesHtml = '';
+			if( isset($_POST['serviceSearchKey']) && $_POST['serviceSearchKey'] != '' )
+			{
+				$serviceSearchKey = $_POST['serviceSearchKey'];
+				$params = array('criteria'=>'LIKE', 'serviceSearchKey'=>$serviceSearchKey);
+				$arrService = $this->getServiceAction($params);
+				
+				foreach($arrService as $service)
+				{
+					$servicesHtml.='<li onclick="javascript:selectService(\''.$service['title'].'\');">'.$service['title'].'</li>';
+				}
+				
+			}
+			return new response($servicesHtml);
+		}
+		
+		public function searchZipCityAction()
+		{
+			$zipCityHtml = '';
+			if( isset($_POST['zipCitySearchKey']) && $_POST['zipCitySearchKey'] != '' )
+			{
+				$zipCitySearchKey = $_POST['zipCitySearchKey'];
+				$params = array('criteria'=>'LIKE', 'zipCitySearchKey'=>$zipCitySearchKey);
+				$arrZipCity = $this->getZipCityAction($params);
+				
+				foreach($arrZipCity as $zipCity)
+				{
+					$zipCityHtml.='<li onclick="javascript:selectCityZip(\''.$zipCity['city'].', '.$zipCity['zip'].'\');">'.$zipCity['city'].', '.$zipCity['zip'].'</li>';
+				}
+			}
+			return new response($zipCityHtml);
+		}
+		
+		public function searchSalonsAction()
+		{
+			$salonsHtml = '';
+			if( isset($_POST['salonSearchKey']) && $_POST['salonSearchKey'] != '' )
+			{
+				$salonSearchKey = $_POST['salonSearchKey'];
+				
+				if( array_key_exists('criteria', $_POST) && $_POST['criteria'] != '' )
+					$criteria = $_POST['criteria'];
+				else
+					$criteria = 'LIKE';
+					
+				$params = array('criteria'=>$criteria, 'salonSearchKey'=>$salonSearchKey);
+				$arrSalon = $this->getSalonAction($params);
+				
+				if( is_array($arrSalon) && count($arrSalon) > 0 )
+				{
+					foreach($arrSalon as $salon)
+					{
+						$salonsHtml.='<li onclick="javascript:selectSalon(\''.$salon['name'].'\');">'.$salon['name'].'</li>';
+					}
+				}
+			}
+			return new response($salonsHtml);
+		}
+		
+		public function getSalonDomainAction()
+		{
+			$salonsDomain = '';
+			if( isset($_POST['salonName']) && $_POST['salonName'] != '' )
+			{
+				$salonName = $_POST['salonName'];
+				$params = array('criteria'=>'EQUAL', 'salonSearchKey'=>$salonName);
+				$arrSalon = $this->getSalonAction($params);
+				
+				if( is_array($arrSalon) && count($arrSalon) > 0 )
+				{
+					foreach($arrSalon as $salon);
+				
+					$salonsDomain.= $salon['domain'].'.salonsolutions.ca/salon';
+				}
+				
+			}
+			return new response($salonsDomain);
+		}
+		
+		public function getSalonAction($params)
+		{
+			$em = $this->getDoctrine()->getEntityManager();
+			if( array_key_exists('criteria', $params) && $params['criteria'] == 'LIKE' )
+			{
+				$arrSalon = $em->createQueryBuilder()->select('Salon')
+				->from('SalonSolutionWebBundle:SalonsolutionsSalon', 'Salon')
+				->where('Salon.name LIKE :salonName')
+				->setParameter('salonName', $params['salonSearchKey'].'%')
+				->getQuery()
+				->getArrayResult();
+			}
+			else
+			{
+				$arrSalon = $em->createQueryBuilder()->select('Salon')
+				->from('SalonSolutionWebBundle:SalonsolutionsSalon', 'Salon')
+				->where('Salon.name=:salonName')
+				->setParameter('salonName', $params['salonSearchKey'])
+				->getQuery()
+				->getArrayResult();
+			}
+			return $arrSalon;
+		}
+		
+		public function getServiceAction($params)
+		{
+			$em = $this->getDoctrine()->getEntityManager();
+			if( array_key_exists('criteria', $params) && $params['criteria'] == 'LIKE' )
+			{
+				$arrService = $em->createQueryBuilder()->select('Service')
+				->from('SalonSolutionWebBundle:SalonsolutionsService', 'Service')
+				->where('Service.title LIKE :serviceName')
+				->setParameter('serviceName', $params['serviceSearchKey'].'%')
+				->orWhere('Service.description LIKE :serviceDescription')
+				->setParameter('serviceDescription', $params['serviceSearchKey'].'%')
+				->getQuery()
+				->getArrayResult();
+			}
+			else
+			{
+				$arrService = $em->createQueryBuilder()->select('Service')
+				->from('SalonSolutionWebBundle:SalonsolutionsService', 'Service')
+				->where('Service.title=:serviceName')
+				->setParameter('serviceName', $params['serviceSearchKey'].'%')
+				->getQuery()
+				->getArrayResult();
+			}
+			return $arrService;
+		}
+		
+		public function getZipCityAction($params)
+		{
+			$em = $this->getDoctrine()->getEntityManager();
+			if( array_key_exists('criteria', $params) && $params['criteria'] == 'LIKE' )
+			{
+				$arrZipCity = $em->createQueryBuilder()->select('Zipcode')
+				->from('SalonSolutionWebBundle:SalonsolutionsZipcode', 'Zipcode')
+				->where('Zipcode.zip LIKE :zipcode')
+				->setParameter('zipcode', $params['zipCitySearchKey'].'%')
+				->orWhere('Zipcode.city LIKE :cityName')
+				->setParameter('cityName', $params['zipCitySearchKey'].'%')
+				->getQuery()
+				->getArrayResult();
+			}
+			else
+			{
+				$arrZipCity = $em->createQueryBuilder()->select('Zipcode')
+				->from('SalonSolutionWebBundle:SalonsolutionsZipcode', 'Zipcode')
+				->where('Zipcode.zip=:zipcode')
+				->setParameter('zipcode', $params['zipCitySearchKey'].'%')
+				->orWhere('Zipcode.city=:cityName')
+				->setParameter('cityName', $params['zipCitySearchKey'].'%')
+				->getQuery()
+				->getArrayResult();
+			}
+			
+			return $arrZipCity;
+		}
+		
+		
+		
+		
+		
+		
+		
+		/**************************** Begin : Function to register the consumers ********************************/
+	  
+		public function consumerRegistrationAction(Request $request)
+		{
+			$repository = $this->getDoctrine()->getRepository('SalonSolutionWebBundle:SalonsolutionsSalon');
+			  $salonOwners = $repository->findAll();			
+			
+				//echo "<pre>"; print_r($Salons) ; die;
+			
+				if ($request->getMethod() == 'POST') 
+					{
+						
+						$firstName = $request->get("firstName");  	
+						$lastName = $request->get("lastName");
+						$email = $request->get("email");
+						$username = $request->get("username");
+						$password = $request->get("password");	
+						$country = $request->get("country");
+						$state = $request->get("state");				
+						$city = $request->get("city");
+						$address = $request->get("address");		
+						$zip = $request->get("zip"); 
+						$mobile = $request->get("mobile"); 
+						$landline = $request->get("landline"); 
+						$basePath = $this->getBasePathAction();	   						
+						$photo = $_FILES['photo']['name'];  	
+							$ranPhotoUpload = rand(1,10000);  		
+							$targetFilePhoto = $basePath."/".$this->container->getParameter('gbl_uploadPath_consumers').$ranPhotoUpload.$photo;
+							move_uploaded_file($_FILES['photo']['tmp_name'], $targetFilePhoto);					
+						$ownerId = $request->get("ownerId");
+						
+						$consumer = new SalonsolutionsUser();
+						
+						$consumer->setFirstName($firstName);   
+						$consumer->setLastName($lastName);
+						$consumer->setEmail($email);
+						$consumer->setUsername($username);						
+						$consumer->setPassword(md5($password));
+						$consumer->setAddress($address);
+						$consumer->setCountry($country);
+						$consumer->setState($state);						
+						$consumer->setCity($city);
+						$consumer->setZip($zip);									
+						$consumer->setMobile($mobile);									
+						$consumer->setLandline($landline);									
+						$consumer->setPhoto($ranPhotoUpload.$photo);										
+						$consumer->setParentId($ownerId);	
+						$consumer->setType('3');
+						$consumer->setStatus('1');	
+							
+						$em = $this->getDoctrine()->getEntityManager();
+						$em->persist($consumer);
+						$em->flush();
+																					// next ---------> table insert
+						
+					}
+							
+						
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_register.html.twig',array('salonOwners'=> $salonOwners));
+		}
+		/*------------------------------- End : Function to register the consumers ------------------------------*/
+		
+		
+		
+		
+		
+		
+		
+		
+		/**************************** Begin : Function to Consumer Login  ********************************/
+	  
+		public function consumerLoginAction(Request $request)
+		{
+				$session = $this->getRequest()->getSession();
+			
+				$userSession = $this->getLoggedInConsumerDetailAction();    //function name given below 
+																		 //check :- for enter dashoboard into the -path without  login then it will not show
+				if($userSession)
+					return $this->redirect($this->generateUrl('salon_solution_web_consumerDashboard'));   // check end
+				
+			
+			$em = $this->getDoctrine()->getEntityManager();
+			$repository = $em->getRepository('SalonSolutionWebBundle:SalonsolutionsUser');
+			
+				if ($request->getMethod() == 'POST')
+				{
+					//$session->clear();
+					
+					$email = $request->get('email');        // echo "<pre>"; print_r($email); die;  
+															//$password = $request->get('password');   //echo $password;   die;   				
+					$password = md5($request->get('password'));   //echo $password;    				
+				
+					$consumer = $repository->findOneBy(array('email' => $email, 'password' => $password,'type' =>'3','status' =>'1'));
+						
+					if($consumer !='')
+					{										 
+						 $session->set('consumerId', $consumer->getId());    	
+						 $setconsumerid = $session->get('consumerId', $consumer->getId());   
+						   
+							
+						 $session->set('consumerEmail', $consumer->getEmail());    	
+						 $setEmail = $session->get('consumerEmail', $consumer->getEmail());   
+							 // echo "<pre>"; print_r($setEmail); die;  
+						 $session->set('consumerfirstName', $consumer->getfirstName());
+						 $setname = $session->get('consumerfirstName', $consumer->getfirstName());   
+						 
+							return $this->redirect($this->generateUrl('salon_solution_web_consumerDashboard'));
+					}
+					else
+					{	
+						$this->get('session')->getFlashBag()->set('error', 'Invalid Email or Password');
+							
+					}	
+			
+				}
+						
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_login.html.twig');
+		}
+		/*------------------------------- End : Function to Consumer Login  ------------------------------*/
+			
+			
+		/**************************** Begin : Function to get the details of logged-in consumer ********************************/
+		public function getLoggedInConsumerDetailAction()
+		{
+			 $session = $this->getRequest()->getSession();                     //check :- for enter dashoboard into the -
+																				// path without  login then it will not show
+			if( $session->get('consumerId') && $session->get('consumerId') != '' )
+				return true;
+			else
+				return false;
+		}
+		/*------------------------------- End : Function to get the details of logged-in consumer ------------------------------*/
+		
+	
+			
+		/**************************** Begin : Function to Login the consumer ********************************/
+	  
+		public function consumerlogoutAction()
+		{
+			
+			 $session = $this->getRequest()->getSession();
+					$session->clear('foo');
+					$session->remove('foo');
+					unset($session);
+						return $this->redirect($this->generateUrl('salon_solution_web_consumerLogin'));
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_logout.html.twig');
+		}
+		/*------------------------------- End : Function to Login the consumer ------------------------------*/
+		
+		
+		
+		/**************************** Begin : Function to Consumer Dashboard  ********************************/
+	  
+		public function consumerDashboardAction(Request $request)
+		{
+			
+			$session = $this->getRequest()->getSession(); 	
+			$userSession = $this->getLoggedInConsumerDetailAction();         //function name given below 					
+			$consumerId = $session->get('consumerId');	
+			 //	echo "<pre>"; print_r($salon); die;	
+			$repository = $this->getDoctrine()->getRepository('SalonSolutionWebBundle:SalonsolutionsUser');
+			$consumerProfile = $repository->findBy(array('id' => $consumerId));			
+			$salonId =  $consumerProfile[0]->parentId;
+			// echo "<pre>"; print_r($consumerProfile); die;
+			
+			$repository = $this->getDoctrine()->getRepository('SalonSolutionWebBundle:SalonsolutionsSalon');
+			$salon = $repository->findBy(array('id' => $salonId));			
+			$ownerId =  $salon[0]->ownerId;
+			
+			 	//echo "<pre>"; print_r($salons); die;
+			
+			$em = $this->getDoctrine()->getEntityManager();
+			$allSalons = $em->createQueryBuilder() 
+			->select('SalonsolutionsSalon')
+			->from('SalonSolutionWebBundle:SalonsolutionsSalon',  'SalonsolutionsSalon')
+			->where('SalonsolutionsSalon.ownerId = :ownerId')
+			->setParameter('ownerId', $ownerId)
+			->getQuery()
+			->getResult();	
+			
+			
+				//echo "<pre>"; print_r($salonAvilable); die;
+			
+			$em = $this->getDoctrine()->getEntityManager();
+			$servicesAvilable = $em->createQueryBuilder() 
+			->select('SalonsolutionsService')
+			->from('SalonSolutionWebBundle:SalonsolutionsService',  'SalonsolutionsService')
+			//->where('SalonsolutionsService.salonId = :salonId')
+			//->setParameter('salonId', $salonId)
+			->getQuery()
+			->getResult();	
+			
+			//echo "<pre>"; print_r($allSalons); die;
+			
+			if($session->get('salonId'))
+			{
+				$salonId = $session->get('salonId');
+				$salonLocation = $session->get('salonLocation');
+			}
+			else
+			{
+				$salonId = $allSalons[0]->id;
+				$salonLocation = $allSalons->city;
+				
+				$session->set('salonId', $salonId);
+				$session->set('salonLocation', $salonLocation);
+			}
+		
+				//echo "<pre>"; print_r($allSalons); die;
+			return $this->render('SalonSolutionWebBundle:Home:consumer_dashboard.html.twig', array('servicesAvilable' => $servicesAvilable, 'allSalons' => $allSalons));
+		}
+		/*------------------------------- End : Function to Consumer Dashboard  ------------------------------*/
+		
+		
+		
+		/**************************** Begin : Function to Consumer Profile  ********************************/
+	  
+		public function consumerProfileAction(Request $request)
+		{
+			
+				$session = $this->getRequest()->getSession();
+				$consumerId = $session->get('consumerId');	
+				 
+				$repository = $this->getDoctrine()->getRepository('SalonSolutionWebBundle:SalonsolutionsUser');
+				$consumerProfile = $repository->findBy(array('id' => $consumerId));			
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_profile.html.twig', array('consumerProfile' => $consumerProfile));
+		}
+		/*------------------------------- End : Function to Consumer Profile  ------------------------------*/
+		
+		
+		
+		
+		/**************************** Begin : Function to Consumer Edit Profile  ********************************/
+	  
+		public function consumerEditProfileAction(Request $request)
+		{
+			
+				$session = $this->getRequest()->getSession();
+				$consumerId = $session->get('consumerId');	
+				 
+				$repository = $this->getDoctrine()->getRepository('SalonSolutionWebBundle:SalonsolutionsUser');
+				$consumerEditProfile = $repository->findBy(array('id' => $consumerId));			
+			
+				if ($request->getMethod() == 'POST') 
+					{					
+						$firstName = $request->get("firstName");  	
+						$lastName = $request->get("lastName");
+						$email = $request->get("email");
+						$username = $request->get("username");	
+						$country = $request->get("country");						
+						$state = $request->get("state");
+						$address = $request->get("address");						
+						$city = $request->get("city");						
+						$zip = $request->get("zip"); 
+						$mobile = $request->get("mobile"); 
+						$landline = $request->get("landline"); 
+						$basePath = $this->getBasePathAction();	  
+						$photo = $_FILES['photo']['name'];  	
+							$ranPhotoUpload = rand(1,10000);  		
+							$targetFilePhoto = $basePath."/".$this->container->getParameter('gbl_uploadPath_consumers').$ranPhotoUpload.$photo;            //getBasePathAction() defined into upper 
+							move_uploaded_file($_FILES['photo']['tmp_name'], $targetFilePhoto);					
+					
+						
+						$em = $this->getDoctrine()->getEntityManager();
+						$resultConsumer = $em->createQueryBuilder() 
+						->select('tblconsumer')
+						->update('SalonSolutionWebBundle:SalonsolutionsUser',  'tblconsumer')
+						->set('tblconsumer.firstName', ':firstName')
+						->setParameter('firstName', $firstName)
+						->set('tblconsumer.lastName', ':lastName')
+						->setParameter('lastName', $lastName)
+						->set('tblconsumer.email', ':email')
+						->setParameter('email', $email)
+						->set('tblconsumer.username', ':username')
+						->setParameter('username', $username)
+						->set('tblconsumer.address', ':address')
+						->setParameter('address', $address)
+						->set('tblconsumer.country', ':country')
+						->setParameter('country', $country)
+						->set('tblconsumer.state', ':state')
+						->setParameter('state', $state)
+						->set('tblconsumer.city', ':city')
+						->setParameter('city', $city)
+						->set('tblconsumer.zip', ':zip')
+						->setParameter('zip', $zip)
+						->set('tblconsumer.mobile', ':mobile')
+						->setParameter('mobile', $mobile)
+						->set('tblconsumer.landline', ':landline')
+						->setParameter('landline', $landline)
+						->set('tblconsumer.photo', ':photo')
+						->setParameter('photo', $ranPhotoUpload.$photo)
+						->where('tblconsumer.id = :id')
+						->setParameter('id', $consumerId)
+						->getQuery()
+						->getResult();		
+						//echo "<pre>";	print_r($resultConsumer);   die();
+																					// next ---------> table insert
+					//	$customerId = $customer->getId();
+						
+					//	return $this->redirect($this->generateUrl('salon_solution_salon_manageConsumers'));  // redirect the page
+			
+					} 			
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_edit_profile.html.twig', array('consumerEditProfile' => $consumerEditProfile));
+		}
+		
+		
+		/*------------------------------- End : Function to Consumer Edit Profile  ------------------------------*/
+		
+		
+		
+		
+		
+		
+		/**************************** Begin : Function to Consumer Recover Password  ********************************/
+	  
+		public function consumerRecoverPasswordAction(Request $request)
+		{
+			
+		$email=$this->get('request')->request->get('email');
+		$em = $this->getDoctrine()->getEntityManager();
+    		$repository = $em->getRepository('SalonSolutionWebBundle:SalonsolutionsUser');
+    		
+    		if ($request->getMethod() == 'POST') 
+        	{
+           		 $user = $repository->findOneBy(array('email' => $email));
+           		
+           		//echo "<pre>"; print_r($email); die;
+            		if ($user) 
+            		{   
+					
+						//	$newPassword=rand(100000,'999999');
+						$newPassword = $this->generateRandomString();   
+						echo $newPassword;
+						$encPass=md5($newPassword);
+						$realtors = $em->createQueryBuilder()
+						->select('SalonsolutionsUser')
+						->update('SalonSolutionWebBundle:SalonsolutionsUser',  'SalonsolutionsUser')
+						->set('SalonsolutionsUser.password', ':password')
+						->setParameter('password', $encPass)
+						->where('SalonsolutionsUser.email=:email')
+						->setParameter('email', $email)
+						->getQuery()
+						->getResult();
+								
+													
+						$newPassword=  $this->generateRandomString();
+					
+						//password is encrypted into md5 
+						$encPass=md5($newPassword); 
+						$to = $email;
+						$subject = "Password Reset";
+						$txt=   "Hello <br><br>Your password has been reset on <br><br>Your new Password is: <b>".$newPassword."</b>";
+						//$headers = "From: webmaster@example.com" . "\r\n" ;
+						$headers = "MIME-Version: 1.0" . "\r\n";
+						$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+						$headers .= "From: <support@salonSolution.com>" . "\r\n";
+						 $retval = mail($to,$subject,$txt,$headers); //send mail      					 
+						   if( $retval == true )
+						   {
+							  // return $this->render('SalonSolutionWebBundle:Home:consumer_login.html.twig');
+							
+							  echo "Message sent successfully...";
+						   }
+						   else
+						   {
+							   //return $this->render('SalonSolutionWebBundle:Home:consumer_forgotPassword.html.twig', array('name1' => 'Invalid Email'));
+							  echo "Message could not be sent...";
+						   }		  
+											
+					} 
+				
+		
+			}
+			return $this->render('SalonSolutionWebBundle:Home:consumer_forgotPassword.html.twig');
+		}
+		/*------------------------------- End : Function to Consumer RecoverPassword  ------------------------------*/
+
+		function generateRandomString($length = 10) {
+			return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+		}
+		
+		
+		
+		/**************************** Begin : Function to Consumer Change Password  ********************************/
+	  
+		public function consumerChangePasswordAction(Request $request)
+		{
+			
+			$session = $this->getRequest()->getSession(); 			
+		    $consumerId = $session->get('consumerId');				    
+			$em = $this->getDoctrine()->getEntityManager();
+			$consumerCurrentPassword = $em->createQueryBuilder() 
+			->select('SalonsolutionsUser')
+			->from('SalonSolutionWebBundle:SalonsolutionsUser',  'SalonsolutionsUser')
+			->where('SalonsolutionsUser.id = :id')
+			->setParameter('id', $consumerId)
+			->andwhere('SalonsolutionsUser.type = :type')
+			->setParameter('type', 3)
+			->andwhere('SalonsolutionsUser.status = :status')
+			->setParameter('status', 1)
+			->getQuery()
+			->getResult();			
+			   $currentPassword = $consumerCurrentPassword[0]->password ;
+					
+				 if ($request->getMethod() == 'POST') 
+					 {						
+						 $oldPassword = $request->get("oldPassword");  	
+						 $newPassword = $request->get("newPassword");
+						 $repeatPassword = $request->get("repeatPassword");  //echo "<pre>"; print_r($oldPassword); die;
+						
+							if( ($currentPassword == md5($oldPassword)) && ($newPassword == $repeatPassword) )
+								{	
+									$queryUpdatePassword = $em->createQueryBuilder() 
+									->select('SalonsolutionsUser')
+									->update('SalonSolutionWebBundle:SalonsolutionsUser',  'SalonsolutionsUser')
+									->set('SalonsolutionsUser.password', ':password')
+									->setParameter('password', md5($newPassword))
+									->where('SalonsolutionsUser.id = :id')
+									->setParameter('id', $consumerId)
+									->getQuery()
+									->getResult();								
+									
+									$this->get('session')->getFlashBag()->set('sucess', 'Your Password has been changed Sucessfully');
+									
+								}	
+								elseif( ($currentPassword == '') && ($newPassword == '') && ($repeatPassword == '') )
+								{
+									
+									$this->get('session')->getFlashBag()->set('error', 'Please enter your password');				
+								}
+								elseif( ($currentPassword != md5($oldPassword) ) && ($newPassword == '') && ($repeatPassword == '') )
+								{
+									
+									$this->get('session')->getFlashBag()->set('error', 'Please enter your correct Old Password');				
+								}
+								elseif( ($currentPassword == md5($oldPassword)) && ($newPassword != $repeatPassword) )
+								{
+									$this->get('session')->getFlashBag()->set('newpasswordmessage', 'New Password Does not Match');	
+								}
+								else
+								{
+									$this->get('session')->getFlashBag()->set('error', 'Invalid Password Details');		
+								}
+								
+															
+						 //return $this->redirect($this->generateUrl('salon_solution_admin_manageCMS'));  // redirect the page
+					}
+			
+		
+			return $this->render('SalonSolutionWebBundle:Home:consumer_changePassword.html.twig');
+		}
+		/*------------------------------- End : Function to Consumer Change Password  ------------------------------*/
+
+		
+		
+		
+		
+		
+		/**************************** Begin : Function to Consumer Appointments ********************************/
+	  
+		public function consumerAppointmentsAction()
+		{
+			
+			
+			return $this->render('SalonSolutionWebBundle:Home:consumer_appointment.html.twig');
+		}
+		/*------------------------------- End : Function to Salon Search customers ------------------------------*/
+		
+		
+		
+		
+		
+		/**************************** Begin : Function to Salon Search customers ********************************/
+	  
+		public function searchSalonDataAction()
+		{
+			
+			
+			return $this->render('SalonSolutionWebBundle:Home:search_salons.html.twig');
+		}
+		/*------------------------------- End : Function to Salon Search customers ------------------------------*/
+		
+		
+		
+			
+		/**************************** Begin : Function to About Us ********************************/
+	  
+		public function aboutUsAction()
+		{
+			echo "dsfsdf";
+			
+			return $this->render('SalonSolutionWebBundle:Home:about_us.html.twig');
+		}
+		/*------------------------------- End : Function to About Us ------------------------------*/
+		
+		
+		
+		/**************************** Begin : Function to Set User Selected Date in Session ********************************/
+	  
+		public function setSelectedDateInSessionAction()
+		{
+			$session = $this->getRequest()->getSession();
+			
+			$session->set('appointmentDate', $_POST['appointmentDate']);
+			
+			return new response('SUCCESS');
+		}
+		/*------------------------------- End : Function to Set User Selected Date in Session ------------------------------*/
+		
+		
+		
+		
+
+		
+		
+	}

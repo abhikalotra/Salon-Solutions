@@ -1,0 +1,119 @@
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>
+
+
+	
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+		  $( "#signupForm" ).submit();
+		}
+	});
+
+	$().ready(function() {
+		
+		//alert("sda");
+		// validate the comment form when it is submitted
+	//	$("#commentForm").validate();
+
+		// validate signup form on keyup and submit
+		$("#signupForm").validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 4
+				},
+				domain: {
+					required: true,
+					minlength: 4
+				},
+				displayName: "required",
+				description: "required",
+				country: "required",
+				state: "required",
+				address: "required",
+				city: "required",	
+				zip: {
+					required: true,
+					maxlength: 6
+				},
+				mobile: {
+					required: true,
+					maxlength: 10
+				},		
+				landline: "required",	
+				logo: "required",				
+				owner_id: "required",				
+				//agree: "required"
+			},
+			
+			messages: {
+				name: {
+					required: "Please provide a Salon Name ",
+					minlength: "Your Salon Name more than 4 characters long"
+				},
+				domain: {
+					required: "Please provide a domain ",
+					minlength: "Your domain more than 4 characters long"
+				},
+				displayName: "Please enter your Display Name",				
+				description: "Please enter your description",				
+				country: "Please enter your Country",
+				state: "Please enter your Province",
+				address: "Please enter your Address",
+				city: "Please enter your City",
+				zip: {
+					required: "Please provide a Zip ",
+					minlength: "Your Zip Code Not more than 6 characters long"
+				},	
+				mobile: {
+					required: "Please provide a Mobile No.",
+					minlength: "Your Mobile Code Not more than 10 characters long"
+				},	
+				landline: "Please enter your Landline",			
+				logo: "Please enter your Logo",
+				owner_id: "Please enter your Salon owner",
+				//agree: "Please accept our policy"
+			}
+		});
+
+		// propose username by combining first- and lastName
+		$("#name").focus(function() {
+			var name = $("#name").val();
+			var domain = $("#domain").val();
+			if (name && domain && !this.value) {
+				this.value = name + "." + domain;
+			}
+		});
+
+		//code to hide topic selection, disable for demo
+		var newsletter = $("#newsletter");
+		// newsletter topics are optional, hide at first
+		var inital = newsletter.is(":checked");
+		var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+		var topicInputs = topics.find("input").attr("disabled", !inital);
+		
+		
+	});
+	</script>
+
+<style>
+form.cmxform label.error, label.error {
+color: red;
+font-style: italic
+font-size: 14px !important;
+font-weight: normal;
+}
+input.error {
+border: 1px dotted red; 
+}
+
+.login-v.common_form_val input {
+float: left;
+}
+.login-v.common_form_val select {
+float: left;
+}
+
+</style>

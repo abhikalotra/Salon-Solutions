@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\WebBundle\Entity\SalonsolutionsServiceAvailability" table="salonSolutions_service_availability">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="serviceId" type="integer" column="service_id" nullable="true"/>
+    <field name="totalBeds" type="integer" column="total_beds" nullable="true"/>
+    <field name="bookedBeds" type="integer" column="booked_beds" nullable="true"/>
+    <field name="availableBeds" type="integer" column="available_beds" nullable="true"/>
+    <field name="date" type="string" column="date" length="255" nullable="true"/>
+    <field name="time" type="string" column="time" length="255" nullable="true"/>
+    <field name="creatorId" type="integer" column="creator_id" nullable="true"/>
+    <field name="creationDatetime" type="datetime" column="creation_datetime" nullable="true"/>
+    <field name="modifierId" type="integer" column="modifier_id" nullable="true"/>
+    <field name="modificationDatetime" type="datetime" column="modification_datetime" nullable="true"/>
+  </entity>
+</doctrine-mapping>

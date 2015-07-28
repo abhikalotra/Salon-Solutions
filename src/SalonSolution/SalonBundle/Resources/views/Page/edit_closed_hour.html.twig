@@ -1,0 +1,225 @@
+
+
+{% include '::header_salon.html.twig' %}
+
+
+
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/clockface/css/clockface.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css') }}"/>
+<link rel="stylesheet" type="text/css" href="{{ asset('theme/backend/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"/>
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/flick/jquery-ui.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+ <script src="{{ asset('theme/frontend/js/date-en-US.js') }}"  type="text/javascript"/></script>
+ <script src="{{ asset('theme/frontend/js/jquery.ui.timeselect.js') }}"  type="text/javascript"/></script>
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Consumer
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Consumer  </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Closed Hour
+										</div>
+										<div class="tools">
+										
+											<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+								
+					{% for closedHour in updateClosedHour  %}
+								 
+									
+							<form  action="" method="post" class="form-horizontal"  enctype="multipart/form-data" >
+							
+																		
+						<div class="form-group last">
+										<label class="col-md-3 control-label">Date:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="date" id="datepicker"  value="{{ closedHour.date }}" class="form-control input-circle" >
+										</div>
+							</div>
+						<div class="form-group last">
+										<label class="col-md-3 control-label">Closed From (Time):</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="closedFromTime" id="example-1" value="{{ closedHour.closedFromTime }}" class="form-control input-circle" >
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Closed To (Time):</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="closedToTime" id="example-2" value="{{ closedHour.closedToTime }}" class="form-control input-circle" >
+										</div>
+							</div>
+							
+						
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+										<a href="{{ path('salon_solution_salon_closedDays') }}" class="btn btn-circle blue">Cancel </a>
+											<button type="submit" class="btn btn-circle blue">submit</button>
+											
+										</div>
+									</div>
+								</div>
+							
+							</form>
+								{% endfor %}		
+										<!-- END FORM-->	
+								
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+</script>
+  
+  
+
+<!--  Time Start-->
+    <style type="text/css">
+        .ui-autocomplete {
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+    
+
+    </style>
+  <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example-1').timeselect({
+                'step': 30,
+                autocompleteSettings: {
+                    autoFocus: true
+                }
+            });
+            
+            $('#example-2').timeselect({
+                'step': 30,
+                autocompleteSettings: {
+                    autoFocus: true
+                }
+            });
+            
+            
+
+        });
+    </script>
+
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+ 
+ 
+
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/clockface/js/clockface.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-daterangepicker/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('theme/backend/assets/admin/pages/scripts/components-pickers.js') }}"></script>
+
+
+  
+
+  
+
+  
+<!--
+  <script src="{{ asset('theme/backend/assets/global/plugins/jquery.min.js') }}"  type="text/javascript"/></script>
+-->
+
+
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-migrate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-ui/jquery-ui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap/js/bootstrap.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"  type="text/javascript"/>
+</script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.blockui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.cokie.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/uniform/jquery.uniform.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/select2/select2.min.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/ckeditor/ckeditor.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/lib/markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/form-validation.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/scripts/metronic.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/layout.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/quick-sidebar.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/demo.js') }}"  type="text/javascript"/></script>
+
+
+ 
+ 

@@ -1,0 +1,23 @@
+salon_solution_web_homepage:
+    path:     /
+    defaults: { _controller: SalonSolutionWebBundle:User:index }
+    
+salon_solution_web_index:
+    path:     /index
+    defaults: { _controller: SalonSolutionWebBundle:User:index }
+
+salon_solution_web_customerRegistration:
+    path:     /customerRegistration
+    defaults: { _controller: SalonSolutionWebBundle:User:registerCustomer }
+
+salon_solution_web_customerLogin:
+    path:     /customerLogin
+    defaults: { _controller: SalonSolutionWebBundle:User:customerLogin }
+
+salon_solution_web_searchSalon:
+    path:     /searchSalon
+    defaults: { _controller: SalonSolutionWebBundle:User:searchSalon }
+
+salon_solution_web_login:
+    path:     /salon/login
+    defaults: { _controller: SalonSolutionWebBundle:User:login }

@@ -1,0 +1,438 @@
+
+{% include '::header_employee.html.twig' %}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type= "text/javascript" src = "{{ asset('theme/frontend/js/MaxLength.min.js') }}"></script>
+
+
+<div class="container-fluid easy happyness book-b">
+	<div class="container"> 
+		<div class="row">
+
+			<div class="col-lg-12 ads"> 
+			{% include '::nav_employee.html.twig' %}
+			</div>
+	  
+				
+	
+	
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 bay">
+
+			<div  class="blank_clalander">
+			</div>
+
+						<!-- <div class="bookNewAppoientment" >
+							<a href="{{ asset('employee/bookNewAppointment') }}" class="btn common-btn"  > Book New Appointment       </a>
+						</div> --> 
+				<div class="col-lg-6 cod_center" style=" width: 64%;">
+					<div class="loginbox login_form" id="login_form">
+							<ul>
+								<h4>Recent  Appointments </h4>
+								<li></li>
+								<li></li>
+							</ul> 
+ 
+						<div class="col-lg-6 cod_centerWidth" style="overflow: auto; max-height: 500px ! important; width: 100%;  color: black;">
+							
+							
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+				{% if arrRecentAppointment  %}
+                        <thead>
+                           <tr>
+                             <th> Name</th>
+                             <th>Service Name</th>
+                             <th>Salon Name</th>
+                              <th>Scheduled Date</th>                          
+                              <th>Scheduled Time</th>                             
+                           </tr>
+                        </thead> 
+                        <tbody>
+						{% for recentAppointment in arrRecentAppointment  %}
+							<tr  style="background: {{ recentAppointment.recentColor }};">					
+							
+							<td> {{ recentAppointment.recentFirstName	}}    {{ recentAppointment.recentLastName }} </td>
+							<td> {{ recentAppointment.recentTitle }} </td>
+							<td > {{ recentAppointment.recentDisplayName	}} </td>
+							<td> {{ recentAppointment.scheduledDate	}} </td>
+							<td> {{ recentAppointment.scheduledTime	}} </td>
+							
+								 
+						<!-- 	<td>
+						
+							
+							  <a  onclick="showDeleteRecentAppointment('{{ asset('employee/deleteRecentAppointment') }}/{{ recentAppointment.id }}')"   title="Delete"   class="delete">  <i class="glyphicon glyphicon-trash"></i></a> </td>
+							  -->
+
+                        
+							</td>
+                           </tr>
+								{% endfor %}      
+							</tbody>
+							{% else %}
+											<p>No  Details Found </p>
+								{% endif %}
+						</table>
+							
+							
+							
+							
+							
+						</div>
+					<!-- 	</div>
+					</div>
+					</div> -->
+
+
+
+					</div>
+				</div>
+
+			</div>
+
+		<!--
+		{% include '::sidebar_right_employee.html.twig' %}
+		-->
+		</div>
+	</div>
+	</div>
+	<!-- /.row --> 
+
+	</div>
+</div>
+</div>
+ 
+
+
+{% include '::footer_employee.html.twig' %}
+
+
+
+<script>
+	$(document).ready(function()
+	{
+		$('.col_inner', this).each(function() 
+		{
+			var maxHeight = 0;
+			$('.seat', this).each(function() 
+			{
+				if($(this).height() > maxHeight) 
+				{
+				 	maxHeight = $(this).height();  
+				}
+			});
+			$('.seat', this).each(function() 
+			{
+				$(this).height(maxHeight);
+			});
+			$('.btn-lg', this).height(maxHeight-6.9);
+		});
+	});
+</script>
+
+<style>
+	
+.bookNewAppoientment {
+position: absolute;
+right: 23px;
+}
+.col-md-3.col-1.col_01.btn-lg {
+width: 25% !important;
+}
+
+div#login_form {
+width: 100%;
+}
+.col-md-3.col-1.col_01.btn-lg {
+width: 15% !important;
+}
+.col-lg-6.cod_centerWidth {
+width: 100%;
+}
+
+.loginbox li {
+margin-left: 0% !important;
+}
+.loginbox ul {
+margin: 0px;  !important;
+}
+.loginbox.login_form li {
+width: 100% !important;
+}
+
+
+
+/*   yash
+.portlet-body {
+    float: left;
+    margin: 0 0 1px 17%;
+    width: 70%;
+}
+ 
+.form-control.popUpInput {
+    float: left;
+    width: 100%;
+}
+
+.popUpInput{
+   margin-left: 0 !important;
+}
+*/
+
+</style>
+
+<!-- ajax Start for consumer show : start -->
+
+<script>
+	 $(document).ready(function()
+   {
+	   
+   });
+   
+   	function searchConsumer()
+   	{
+		
+   		//$("#msgConsumer").hide();
+	   	var consumerSearchKey = $("#consumerName").val();	   	
+	   //	alert(consumerSearchKey);	   	
+	   	$.ajax({  
+	   		 url: '{{ path("salon_solution_employee_searchConsumers") }}',
+	   		 type: 'POST',
+	   		 data: {consumerSearchKey:consumerSearchKey},
+	   		 success:function(data)
+					 
+	   		{		
+	   			if(data == '')
+	   			{
+	   				$("#divConsumerList").removeClass("divActive");
+   					$("#divConsumerList").addClass("divInactive");
+   					$("#divAddNewClientOption").show();
+	   			}
+	   			else
+	   			{
+	   				$("#consumerList").html(data);
+	   				$("#divConsumerList").removeClass("divInactive");
+   					$("#divConsumerList").addClass("divActive");
+   					$("#divAddNewClientOption").hide();
+	   			}	   			
+	   		} 
+	   	});
+   	}
+   		function selectConsumer(consumerId, consumerName)
+   	{
+   		$('#hidConsumerId').val(consumerId);
+   		$('#consumerName').val(consumerName);
+   		$("#divConsumerList").removeClass("divActive");
+		$("#divConsumerList").addClass("divInactive");
+   	}
+   	
+   	/*function showAddNewClientOption()
+   	{		
+	}	
+	function hideAddNewClientOption()
+   	{		
+	}*/
+   	
+   	function addNewClient()
+   	{	
+		$("#consumerName").val('');		
+		//document.getElementById('consumerName').focus(); 
+		 document.getElementById('registerFormBook').style.display = "block";
+		 $("#divAddNewClientOption").hide();
+		/*var div = document.getElementById("registerFormBook");
+			if (div.style.display == "none") {
+			div.style.display = "none";
+			}
+			else {
+			div.style.display = "block";
+			}
+   		*/	 
+   	}
+</script>
+<style>
+
+.popUpDivInner {
+background: none repeat scroll 0 0 white !important;
+}
+
+.ui-autocomplete {
+max-height: 300px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+.bookNew {
+float: right;
+margin-bottom: 10px;
+}
+
+h4.newClient{
+font-size: 26px;
+font-weight: bold;
+margin: -2% 0 1%;
+text-align: center;
+}
+
+.registerFormBook{
+display:block;
+}
+hr {
+border-top: 1px solid #A3A2A2 !important;
+}
+button.btn.btn-defaultOk {
+background: #81cf56;
+border-radius: 0;
+color: #fff;
+width: 15%;
+} 
+
+
+ 
+.pp {
+width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 18px 16px 0;
+border-color: transparent red transparent transparent;
+position: absolute;
+right: 0px;
+top: 0px;
+}
+.pp h4 {
+font-size: 11px !important;
+position: absolute;
+background: none !important;
+top: -12px;
+font-weight: bold;
+right: -16px;
+transform: rotate(45deg) scale(1) skew(1deg) translate(0px);
+}
+
+.popUpDivInnerNotes {
+background: none repeat scroll 0 0 white;
+left: 30%;
+padding: 0 0 23px;
+position: fixed;
+top: 30%;
+width: 45%;
+z-index: 1111;
+}
+button.btn.btn-defaultArrived {
+background: #81cf56;
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+button.btn.btn-defaultLate {
+background: orange;
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+
+button.btn.btn-defaultCancelAp {
+background: red;
+border-radius: 0;
+color: #fff;
+width: 26%;
+}
+
+button.btn.btn-defaultNotes {
+background: rgb(180, 212, 13);
+border-radius: 0;
+color: #fff;
+width: 21%;
+}
+
+.addAppointmentNotes {
+float: left;
+width: 100%;
+}
+label.fontLabel i {
+color: red;
+}
+label.fontLabel {
+color: #555;
+display: block;
+float: left;
+height: auto;
+padding: 5px 10px 5px 0;
+text-align: left;
+width: 100%;
+}
+textarea#notes {
+width: 92%;
+float: left;
+margin: 3px 0px 16px 0px;
+color: black;
+padding: 4px;
+height: 75px;
+box-shadow: 0px 1px 8px 6px #ccc;
+}
+.textareaNotes {
+width: 100%;
+float: left;
+}
+label.fontLabel {
+color: #555; 
+display: block;
+float: left;
+height: auto;
+padding: 5px 10px 5px 0; 
+text-align: left;
+width: 100%;
+}
+.addLabel {
+float: left;
+width: 100%; 
+}
+.addnote {
+width: 100%;
+}
+div#counter {
+float: left;
+color: red;
+}
+
+
+.bookingDetails {
+  width: 100%;
+    margin-bottom: 10px;
+}
+.labelName {
+  width: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: gray;
+  margin-top: 12px; 
+
+  
+}
+div.sameName {
+float: right;
+  width: 40%;
+  font-size: 14px;
+  color: green; 
+}
+span.offlineSalonBooking {
+  color: red;
+} 
+.onlineWebBooking {
+    color: green; 
+}
+.btn-toolbar {
+color: black;
+}
+</style>
+
+
+<style>
+media="all"
+@media (min-width: 1200px)
+.col-lg-6 {
+ width: 100% !important;
+}
+</style>
+
+<!-- ajax Start for consumer show : start -->

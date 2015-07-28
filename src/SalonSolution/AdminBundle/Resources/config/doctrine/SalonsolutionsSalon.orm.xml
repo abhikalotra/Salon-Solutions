@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\AdminBundle\Entity\SalonsolutionsSalon" table="salonSolutions_salon">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="true"/>
+    <field name="domain" type="string" column="domain" length="255" nullable="true"/>
+    <field name="displayName" type="string" column="display_name" length="255" nullable="true"/>
+    <field name="description" type="string" column="description" length="255" nullable="true"/>
+    <field name="advertisementDisplay" type="string" column="advertisement_display" length="255" nullable="true"/>
+    <field name="address" type="string" column="address" length="255" nullable="true"/>
+    <field name="city" type="string" column="city" length="100" nullable="true"/>
+    <field name="state" type="string" column="state" length="100" nullable="true"/>
+    <field name="country" type="string" column="country" length="100" nullable="true"/>
+    <field name="zip" type="string" column="zip" length="15" nullable="true"/>
+    <field name="mobile" type="string" column="mobile" length="15" nullable="true"/>
+    <field name="landline" type="string" column="landline" length="15" nullable="true"/>
+    <field name="logo" type="string" column="logo" length="255" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="maxBookingsCustom" type="integer" column="max_bookings_custom" nullable="false"/>
+    <field name="maxBookingsDefault" type="integer" column="max_bookings_default" nullable="false"/>
+    <field name="facebook" type="string" column="facebook" length="255" nullable="true"/>
+    <field name="twitter" type="string" column="twitter" length="255" nullable="true"/>
+    <field name="google" type="string" column="google" length="255" nullable="true"/>
+    <field name="linkedin" type="string" column="linkedin" length="255" nullable="true"/>
+    <field name="pinterest" type="string" column="pinterest" length="255" nullable="true"/>
+    <field name="ownerId" type="integer" column="owner_id" nullable="true"/>
+    <field name="creatorId" type="integer" column="creator_id" nullable="true"/>
+    <field name="creationDatetime" type="datetime" column="creation_datetime" nullable="true"/>
+    <field name="modifierId" type="integer" column="modifier_id" nullable="true"/>
+    <field name="modificationDatetime" type="datetime" column="modification_datetime" nullable="true"/>
+  </entity>
+</doctrine-mapping>

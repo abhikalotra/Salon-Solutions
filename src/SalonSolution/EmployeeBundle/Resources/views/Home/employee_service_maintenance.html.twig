@@ -1,0 +1,171 @@
+
+{% include '::header_employee.html.twig' %}
+
+
+<div class="container-fluid easy happyness book-b">
+	<div class="container"> 
+		<div class="row">
+
+			<div class="col-lg-12 ads">
+			{% include '::nav_employee.html.twig' %}			
+			
+			</div> 
+
+	<div class="container">
+		<div class="row book_in">
+			<div class="col-lg-12 bay">
+
+			{% include '::sidebar_left_employee_calander.html.twig' %}
+			<div class="bookNewAppoientment" >
+							<a href="#" class="btn common-btn"  onclick="bookaBedMaintenance();"> Book a Bed  Maintenance</a>
+						</div>
+						
+			<div class="bothService">
+					<div class="col-lg-6 cod_center" id="bookServiceMaintenance" style=" width: 64%; display:none;">
+					<div class="loginbox login_form" id="login_form">
+						<ul>
+							<h4> Move Bed/Service to Maintenance </h4>
+							<li></li>
+							<li></li>
+						</ul> 
+
+
+					<div id="registerFormBook"   >						 
+					 <div id="main">	
+						<form  action="" method="post" enctype="multipart/form-data" > 	
+						
+							<ul>
+							  <li>
+								<label class="login-k"><font><font>Service Name:</font></font><i><font><font>*</font></font></i></label>
+								<div class="login-v common_form_val">
+								 
+									<select name ="serviceName"  class="form-control input-circle">	
+												{% for serviceName in serviceMaintenance  %}	
+													<option value="{{ serviceName.id }}"  >{{ serviceName.displayNAme }} </option>	
+												{% endfor %}	
+										</select>
+								  </div>
+							  </li>
+							</ul>
+							
+						  </div>
+						  <input type="submit" name="submit" value="Submit" class="btn common-btn">
+					<hr>		
+														
+						</form >			
+					</div>	
+					</div>
+					</div>
+			
+			
+					<div class="col-lg-6 cod_center" style=" width: 64%; float: left; margin-left: 19%;">
+						<div class="loginbox login_form" id="login_form">
+							<ul>
+							<h4>  Beds/Services Under Maintenance </h4>	
+								<li></li>
+								<li></li>							
+							</ul> 
+						<div class="col-lg-6 cod_centerWidth" >
+
+							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+								<thead>
+									<tr>
+									<th>Service Title</th>
+									<th>Display Name </th>
+									<th>Action</th>
+									                        
+									</tr>
+								</thead>
+							<tbody>
+						{% if serviceUnderMaintenance   %}
+							{% for underMaintenance in serviceUnderMaintenance  %}
+								
+									<tr>					
+										<td style=" background: {{ underMaintenance.color }};"> {{ underMaintenance.title }} </td>
+										<td> {{ underMaintenance.displayName	}}  </td>
+ 
+										{% if underMaintenance.status == 2   %}
+											<td class="center" id="divStatus-{{underMaintenance.id}}">
+											<a id="{{underMaintenance.id}}" class="activate" title="Click to Change" onclick="javascript:changeUnderMaintenanceStatus(this.id);">  
+											Activate
+											</a> 
+											</td>
+									 
+										{% endif %}
+										</td>
+									</tr>
+								{% endfor %} 
+
+								{% else %}		
+										<td >
+											<p class="noRecordP"> No Record </p>
+											<img src="{{ asset('theme/frontend/images/noRecord.jpg') }}" class="sadNoRecord">
+										</td>
+										
+										<td>
+											<p class="noRecordP"> No Record </p> 
+											<img src="{{ asset('theme/frontend/images/noRecord.jpg') }}" class="sadNoRecord">
+										</td>
+										<td>
+											<p class="noRecordP"> No Record </p> 
+											<img src="{{ asset('theme/frontend/images/noRecord.jpg') }}" class="sadNoRecord">
+										</td>
+										
+								{% endif %}		 				
+						
+							</tbody>
+						</table>
+						</div> 
+					</div>
+				</div>
+			</div>
+			 
+			
+
+	</div>
+
+		<!--
+		{% include '::sidebar_right_employee.html.twig' %}
+		-->
+		</div>
+	</div>
+	</div>
+	<!-- /.row --> 
+ 
+	</div>
+
+ 
+ 
+ 
+{% include '::footer_employee.html.twig' %}
+
+<style>
+li#listServiceMaintenance a {
+color: #E35B5A !important;
+background-color: white !important;
+}
+
+.cod_centerWidth {
+width: 100%;
+}
+.cod_centerWidth table tr th {
+text-align: center;
+font-weight: bold;
+background: rgb(200, 200, 200);
+}
+.bookNewAppoientment {
+position: absolute;
+right: 23px;
+}
+img.sadNoRecord {
+width: 45px;
+margin: 0px 0px 0px 8px;
+height: 54px;
+}
+p.noRecordP {
+width: 100%;
+margin-top: 16px;
+}
+</style>
+
+

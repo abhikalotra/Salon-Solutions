@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="{{ asset('favicon.png') }}">
+<title>Salon Solutions</title>
+
+	<link href="{{ asset('theme/frontend/css/bootstrap.min.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+	<link href="{{ asset('theme/frontend/css/style.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+	<link href="{{ asset('theme/frontend/css/layout.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('theme/frontend/js/calendar/styles/glDatePicker.default.css') }}" rel="stylesheet" type="text/css"/>
+	
+	<style>
+		.login-v.common_form_val input {
+		float: left !important;
+		border-color: #cccccc !important;
+		}
+		.login-v.common_form_val select {
+		float: left !important;
+		border-color: #cccccc !important;
+		}	
+		span.message {
+		color: red;
+		}
+		span.sucessmessage {
+		color: green;
+		}
+		span.newpasswordmessage {
+		color: orange;
+		}
+	</style>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+	
+	
+<div class="navbar-wrapper login_in" id="login">
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header"> 
+          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>--> 
+          <a class="navbar-brand dash" href="{{ asset('index') }}">
+			  <img src="{{ asset('theme/frontend/images/logo.png') }}" alt=""></a> </div>
+         <div class="col-lg-3 col-md-5 right_top">
+          <ul>
+
+			{% if app.session.get('consumerId')   %}
+
+			<li><a href="{{ asset('consumerDashboard') }}">  {{app.session.get('consumerfirstName') }}  </a></li>
+
+			<li><a href="{{ asset('consumerlogout') }}"> Logout </a></li>
+
+			{% else %}
+
+			<li><a href="{{ asset('contact') }}"> Contact </a></li>	 
+
+			<li><a href="{{ asset('consumerRegistration') }}"> Sign up </a></li>
+
+			<li><a href="{{ asset('consumerLogin') }}"> Login </a></li>
+			{% endif %}
+
+            
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+

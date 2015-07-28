@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SalonSolution\SalonBundle\Entity\SalonsolutionsPayment" table="salonSolutions_payment">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="userId" type="integer" column="user_id" nullable="true"/>
+    <field name="appointmentId" type="integer" column="appointment_id" nullable="true"/>
+    <field name="salonId" type="integer" column="salon_id" nullable="true"/>
+    <field name="transactionId" type="string" column="transaction_id" length="255" nullable="true"/>
+    <field name="transactionDate" type="string" column="transaction_date" length="100" nullable="true"/>
+    <field name="transactionTime" type="string" column="transaction_time" length="100" nullable="true"/>
+    <field name="transactionAmount" type="string" column="transaction_amount" length="255" nullable="true"/>
+    <field name="paymentMethodId" type="integer" column="payment_method_id" nullable="true"/>
+    <field name="isRecurring" type="string" column="is_recurring" length="1" nullable="true"/>
+    <field name="recurringPeriod" type="string" column="recurring_period" length="50" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+    <field name="creatorId" type="integer" column="creator_id" nullable="true"/>
+    <field name="creationDatetime" type="datetime" column="creation_datetime" nullable="true"/>
+    <field name="modifierId" type="integer" column="modifier_id" nullable="true"/>
+    <field name="modificationDatetime" type="datetime" column="modification_datetime" nullable="true"/>
+  </entity>
+</doctrine-mapping>

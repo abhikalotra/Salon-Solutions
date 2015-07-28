@@ -1,0 +1,189 @@
+{% include '::header_salon.html.twig' %}
+
+
+<style>
+input#color {
+width: 68px;
+}
+</style>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_salon.html.twig' %}
+	
+	
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			
+<script type= "text/javascript" src = "{{ asset('theme/frontend/js/country.js') }}"></script>
+
+{% include '::js_salon_advertisement.html.twig' %}
+
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage CMS </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Add Advertisement
+										</div>
+										<div class="tools">
+									
+											<a href="javascript:;" class="reload">
+											</a>
+											
+										</div>
+									</div>
+	 
+									
+									<div class="portlet-body form">
+				
+				
+										<!-- BEGIN FORM-->
+	{% for flashMessage in app.session.flashbag.get('messageImage') %}
+
+	<span class="message" style=" color: red; font-weight: bold;" >{{ flashMessage }}</span>
+
+	{% endfor %} 			
+					
+			<form  action="" method="post"  class="form-horizontal" enctype="multipart/form-data" class="cmxform" id="signupForm"> 
+							
+																		
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Title</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="title" id="title" class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Description</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										<textarea name="description" id="description"></textarea>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Url</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="text"  name="url"  id="url" class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Salon Location</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											
+											<select name ="salonId"  id="salonId"  class="form-control input-circle">		
+											{% for salon in salons  %}		
+												<option value="{{ salon.id }}">{{ salon.city }} </option>											  
+											  {% endfor %}
+											</select>
+											
+										</div>
+							</div>
+							
+								<div class="form-group last">
+										<label class="col-md-3 control-label">Advertisement Image</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											<input  type="file"  name="image" id="image" class="form-control input-circle"/>
+										</div>
+							</div>
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+											
+												<a href="{{ path('salon_solution_salon_manageAdvertisements') }}" class="btn btn-circle blue">Cancel</a>
+											<button type="submit" class="btn btn-circle blue">submit</button>
+											
+										
+										
+										</div>
+									</div>
+								</div>
+							
+							</form>
+
+	<script language="javascript">
+	populateCountries("country", "state");
+	</script>				
+	
+	<!-- END FORM-->
+									</div>
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+ 
+<!--
+ <script>
+	var checkboxes = $("input[type='checkbox']"),
+    submitButt = $("button[type='submit']");
+
+	checkboxes.click(function() {
+		submitButt.attr("disabled", !checkboxes.is(":checked"));
+	});
+</script>
+-->
+ 
+ 
+ 
+  <script src="{{ asset('theme/backend/assets/global/plugins/jquery.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-migrate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-ui/jquery-ui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap/js/bootstrap.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.blockui.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery.cokie.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/uniform/jquery.uniform.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/select2/select2.min.js') }}"  type="text/javascript"/></script>
+
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/ckeditor/ckeditor.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/plugins/bootstrap-markdown/lib/markdown.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/pages/scripts/form-validation.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/global/scripts/metronic.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/layout.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/quick-sidebar.js') }}"  type="text/javascript"/></script>
+<script src="{{ asset('theme/backend/assets/admin/layout/scripts/demo.js') }}"  type="text/javascript"/></script>
+
+ 
+ 

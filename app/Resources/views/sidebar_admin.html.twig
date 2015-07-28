@@ -1,0 +1,174 @@
+<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+				<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler">
+					</div>
+					<!-- END SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+			<!-- 	<li class="sidebar-search-wrapper">
+					<form class="sidebar-search " action="" method="POST">
+						<a href="javascript:;" class="remove">
+						<i class="icon-close"></i>
+						</a>
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search...">
+							<span class="input-group-btn">
+							<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+							</span>
+						</div>
+					</form>
+				
+				</li> -->
+					
+		<!-- BEGIN:- Dashboard link -->
+             
+                <li id="listDashboard" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Dashboard version demo">
+                    <a href="{{ asset('admin/dashboard') }}" >
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Dashboard </span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:- Dashboard link -->
+            
+                
+                <!-- BEGIN:- Manage link -->
+                <li id="listUser" class="tooltips">
+                    <a href="javascript:;">
+                    <i class="icon-basket"></i>
+                    <span class="title"> Manage Users</span>
+                    <span class=""></span>
+                    <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="active">
+                            <a href="{{ asset('admin/manageCustomers') }}">
+                            <i class="icon-home"></i>
+                            Manage Customers</a>
+                        </li>
+                        <li>
+                            <a href="{{ asset('admin/manageConsumers') }}">
+                            <i class="icon-basket"></i>
+                            Manage Clients
+                            <!-- Manage Consumers -->
+							</a>
+                        </li>
+                                                
+                        
+                    </ul>
+                </li>  <!-- End:- Manage link -->
+            
+                
+                    <!-- BEGIN:- Salons link  -->
+                <li id="listSalon" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Salons">
+                    <a href="{{ asset('admin/manageSalons') }}" >
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Salons</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End Salons link -->
+            
+                
+                    <!-- BEGIN:-  Payment link  -->
+                <li id="listPayment" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Payment">
+                    <a href="{{ asset('admin/managePayments') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Payments</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  Payment link -->
+            
+                    
+                    <!-- BEGIN:-  Services link  -->
+                <li id="listService" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Appointment">
+                    <a href="{{ asset('admin/manageServices') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Services</span>
+                         <span class=""></span>
+                    </a>
+                </li>     
+
+				<!-- End:-  Appointment link -->
+            
+                
+                    <!-- BEGIN:-  Appointment link  -->
+
+          <!--       <li id="listAppointment" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Appointment">
+                    <a href="{{ asset('admin/manageAppointments') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Appointments</span>
+                         <span class=""></span>
+                    </a>
+                </li>   -->  
+                 <!-- End:-  Appointment link -->
+
+            
+                
+                
+                    <!-- BEGIN:-  Advertisement link  -->
+<!--
+                <li id="listAdvertisement" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Advertisement">
+                    <a href="{{ asset('admin/manageAdvertisements') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Advertisements</span>
+                         <span class=""></span>
+                    </a>
+                </li>   -->
+                    <!-- End:-  Advertisement link -->
+
+            
+                
+                
+            
+                
+                    <!-- BEGIN:-  Payment Gateway link  -->
+                <li id="listPaymentGateway" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="Payment Gateway">
+                    <a href="{{ asset('admin/managePaymentGateways') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         Manage Payment Gateways</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  Payment Gateway link -->
+            
+                
+            
+                
+                    <!-- BEGIN:-  CMS link  -->
+                <li id="listCMS" class="tooltips" data-container="body" data-placement="right" data-html="true" data-original-title="CMS">
+                    <a href="{{ asset('admin/manageCMS') }}">
+                        <i class="icon-home"></i>
+                        <span class="title">
+                         CMS</span>
+                         <span class=""></span>
+                    </a>
+                </li>       <!-- End:-  CMS link -->
+            
+        
+            
+                
+            </ul>
+            <!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
+	<!-- BEGIN CONTENT -->

@@ -1,0 +1,86 @@
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.js"></script>
+
+
+	
+<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+		  $( "#signupForm" ).submit();
+		}
+	});
+
+	$().ready(function() {
+		
+		//alert("sda");
+		// validate the comment form when it is submitted
+	//	$("#commentForm").validate();
+
+		// validate signup form on keyup and submit
+		$("#signupForm").validate({
+			rules: {
+				friendFN: "required",
+				friendLN: "required",				
+				friendEmail: {
+					required: true,
+					friendEmail: true
+				},				
+				friendPhone: {
+					required: true,
+					maxlength: 10
+				}
+				
+			},
+			
+			messages: {
+				friendFN: "Please enter your firstName",
+				friendLN: "Please enter your lastName",				
+				friendEmail: "Please enter a valid email address",					
+				friendPhone: {
+					required: "Please provide a Mobile No.",
+					minlength: "Your Mobile Code Not more than 10 characters long"
+				}
+				
+			}
+		});
+
+		// propose username by combining first- and friendLN
+		$("#friendFN").focus(function() {
+			var friendFN = $("#friendFN").val();
+			var friendLN = $("#friendLN").val();
+			if (friendFN && friendLN && !this.value) {
+				this.value = friendFN + "." + friendLN;
+			}
+		});
+
+		//code to hide topic selection, disable for demo
+		var newsletter = $("#newsletter");
+		// newsletter topics are optional, hide at first
+		var inital = newsletter.is(":checked");
+		var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+		var topicInputs = topics.find("input").attr("disabled", !inital);
+		
+		
+	});
+	</script>
+
+<style>
+form.cmxform label.error, label.error {
+color: red;
+font-style: italic
+font-size: 14px !important;
+font-weight: normal;
+}
+input.error {
+border: 1px dotted red; 
+}
+
+.login-v.common_form_val input {
+float: left;
+}
+.login-v.common_form_val select {
+float: left;
+}
+
+</style>

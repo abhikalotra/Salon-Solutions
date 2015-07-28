@@ -1,0 +1,226 @@
+
+{% include '::header_admin.html.twig' %}
+
+
+<script type= "text/javascript" src = "{{ asset('theme/frontend/js/country.js') }}"></script>
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	{% include '::sidebar_admin.html.twig' %}
+
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+			
+			<!-- BEGIN PAGE HEADER-->
+<!--
+			<h3 class="page-title">
+			Edit Manage Salon
+			</h3>
+-->
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable-line boxless tabbable-reversed">
+<!--
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab_0" data-toggle="tab">
+								Edit Manage Salon </a>
+							</li>
+							
+						</ul>
+-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+									<div class="portlet-title">
+										<div class="caption">
+											<i class="fa fa-gift"></i>Edit Salon Information
+										</div>
+										<div class="tools">
+										
+											<a href="javascript:;" class="reload">
+											</a>
+										
+										</div>
+									</div>
+									<div class="portlet-body form">
+										<!-- BEGIN FORM-->
+			
+				{% for salon in updateSalonInfo  %}				
+										
+				<form  action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
+							
+																		
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Salon Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+											   <input type="text" name="name"  value="{{ salon.name }}" class="form-control input-circle" >
+										</div>
+							</div>
+							
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label"> Domain:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"   name="domain"  value="{{ salon.domain }}"  class="form-control input-circle">
+
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label"> Display Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"   name="displayName"  value="{{ salon.displayName }}"  class="form-control input-circle">
+
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Description:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text" name="description"  value="{{ salon.description }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label"> Country:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										      <select id="country" name="country"  value="{{ salon.country }}"  class="form-control input-circle"></select>
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Province:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										    <select name="state" id="state"  value="{{ salon.state }}"  class="form-control input-circle"></select>
+										</div>
+							</div>
+						
+						
+							<div class="form-group last">
+										<label class="col-md-3 control-label">City:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text"  name="city"  value="{{ salon.city }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Address:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										   <input type="text" name="address"   value="{{ salon.address }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+						
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Zip:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										 <input type="text"  name="zip"  value="{{ salon.zip }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Mobile:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										 <input type="text"  name="mobile"  value="{{ salon.mobile }}"   class="form-control input-circle"/>
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">landline:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										 <input type="text"  name="landline"  value="{{ salon.landline }}"  class="form-control input-circle"/>
+										</div>
+							</div>
+							
+						
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Logo:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										<input type="file"  name="logo"   value="{{ salon.logo }}" >
+										</div>
+							</div>
+							
+							<div class="form-group last">
+										<label class="col-md-3 control-label">Owner Name:</label>
+										<div class="col-md-4">
+											<span class="form-control-static">
+										<select name = "ownerId">		
+											
+												{% for salonOwner in salonOwners  %}	
+												
+												<option value="{{ salonOwner.id }}"  {% if salonOwner.id ==  salon.ownerId %}  selected {% endif %}>{{ salonOwner.firstName }} </option>			
+												
+																			  
+											  {% endfor %}
+										
+											</select>
+										</div>
+							</div>	
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-3 col-md-9">
+										<a href="{{ path('salon_solution_admin_manageSalons') }}" class="btn btn-circle blue">Cancel</a>
+											<button type="submit" class="btn btn-circle blue">submit</button>
+												
+									
+										</div>
+									</div>
+								</div>
+							
+							</form>						
+										
+										
+							{% endfor %}		
+											
+										
+		<script language="javascript">
+	populateCountries("country", "state");
+	</script>							
+											
+			
+										<!-- END FORM-->
+									</div>
+								</div>
+							
+							</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+		</div>
+	</div>
+	<!-- END CONTENT -->
+			
+</div>
+<!-- END CONTAINER -->
+
+   
+ <script>
+	var checkboxes = $("input[type='checkbox']"),
+    submitButt = $("button[type='submit']");
+
+	checkboxes.click(function() {
+		submitButt.attr("disabled", !checkboxes.is(":checked"));
+	});
+</script>
+ 
+ 
+ 
+{% include '::footer_admin.html.twig' %}
